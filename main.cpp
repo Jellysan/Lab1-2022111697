@@ -500,7 +500,7 @@ int main() {
     DirectedGraph graph;
 
     // 提示用户输入文本文件路径
-    cout << "Enter the path to your text file (e.g., 123.txt): ";
+    cout << "Enter the path to your text file (e.g., D://Code//123.txt): ";
     string filePath;
     getline(cin, filePath);
 
