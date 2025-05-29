@@ -1,0 +1,5 @@
+if(EXISTS "D:/Code/Clion/software_engineering/lab1_git/cmake-build-debug/BlackTest[1]_tests.cmake")
+  include("D:/Code/Clion/software_engineering/lab1_git/cmake-build-debug/BlackTest[1]_tests.cmake")
+else()
+  add_test(BlackTest_NOT_BUILT BlackTest_NOT_BUILT)
+endif()

@@ -1,0 +1,1080 @@
+        -:    0:Source:D:/Code/Clion/software_engineering/lab1_git/test/test_black.cpp
+        -:    0:Graph:D:\Code\Clion\software_engineering\lab1_git\cmake-build-debug\CMakeFiles\BlackTest.dir\test\test_black.cpp.gcno
+        -:    0:Data:D:\Code\Clion\software_engineering\lab1_git\cmake-build-debug\CMakeFiles\BlackTest.dir\test\test_black.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "../DirectedGraph.cpp" // 包含主程序代码
+        -:    2:#include <gtest/gtest.h>
+        -:    3:
+        -:    4:// 创建一个测试专用的图类
+        -:    5:class TestableDirectedGraph : public DirectedGraph {
+        -:    6:public:
+        -:    7:  // 添加测试辅助方法
+function _ZN21TestableDirectedGraph11addTestEdgeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ called 9 returned 100% blocks executed 86%
+        9:    8:  void addTestEdge(const std::string &from, const std::string &to) {
+        9:    9:    nodes.insert(from);
+        9:    9-block  0
+call    0 returned 9
+branch  1 taken 9 (fallthrough)
+branch  2 taken 0 (throw)
+    $$$$$:    9-block  1
+call    3 never executed
+        9:   10:    nodes.insert(to);
+        9:   10-block  0
+call    0 returned 9
+branch  1 taken 9 (fallthrough)
+branch  2 taken 0 (throw)
+        9:   11:    adjacencyList[from][to]++;
+        9:   11-block  0
+call    0 returned 9
+call    1 returned 9
+        9:   12:  }
+        -:   13:};
+        -:   14:
+        -:   15:class BridgeWordsTest : public ::testing::Test {
+        -:   16:protected:
+        -:   17:  TestableDirectedGraph graph;
+        -:   18:
+function _ZN15BridgeWordsTest5SetUpEv called 1 returned 100% blocks executed 49%
+        1:   19:  void SetUp() override {
+        -:   20:    // 构建测试图
+        4:   21:    graph.addTestEdge("to", "explore");
+        1:   21-block  0
+        1:   21-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   21-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   21-block  3
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:   21-block  4
+call    9 returned 1
+        1:   21-block  5
+call   10 returned 1
+    $$$$$:   21-block  6
+call   11 never executed
+    $$$$$:   21-block  7
+    $$$$$:   21-block  8
+    $$$$$:   21-block  9
+call   12 never executed
+    $$$$$:   21-block 10
+    $$$$$:   21-block 11
+call   13 never executed
+        4:   22:    graph.addTestEdge("explore", "strange");
+        1:   22-block  0
+        1:   22-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   22-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   22-block  3
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:   22-block  4
+call    9 returned 1
+        1:   22-block  5
+call   10 returned 1
+    $$$$$:   22-block  6
+call   11 never executed
+    $$$$$:   22-block  7
+    $$$$$:   22-block  8
+    $$$$$:   22-block  9
+call   12 never executed
+    $$$$$:   22-block 10
+    $$$$$:   22-block 11
+call   13 never executed
+        4:   23:    graph.addTestEdge("strange", "new");
+        1:   23-block  0
+        1:   23-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   23-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   23-block  3
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:   23-block  4
+call    9 returned 1
+        1:   23-block  5
+call   10 returned 1
+    $$$$$:   23-block  6
+call   11 never executed
+    $$$$$:   23-block  7
+    $$$$$:   23-block  8
+    $$$$$:   23-block  9
+call   12 never executed
+    $$$$$:   23-block 10
+    $$$$$:   23-block 11
+call   13 never executed
+        4:   24:    graph.addTestEdge("new", "world");
+        1:   24-block  0
+        1:   24-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   24-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   24-block  3
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:   24-block  4
+call    9 returned 1
+        1:   24-block  5
+call   10 returned 1
+    $$$$$:   24-block  6
+call   11 never executed
+    $$$$$:   24-block  7
+    $$$$$:   24-block  8
+    $$$$$:   24-block  9
+call   12 never executed
+    $$$$$:   24-block 10
+    $$$$$:   24-block 11
+call   13 never executed
+        4:   25:    graph.addTestEdge("the", "report");
+        1:   25-block  0
+        1:   25-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   25-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   25-block  3
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:   25-block  4
+call    9 returned 1
+        1:   25-block  5
+call   10 returned 1
+    $$$$$:   25-block  6
+call   11 never executed
+    $$$$$:   25-block  7
+    $$$$$:   25-block  8
+    $$$$$:   25-block  9
+call   12 never executed
+    $$$$$:   25-block 10
+    $$$$$:   25-block 11
+call   13 never executed
+        4:   26:    graph.addTestEdge("scientist", "carefully");
+        1:   26-block  0
+        1:   26-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   26-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   26-block  3
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:   26-block  4
+call    9 returned 1
+        1:   26-block  5
+call   10 returned 1
+    $$$$$:   26-block  6
+call   11 never executed
+    $$$$$:   26-block  7
+    $$$$$:   26-block  8
+    $$$$$:   26-block  9
+call   12 never executed
+    $$$$$:   26-block 10
+    $$$$$:   26-block 11
+call   13 never executed
+        4:   27:    graph.addTestEdge("carefully", "data");
+        1:   27-block  0
+        1:   27-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   27-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   27-block  3
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:   27-block  4
+call    9 returned 1
+        1:   27-block  5
+call   10 returned 1
+    $$$$$:   27-block  6
+call   11 never executed
+    $$$$$:   27-block  7
+    $$$$$:   27-block  8
+    $$$$$:   27-block  9
+call   12 never executed
+    $$$$$:   27-block 10
+    $$$$$:   27-block 11
+call   13 never executed
+        4:   28:    graph.addTestEdge("scientist", "again");
+        1:   28-block  0
+        1:   28-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   28-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   28-block  3
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:   28-block  4
+call    9 returned 1
+        1:   28-block  5
+call   10 returned 1
+    $$$$$:   28-block  6
+call   11 never executed
+    $$$$$:   28-block  7
+    $$$$$:   28-block  8
+    $$$$$:   28-block  9
+call   12 never executed
+    $$$$$:   28-block 10
+    $$$$$:   28-block 11
+call   13 never executed
+        4:   29:    graph.addTestEdge("again", "data");
+        1:   29-block  0
+        1:   29-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   29-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   29-block  3
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:   29-block  4
+call    9 returned 1
+        1:   29-block  5
+call   10 returned 1
+    $$$$$:   29-block  6
+call   11 never executed
+    $$$$$:   29-block  7
+    $$$$$:   29-block  8
+    $$$$$:   29-block  9
+call   12 never executed
+    $$$$$:   29-block 10
+        1:   30:  }
+        1:   30-block  0
+        -:   31:};
+        -:   32:
+        -:   33:// 测试用例1 - 单桥接词
+        4:   34:TEST_F(BridgeWordsTest, SingleBridgeWord) {
+        4:   35:  string result = graph.queryBridgeWords("strange", "world");
+       1*:   36:  EXPECT_TRUE(result.find("new") != string::npos) << "应包含桥接词'new'";
+       1*:   37:  EXPECT_EQ(result,
+        1:   38:            "The bridge words from \"strange\" to \"world\" is: \"new\".");
+        1:   39:}
+------------------
+_ZN37BridgeWordsTest_SingleBridgeWord_TestC1Ev:
+function _ZN37BridgeWordsTest_SingleBridgeWord_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:   34:TEST_F(BridgeWordsTest, SingleBridgeWord) {
+        1:   34-block  0
+call    0 returned 1
+------------------
+_ZN37BridgeWordsTest_SingleBridgeWord_TestD0Ev:
+function _ZN37BridgeWordsTest_SingleBridgeWord_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:   34:TEST_F(BridgeWordsTest, SingleBridgeWord) {
+        1:   34-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN37BridgeWordsTest_SingleBridgeWord_TestD1Ev:
+function _ZN37BridgeWordsTest_SingleBridgeWord_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:   34:TEST_F(BridgeWordsTest, SingleBridgeWord) {
+        1:   34-block  0
+call    0 returned 1
+------------------
+_ZN37BridgeWordsTest_SingleBridgeWord_Test8TestBodyEv:
+function _ZN37BridgeWordsTest_SingleBridgeWord_Test8TestBodyEv called 1 returned 100% blocks executed 31%
+        1:   34:TEST_F(BridgeWordsTest, SingleBridgeWord) {
+        4:   35:  string result = graph.queryBridgeWords("strange", "world");
+        1:   35-block  0
+        1:   35-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   35-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   35-block  3
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:   35-block  4
+call    9 returned 1
+        1:   35-block  5
+call   10 returned 1
+    $$$$$:   35-block  6
+call   11 never executed
+    $$$$$:   35-block  7
+    $$$$$:   35-block  8
+    $$$$$:   35-block  9
+call   12 never executed
+    $$$$$:   35-block 10
+    $$$$$:   35-block 11
+       1*:   36:  EXPECT_TRUE(result.find("new") != string::npos) << "应包含桥接词'new'";
+        1:   36-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+branch  3 taken 0 (fallthrough)
+branch  4 taken 1
+    %%%%%:   36-block  1
+call    5 never executed
+branch  6 never executed (fallthrough)
+branch  7 never executed (throw)
+    %%%%%:   36-block  2
+call    8 never executed
+branch  9 never executed (fallthrough)
+branch 10 never executed (throw)
+    %%%%%:   36-block  3
+call   11 never executed
+branch 12 never executed (fallthrough)
+branch 13 never executed (throw)
+    %%%%%:   36-block  4
+call   14 never executed
+call   15 never executed
+branch 16 never executed (fallthrough)
+branch 17 never executed (throw)
+    %%%%%:   36-block  5
+call   18 never executed
+branch 19 never executed (fallthrough)
+branch 20 never executed (throw)
+    %%%%%:   36-block  6
+call   21 never executed
+call   22 never executed
+call   23 never executed
+        1:   36-block  7
+call   24 returned 1
+    $$$$$:   36-block  8
+call   25 never executed
+    $$$$$:   36-block  9
+call   26 never executed
+    $$$$$:   36-block 10
+    $$$$$:   36-block 11
+    $$$$$:   36-block 12
+call   27 never executed
+    $$$$$:   36-block 13
+    $$$$$:   36-block 14
+call   28 never executed
+       1*:   37:  EXPECT_EQ(result,
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   37-block  0
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:   37-block  1
+call    6 never executed
+branch  7 never executed (fallthrough)
+branch  8 never executed (throw)
+    %%%%%:   37-block  2
+call    9 never executed
+call   10 never executed
+branch 11 never executed (fallthrough)
+branch 12 never executed (throw)
+    %%%%%:   37-block  3
+call   13 never executed
+branch 14 never executed (fallthrough)
+branch 15 never executed (throw)
+    %%%%%:   37-block  4
+call   16 never executed
+call   17 never executed
+    $$$$$:   37-block  5
+call   18 never executed
+    $$$$$:   37-block  6
+    $$$$$:   37-block  7
+call   19 never executed
+    $$$$$:   37-block  8
+        1:   38:            "The bridge words from \"strange\" to \"world\" is: \"new\".");
+        1:   38-block  0
+call    0 returned 1
+    $$$$$:   38-block  1
+call    1 never executed
+        1:   39:}
+call    0 returned 1
+    $$$$$:   39-block  0
+call    1 never executed
+------------------
+        -:   40:
+        -:   41:// 测试用例2 - 多桥接词
+    #####:   42:TEST_F(BridgeWordsTest, MultipleBridgeWords) {
+    #####:   43:  string result = graph.queryBridgeWords("scientist", "data");
+    #####:   44:  bool has_carefully = result.find("carefully") != string::npos;
+    #####:   45:  bool has_again = result.find("again") != string::npos;
+        -:   46:
+    #####:   47:  EXPECT_TRUE(has_carefully && has_again) << "应包含'carefully'和'again'";
+    #####:   48:  EXPECT_TRUE(result.find("are:") != string::npos) << "多桥接词应使用复数形式";
+    #####:   49:}
+------------------
+_ZN40BridgeWordsTest_MultipleBridgeWords_TestC1Ev:
+function _ZN40BridgeWordsTest_MultipleBridgeWords_TestC1Ev called 0 returned 0% blocks executed 0%
+    #####:   42:TEST_F(BridgeWordsTest, MultipleBridgeWords) {
+    %%%%%:   42-block  0
+call    0 never executed
+------------------
+_ZN40BridgeWordsTest_MultipleBridgeWords_TestD0Ev:
+function _ZN40BridgeWordsTest_MultipleBridgeWords_TestD0Ev called 0 returned 0% blocks executed 0%
+    #####:   42:TEST_F(BridgeWordsTest, MultipleBridgeWords) {
+    %%%%%:   42-block  0
+call    0 never executed
+call    1 never executed
+------------------
+_ZN40BridgeWordsTest_MultipleBridgeWords_TestD1Ev:
+function _ZN40BridgeWordsTest_MultipleBridgeWords_TestD1Ev called 0 returned 0% blocks executed 0%
+    #####:   42:TEST_F(BridgeWordsTest, MultipleBridgeWords) {
+    %%%%%:   42-block  0
+call    0 never executed
+------------------
+_ZN40BridgeWordsTest_MultipleBridgeWords_Test8TestBodyEv:
+function _ZN40BridgeWordsTest_MultipleBridgeWords_Test8TestBodyEv called 0 returned 0% blocks executed 0%
+    #####:   42:TEST_F(BridgeWordsTest, MultipleBridgeWords) {
+    #####:   43:  string result = graph.queryBridgeWords("scientist", "data");
+    %%%%%:   43-block  0
+    %%%%%:   43-block  1
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    %%%%%:   43-block  2
+call    3 never executed
+branch  4 never executed (fallthrough)
+branch  5 never executed (throw)
+    %%%%%:   43-block  3
+call    6 never executed
+branch  7 never executed (fallthrough)
+branch  8 never executed (throw)
+    %%%%%:   43-block  4
+call    9 never executed
+    %%%%%:   43-block  5
+call   10 never executed
+    $$$$$:   43-block  6
+call   11 never executed
+    $$$$$:   43-block  7
+    $$$$$:   43-block  8
+    $$$$$:   43-block  9
+call   12 never executed
+    $$$$$:   43-block 10
+    $$$$$:   43-block 11
+    #####:   44:  bool has_carefully = result.find("carefully") != string::npos;
+    %%%%%:   44-block  0
+call    0 never executed
+    #####:   45:  bool has_again = result.find("again") != string::npos;
+call    0 never executed
+        -:   46:
+    #####:   47:  EXPECT_TRUE(has_carefully && has_again) << "应包含'carefully'和'again'";
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    %%%%%:   47-block  0
+branch  2 never executed (fallthrough)
+branch  3 never executed
+    %%%%%:   47-block  1
+    %%%%%:   47-block  2
+    %%%%%:   47-block  3
+call    4 never executed
+call    5 never executed
+branch  6 never executed (fallthrough)
+branch  7 never executed
+    %%%%%:   47-block  4
+call    8 never executed
+branch  9 never executed (fallthrough)
+branch 10 never executed (throw)
+    %%%%%:   47-block  5
+call   11 never executed
+branch 12 never executed (fallthrough)
+branch 13 never executed (throw)
+    %%%%%:   47-block  6
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:   47-block  7
+call   17 never executed
+call   18 never executed
+branch 19 never executed (fallthrough)
+branch 20 never executed (throw)
+    %%%%%:   47-block  8
+call   21 never executed
+branch 22 never executed (fallthrough)
+branch 23 never executed (throw)
+    %%%%%:   47-block  9
+call   24 never executed
+call   25 never executed
+call   26 never executed
+    %%%%%:   47-block 10
+call   27 never executed
+    $$$$$:   47-block 11
+call   28 never executed
+    $$$$$:   47-block 12
+call   29 never executed
+    $$$$$:   47-block 13
+    $$$$$:   47-block 14
+    $$$$$:   47-block 15
+call   30 never executed
+    $$$$$:   47-block 16
+    $$$$$:   47-block 17
+call   31 never executed
+    #####:   48:  EXPECT_TRUE(result.find("are:") != string::npos) << "多桥接词应使用复数形式";
+call    0 never executed
+call    1 never executed
+call    2 never executed
+branch  3 never executed (fallthrough)
+branch  4 never executed
+    %%%%%:   48-block  0
+call    5 never executed
+branch  6 never executed (fallthrough)
+branch  7 never executed (throw)
+    %%%%%:   48-block  1
+call    8 never executed
+branch  9 never executed (fallthrough)
+branch 10 never executed (throw)
+    %%%%%:   48-block  2
+call   11 never executed
+branch 12 never executed (fallthrough)
+branch 13 never executed (throw)
+    %%%%%:   48-block  3
+call   14 never executed
+call   15 never executed
+branch 16 never executed (fallthrough)
+branch 17 never executed (throw)
+    %%%%%:   48-block  4
+call   18 never executed
+branch 19 never executed (fallthrough)
+branch 20 never executed (throw)
+    %%%%%:   48-block  5
+call   21 never executed
+call   22 never executed
+call   23 never executed
+    %%%%%:   48-block  6
+call   24 never executed
+    $$$$$:   48-block  7
+call   25 never executed
+    $$$$$:   48-block  8
+call   26 never executed
+    $$$$$:   48-block  9
+    $$$$$:   48-block 10
+    $$$$$:   48-block 11
+call   27 never executed
+    $$$$$:   48-block 12
+    $$$$$:   48-block 13
+call   28 never executed
+    #####:   49:}
+call    0 never executed
+    $$$$$:   49-block  0
+call    1 never executed
+------------------
+        -:   50:
+        -:   51:// 测试用例3 - 无桥接词
+    #####:   52:TEST_F(BridgeWordsTest, NoBridgeWords) {
+    #####:   53:  EXPECT_EQ(graph.queryBridgeWords("the", "report"),
+    #####:   54:            "No bridge words from \"the\" to \"report\"!");
+    #####:   55:}
+------------------
+_ZN34BridgeWordsTest_NoBridgeWords_TestC1Ev:
+function _ZN34BridgeWordsTest_NoBridgeWords_TestC1Ev called 0 returned 0% blocks executed 0%
+    #####:   52:TEST_F(BridgeWordsTest, NoBridgeWords) {
+    %%%%%:   52-block  0
+call    0 never executed
+------------------
+_ZN34BridgeWordsTest_NoBridgeWords_TestD0Ev:
+function _ZN34BridgeWordsTest_NoBridgeWords_TestD0Ev called 0 returned 0% blocks executed 0%
+    #####:   52:TEST_F(BridgeWordsTest, NoBridgeWords) {
+    %%%%%:   52-block  0
+call    0 never executed
+call    1 never executed
+------------------
+_ZN34BridgeWordsTest_NoBridgeWords_TestD1Ev:
+function _ZN34BridgeWordsTest_NoBridgeWords_TestD1Ev called 0 returned 0% blocks executed 0%
+    #####:   52:TEST_F(BridgeWordsTest, NoBridgeWords) {
+    %%%%%:   52-block  0
+call    0 never executed
+------------------
+_ZN34BridgeWordsTest_NoBridgeWords_Test8TestBodyEv:
+function _ZN34BridgeWordsTest_NoBridgeWords_Test8TestBodyEv called 0 returned 0% blocks executed 0%
+    #####:   52:TEST_F(BridgeWordsTest, NoBridgeWords) {
+    #####:   53:  EXPECT_EQ(graph.queryBridgeWords("the", "report"),
+    %%%%%:   53-block  0
+    %%%%%:   53-block  1
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    %%%%%:   53-block  2
+call    3 never executed
+branch  4 never executed (fallthrough)
+branch  5 never executed (throw)
+    %%%%%:   53-block  3
+call    6 never executed
+branch  7 never executed (fallthrough)
+branch  8 never executed (throw)
+    %%%%%:   53-block  4
+call    9 never executed
+branch 10 never executed (fallthrough)
+branch 11 never executed (throw)
+    %%%%%:   53-block  5
+call   12 never executed
+call   13 never executed
+    %%%%%:   53-block  6
+call   14 never executed
+    %%%%%:   53-block  7
+call   15 never executed
+branch 16 never executed (fallthrough)
+branch 17 never executed
+    %%%%%:   53-block  8
+call   18 never executed
+branch 19 never executed (fallthrough)
+branch 20 never executed (throw)
+    %%%%%:   53-block  9
+call   21 never executed
+call   22 never executed
+branch 23 never executed (fallthrough)
+branch 24 never executed (throw)
+    %%%%%:   53-block 10
+call   25 never executed
+branch 26 never executed (fallthrough)
+branch 27 never executed (throw)
+    %%%%%:   53-block 11
+call   28 never executed
+call   29 never executed
+    $$$$$:   53-block 12
+call   30 never executed
+    $$$$$:   53-block 13
+call   31 never executed
+    $$$$$:   53-block 14
+    $$$$$:   53-block 15
+    $$$$$:   53-block 16
+call   32 never executed
+    $$$$$:   53-block 17
+    $$$$$:   53-block 18
+    $$$$$:   53-block 19
+    $$$$$:   53-block 20
+call   33 never executed
+    $$$$$:   53-block 21
+    $$$$$:   53-block 22
+call   34 never executed
+    $$$$$:   53-block 23
+    #####:   54:            "No bridge words from \"the\" to \"report\"!");
+    %%%%%:   54-block  0
+call    0 never executed
+    $$$$$:   54-block  1
+call    1 never executed
+    #####:   55:}
+------------------
+        -:   56:
+        -:   57:// 测试用例4 - 无效单词
+    #####:   58:TEST_F(BridgeWordsTest, NonExistentWord) {
+    #####:   59:  EXPECT_EQ(graph.queryBridgeWords("to", "hagongda"),
+    #####:   60:            "No \"hagongda\" in the graph!");
+    #####:   61:}
+------------------
+_ZN36BridgeWordsTest_NonExistentWord_TestC1Ev:
+function _ZN36BridgeWordsTest_NonExistentWord_TestC1Ev called 0 returned 0% blocks executed 0%
+    #####:   58:TEST_F(BridgeWordsTest, NonExistentWord) {
+    %%%%%:   58-block  0
+call    0 never executed
+------------------
+_ZN36BridgeWordsTest_NonExistentWord_TestD0Ev:
+function _ZN36BridgeWordsTest_NonExistentWord_TestD0Ev called 0 returned 0% blocks executed 0%
+    #####:   58:TEST_F(BridgeWordsTest, NonExistentWord) {
+    %%%%%:   58-block  0
+call    0 never executed
+call    1 never executed
+------------------
+_ZN36BridgeWordsTest_NonExistentWord_TestD1Ev:
+function _ZN36BridgeWordsTest_NonExistentWord_TestD1Ev called 0 returned 0% blocks executed 0%
+    #####:   58:TEST_F(BridgeWordsTest, NonExistentWord) {
+    %%%%%:   58-block  0
+call    0 never executed
+------------------
+_ZN36BridgeWordsTest_NonExistentWord_Test8TestBodyEv:
+function _ZN36BridgeWordsTest_NonExistentWord_Test8TestBodyEv called 0 returned 0% blocks executed 0%
+    #####:   58:TEST_F(BridgeWordsTest, NonExistentWord) {
+    #####:   59:  EXPECT_EQ(graph.queryBridgeWords("to", "hagongda"),
+    %%%%%:   59-block  0
+    %%%%%:   59-block  1
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    %%%%%:   59-block  2
+call    3 never executed
+branch  4 never executed (fallthrough)
+branch  5 never executed (throw)
+    %%%%%:   59-block  3
+call    6 never executed
+branch  7 never executed (fallthrough)
+branch  8 never executed (throw)
+    %%%%%:   59-block  4
+call    9 never executed
+branch 10 never executed (fallthrough)
+branch 11 never executed (throw)
+    %%%%%:   59-block  5
+call   12 never executed
+call   13 never executed
+    %%%%%:   59-block  6
+call   14 never executed
+    %%%%%:   59-block  7
+call   15 never executed
+branch 16 never executed (fallthrough)
+branch 17 never executed
+    %%%%%:   59-block  8
+call   18 never executed
+branch 19 never executed (fallthrough)
+branch 20 never executed (throw)
+    %%%%%:   59-block  9
+call   21 never executed
+call   22 never executed
+branch 23 never executed (fallthrough)
+branch 24 never executed (throw)
+    %%%%%:   59-block 10
+call   25 never executed
+branch 26 never executed (fallthrough)
+branch 27 never executed (throw)
+    %%%%%:   59-block 11
+call   28 never executed
+call   29 never executed
+    $$$$$:   59-block 12
+call   30 never executed
+    $$$$$:   59-block 13
+call   31 never executed
+    $$$$$:   59-block 14
+    $$$$$:   59-block 15
+    $$$$$:   59-block 16
+call   32 never executed
+    $$$$$:   59-block 17
+    $$$$$:   59-block 18
+    $$$$$:   59-block 19
+    $$$$$:   59-block 20
+call   33 never executed
+    $$$$$:   59-block 21
+    $$$$$:   59-block 22
+call   34 never executed
+    $$$$$:   59-block 23
+    #####:   60:            "No \"hagongda\" in the graph!");
+    %%%%%:   60-block  0
+call    0 never executed
+    $$$$$:   60-block  1
+call    1 never executed
+    #####:   61:}
+------------------
+        -:   62:
+        -:   63:// 测试用例5 - 空输入
+    #####:   64:TEST_F(BridgeWordsTest, EmptyInput) {
+    #####:   65:  EXPECT_EQ(graph.queryBridgeWords(",", "yes"),
+    #####:   66:            "No \",\" or \"yes\" in the graph!");
+    #####:   67:}
+------------------
+_ZN31BridgeWordsTest_EmptyInput_TestC1Ev:
+function _ZN31BridgeWordsTest_EmptyInput_TestC1Ev called 0 returned 0% blocks executed 0%
+    #####:   64:TEST_F(BridgeWordsTest, EmptyInput) {
+    %%%%%:   64-block  0
+call    0 never executed
+------------------
+_ZN31BridgeWordsTest_EmptyInput_TestD0Ev:
+function _ZN31BridgeWordsTest_EmptyInput_TestD0Ev called 0 returned 0% blocks executed 0%
+    #####:   64:TEST_F(BridgeWordsTest, EmptyInput) {
+    %%%%%:   64-block  0
+call    0 never executed
+call    1 never executed
+------------------
+_ZN31BridgeWordsTest_EmptyInput_TestD1Ev:
+function _ZN31BridgeWordsTest_EmptyInput_TestD1Ev called 0 returned 0% blocks executed 0%
+    #####:   64:TEST_F(BridgeWordsTest, EmptyInput) {
+    %%%%%:   64-block  0
+call    0 never executed
+------------------
+_ZN31BridgeWordsTest_EmptyInput_Test8TestBodyEv:
+function _ZN31BridgeWordsTest_EmptyInput_Test8TestBodyEv called 0 returned 0% blocks executed 0%
+    #####:   64:TEST_F(BridgeWordsTest, EmptyInput) {
+    #####:   65:  EXPECT_EQ(graph.queryBridgeWords(",", "yes"),
+    %%%%%:   65-block  0
+    %%%%%:   65-block  1
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    %%%%%:   65-block  2
+call    3 never executed
+branch  4 never executed (fallthrough)
+branch  5 never executed (throw)
+    %%%%%:   65-block  3
+call    6 never executed
+branch  7 never executed (fallthrough)
+branch  8 never executed (throw)
+    %%%%%:   65-block  4
+call    9 never executed
+branch 10 never executed (fallthrough)
+branch 11 never executed (throw)
+    %%%%%:   65-block  5
+call   12 never executed
+call   13 never executed
+    %%%%%:   65-block  6
+call   14 never executed
+    %%%%%:   65-block  7
+call   15 never executed
+branch 16 never executed (fallthrough)
+branch 17 never executed
+    %%%%%:   65-block  8
+call   18 never executed
+branch 19 never executed (fallthrough)
+branch 20 never executed (throw)
+    %%%%%:   65-block  9
+call   21 never executed
+call   22 never executed
+branch 23 never executed (fallthrough)
+branch 24 never executed (throw)
+    %%%%%:   65-block 10
+call   25 never executed
+branch 26 never executed (fallthrough)
+branch 27 never executed (throw)
+    %%%%%:   65-block 11
+call   28 never executed
+call   29 never executed
+    $$$$$:   65-block 12
+call   30 never executed
+    $$$$$:   65-block 13
+call   31 never executed
+    $$$$$:   65-block 14
+    $$$$$:   65-block 15
+    $$$$$:   65-block 16
+call   32 never executed
+    $$$$$:   65-block 17
+    $$$$$:   65-block 18
+    $$$$$:   65-block 19
+    $$$$$:   65-block 20
+call   33 never executed
+    $$$$$:   65-block 21
+    $$$$$:   65-block 22
+call   34 never executed
+    $$$$$:   65-block 23
+    #####:   66:            "No \",\" or \"yes\" in the graph!");
+    %%%%%:   66-block  0
+call    0 never executed
+    $$$$$:   66-block  1
+call    1 never executed
+    #####:   67:}
+------------------
+        -:   68:
+        -:   69:// 测试用例6 - 大小写转换
+    #####:   70:TEST_F(BridgeWordsTest, CaseInsensitive) {
+    #####:   71:  string result = graph.queryBridgeWords("TO", "STRANGE");
+    #####:   72:  EXPECT_EQ(result,
+    #####:   73:            "The bridge words from \"TO\" to \"STRANGE\" is: \"explore\".");
+    #####:   74:}
+------------------
+_ZN36BridgeWordsTest_CaseInsensitive_TestC1Ev:
+function _ZN36BridgeWordsTest_CaseInsensitive_TestC1Ev called 0 returned 0% blocks executed 0%
+    #####:   70:TEST_F(BridgeWordsTest, CaseInsensitive) {
+    %%%%%:   70-block  0
+call    0 never executed
+------------------
+_ZN36BridgeWordsTest_CaseInsensitive_TestD0Ev:
+function _ZN36BridgeWordsTest_CaseInsensitive_TestD0Ev called 0 returned 0% blocks executed 0%
+    #####:   70:TEST_F(BridgeWordsTest, CaseInsensitive) {
+    %%%%%:   70-block  0
+call    0 never executed
+call    1 never executed
+------------------
+_ZN36BridgeWordsTest_CaseInsensitive_TestD1Ev:
+function _ZN36BridgeWordsTest_CaseInsensitive_TestD1Ev called 0 returned 0% blocks executed 0%
+    #####:   70:TEST_F(BridgeWordsTest, CaseInsensitive) {
+    %%%%%:   70-block  0
+call    0 never executed
+------------------
+_ZN36BridgeWordsTest_CaseInsensitive_Test8TestBodyEv:
+function _ZN36BridgeWordsTest_CaseInsensitive_Test8TestBodyEv called 0 returned 0% blocks executed 0%
+    #####:   70:TEST_F(BridgeWordsTest, CaseInsensitive) {
+    #####:   71:  string result = graph.queryBridgeWords("TO", "STRANGE");
+    %%%%%:   71-block  0
+    %%%%%:   71-block  1
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    %%%%%:   71-block  2
+call    3 never executed
+branch  4 never executed (fallthrough)
+branch  5 never executed (throw)
+    %%%%%:   71-block  3
+call    6 never executed
+branch  7 never executed (fallthrough)
+branch  8 never executed (throw)
+    %%%%%:   71-block  4
+call    9 never executed
+    %%%%%:   71-block  5
+call   10 never executed
+    $$$$$:   71-block  6
+call   11 never executed
+    $$$$$:   71-block  7
+    $$$$$:   71-block  8
+    $$$$$:   71-block  9
+call   12 never executed
+    $$$$$:   71-block 10
+    $$$$$:   71-block 11
+    #####:   72:  EXPECT_EQ(result,
+    %%%%%:   72-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    %%%%%:   72-block  1
+call    3 never executed
+branch  4 never executed (fallthrough)
+branch  5 never executed
+    %%%%%:   72-block  2
+call    6 never executed
+branch  7 never executed (fallthrough)
+branch  8 never executed (throw)
+    %%%%%:   72-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed (fallthrough)
+branch 12 never executed (throw)
+    %%%%%:   72-block  4
+call   13 never executed
+branch 14 never executed (fallthrough)
+branch 15 never executed (throw)
+    %%%%%:   72-block  5
+call   16 never executed
+call   17 never executed
+    $$$$$:   72-block  6
+call   18 never executed
+    $$$$$:   72-block  7
+    $$$$$:   72-block  8
+call   19 never executed
+    $$$$$:   72-block  9
+    #####:   73:            "The bridge words from \"TO\" to \"STRANGE\" is: \"explore\".");
+    %%%%%:   73-block  0
+call    0 never executed
+    $$$$$:   73-block  1
+call    1 never executed
+    #####:   74:}
+call    0 never executed
+    $$$$$:   74-block  0
+call    1 never executed
+------------------
+        -:   75:
+        -:   76:// 测试用例7 - 自环
+    #####:   77:TEST_F(BridgeWordsTest, Selfcircle) {
+    #####:   78:  EXPECT_EQ(graph.queryBridgeWords("carefully", "carefully"),
+    #####:   79:            "No bridge words from \"carefully\" to \"carefully\"!");
+    #####:   80:}
+------------------
+_ZN31BridgeWordsTest_Selfcircle_TestC1Ev:
+function _ZN31BridgeWordsTest_Selfcircle_TestC1Ev called 0 returned 0% blocks executed 0%
+    #####:   77:TEST_F(BridgeWordsTest, Selfcircle) {
+    %%%%%:   77-block  0
+call    0 never executed
+------------------
+_ZN31BridgeWordsTest_Selfcircle_TestD0Ev:
+function _ZN31BridgeWordsTest_Selfcircle_TestD0Ev called 0 returned 0% blocks executed 0%
+    #####:   77:TEST_F(BridgeWordsTest, Selfcircle) {
+    %%%%%:   77-block  0
+call    0 never executed
+call    1 never executed
+------------------
+_ZN31BridgeWordsTest_Selfcircle_TestD1Ev:
+function _ZN31BridgeWordsTest_Selfcircle_TestD1Ev called 0 returned 0% blocks executed 0%
+    #####:   77:TEST_F(BridgeWordsTest, Selfcircle) {
+    %%%%%:   77-block  0
+call    0 never executed
+------------------
+_ZN31BridgeWordsTest_Selfcircle_Test8TestBodyEv:
+function _ZN31BridgeWordsTest_Selfcircle_Test8TestBodyEv called 0 returned 0% blocks executed 0%
+    #####:   77:TEST_F(BridgeWordsTest, Selfcircle) {
+    #####:   78:  EXPECT_EQ(graph.queryBridgeWords("carefully", "carefully"),
+    %%%%%:   78-block  0
+    %%%%%:   78-block  1
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    %%%%%:   78-block  2
+call    3 never executed
+branch  4 never executed (fallthrough)
+branch  5 never executed (throw)
+    %%%%%:   78-block  3
+call    6 never executed
+branch  7 never executed (fallthrough)
+branch  8 never executed (throw)
+    %%%%%:   78-block  4
+call    9 never executed
+branch 10 never executed (fallthrough)
+branch 11 never executed (throw)
+    %%%%%:   78-block  5
+call   12 never executed
+call   13 never executed
+    %%%%%:   78-block  6
+call   14 never executed
+    %%%%%:   78-block  7
+call   15 never executed
+branch 16 never executed (fallthrough)
+branch 17 never executed
+    %%%%%:   78-block  8
+call   18 never executed
+branch 19 never executed (fallthrough)
+branch 20 never executed (throw)
+    %%%%%:   78-block  9
+call   21 never executed
+call   22 never executed
+branch 23 never executed (fallthrough)
+branch 24 never executed (throw)
+    %%%%%:   78-block 10
+call   25 never executed
+branch 26 never executed (fallthrough)
+branch 27 never executed (throw)
+    %%%%%:   78-block 11
+call   28 never executed
+call   29 never executed
+    $$$$$:   78-block 12
+call   30 never executed
+    $$$$$:   78-block 13
+call   31 never executed
+    $$$$$:   78-block 14
+    $$$$$:   78-block 15
+    $$$$$:   78-block 16
+call   32 never executed
+    $$$$$:   78-block 17
+    $$$$$:   78-block 18
+    $$$$$:   78-block 19
+    $$$$$:   78-block 20
+call   33 never executed
+    $$$$$:   78-block 21
+    $$$$$:   78-block 22
+call   34 never executed
+    $$$$$:   78-block 23
+    #####:   79:            "No bridge words from \"carefully\" to \"carefully\"!");
+    %%%%%:   79-block  0
+call    0 never executed
+    $$$$$:   79-block  1
+call    1 never executed
+    #####:   80:}
+------------------
+        -:   81:
+function main called 1 returned 100% blocks executed 100%
+        1:   82:int main(int argc, char **argv) {
+        1:   83:  ::testing::InitGoogleTest(&argc, argv);
+        1:   83-block  0
+call    0 returned 1
+        1:   84:  return RUN_ALL_TESTS();
+call    0 returned 1
+        -:   85:}

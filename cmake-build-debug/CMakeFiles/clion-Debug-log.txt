@@ -1,0 +1,4 @@
+"D:\Clion\CLion 2025.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=D:/Clion/CLion 2025.1/bin/ninja/win/x64/ninja.exe" -G Ninja -S D:\Code\Clion\software_engineering\lab1_git -B D:\Code\Clion\software_engineering\lab1_git\cmake-build-debug
+-- Configuring done (0.3s)
+-- Generating done (0.1s)
+-- Build files have been written to: D:/Code/Clion/software_engineering/lab1_git/cmake-build-debug
