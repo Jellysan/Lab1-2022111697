@@ -1,0 +1,13 @@
+# ninja log v6
+24	3105	7702441238345679	CMakeFiles/BlackTest.dir/test/test_white.cpp.obj	6067eec00d5c083a
+7	3055	7702442172348637	CMakeFiles/BlackTest.dir/test/test_black.cpp.obj	2acd3a22e04f76da
+1666	1806	7702441254762496	libcorelib.a	6830a15b06a38409
+7	1666	7702441238165110	CMakeFiles/corelib.dir/DirectedGraph.cpp.obj	c966ac91feb3fab0
+4	354	7702775730889461	build.ninja	954781c3661c8712
+2	8096	7702344412227418	lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj	57528dc5fec13f8a
+17	1667	7702344412376077	lib/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj	888ab863a607b042
+8	2990	7702346180796905	lib/libgtest.a	1a5a46edce399b01
+16	128	7702346871145056	lib/libgtest_main.a	976175097a141e44
+3056	6713	7702442239338337	BlackTest.exe	5bb00b2bd327a66a
+3056	6713	7702442239338337	BlackTest[1]_tests.cmake	5bb00b2bd327a66a
+3056	6713	7702442239338337	D:/Code/Clion/software_engineering/lab1_git/cmake-build-debug/BlackTest[1]_tests.cmake	5bb00b2bd327a66a

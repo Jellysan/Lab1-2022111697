@@ -70,8 +70,6 @@ private:
   }
 
 protected:
-  set<string> nodes;
-
   map<string, map<string, int>> adjacencyList;
 
 public:
@@ -515,4 +513,5 @@ public:
 
     return result;
   }
+  set<string> nodes;
 };
