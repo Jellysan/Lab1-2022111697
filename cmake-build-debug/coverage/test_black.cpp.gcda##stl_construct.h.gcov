@@ -81,7 +81,7 @@
         -:   77:#if __cplusplus >= 201703L
         -:   78:  template <typename _Tp>
         -:   79:    _GLIBCXX20_CONSTEXPR inline void
-      78*:   80:    destroy_at(_Tp* __location)
+      77*:   80:    destroy_at(_Tp* __location)
         -:   81:    {
         -:   82:      if constexpr (__cplusplus > 201703L && is_array_v<_Tp>)
         -:   83:	{
@@ -89,12 +89,12 @@
         -:   85:	    std::destroy_at(std::__addressof(__x));
         -:   86:	}
         -:   87:      else
-      78*:   88:	__location->~_Tp();
-      78*:   89:    }
+      77*:   88:	__location->~_Tp();
+      77*:   89:    }
 ------------------
 _ZSt10destroy_atISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS6_iSt4lessIS6_ESaIS0_IS7_iEEEEEvPT_:
-function _ZSt10destroy_atISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS6_iSt4lessIS6_ESaIS0_IS7_iEEEEEvPT_ called 8 returned 100% blocks executed 100%
-        8:   80:    destroy_at(_Tp* __location)
+function _ZSt10destroy_atISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS6_iSt4lessIS6_ESaIS0_IS7_iEEEEEvPT_ called 7 returned 100% blocks executed 100%
+        7:   80:    destroy_at(_Tp* __location)
         -:   81:    {
         -:   82:      if constexpr (__cplusplus > 201703L && is_array_v<_Tp>)
         -:   83:	{
@@ -102,10 +102,10 @@ function _ZSt10destroy_atISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
         -:   85:	    std::destroy_at(std::__addressof(__x));
         -:   86:	}
         -:   87:      else
-        8:   88:	__location->~_Tp();
-        8:   88-block  0
-call    0 returned 8
-        8:   89:    }
+        7:   88:	__location->~_Tp();
+        7:   88-block  0
+call    0 returned 7
+        7:   89:    }
 ------------------
 _ZSt10destroy_atISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEEvPT_:
 function _ZSt10destroy_atISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEEvPT_ called 0 returned 0% blocks executed 0%
@@ -123,8 +123,8 @@ call    0 never executed
     #####:   89:    }
 ------------------
 _ZSt10destroy_atISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEvPT_:
-function _ZSt10destroy_atISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEvPT_ called 9 returned 100% blocks executed 100%
-        9:   80:    destroy_at(_Tp* __location)
+function _ZSt10destroy_atISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEvPT_ called 7 returned 100% blocks executed 100%
+        7:   80:    destroy_at(_Tp* __location)
         -:   81:    {
         -:   82:      if constexpr (__cplusplus > 201703L && is_array_v<_Tp>)
         -:   83:	{
@@ -132,14 +132,14 @@ function _ZSt10destroy_atISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
         -:   85:	    std::destroy_at(std::__addressof(__x));
         -:   86:	}
         -:   87:      else
-        9:   88:	__location->~_Tp();
-        9:   88-block  0
-call    0 returned 9
-        9:   89:    }
+        7:   88:	__location->~_Tp();
+        7:   88-block  0
+call    0 returned 7
+        7:   89:    }
 ------------------
 _ZSt10destroy_atINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_:
-function _ZSt10destroy_atINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_ called 61 returned 100% blocks executed 100%
-       61:   80:    destroy_at(_Tp* __location)
+function _ZSt10destroy_atINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_ called 63 returned 100% blocks executed 100%
+       63:   80:    destroy_at(_Tp* __location)
         -:   81:    {
         -:   82:      if constexpr (__cplusplus > 201703L && is_array_v<_Tp>)
         -:   83:	{
@@ -147,38 +147,38 @@ function _ZSt10destroy_atINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv
         -:   85:	    std::destroy_at(std::__addressof(__x));
         -:   86:	}
         -:   87:      else
-       61:   88:	__location->~_Tp();
-       61:   88-block  0
-call    0 returned 61
-       61:   89:    }
+       63:   88:	__location->~_Tp();
+       63:   88-block  0
+call    0 returned 63
+       63:   89:    }
 ------------------
         -:   90:
         -:   91:#if __cplusplus >= 202002L
         -:   92:  template<typename _Tp, typename... _Args>
         -:   93:    constexpr auto
-      29*:   94:    construct_at(_Tp* __location, _Args&&... __args)
+      22*:   94:    construct_at(_Tp* __location, _Args&&... __args)
         -:   95:    noexcept(noexcept(::new((void*)0) _Tp(std::declval<_Args>()...)))
         -:   96:    -> decltype(::new((void*)0) _Tp(std::declval<_Args>()...))
-      29*:   97:    { return ::new((void*)__location) _Tp(std::forward<_Args>(__args)...); }
+      22*:   97:    { return ::new((void*)__location) _Tp(std::forward<_Args>(__args)...); }
 ------------------
 _ZSt12construct_atISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEJRKSt21piecewise_construct_tSt5tupleIJRS7_EESC_IJEEEEDTgsnwcvPvLi0E_T_pispcl7declvalIT0_EEEEPSH_DpOSI_:
-function _ZSt12construct_atISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEJRKSt21piecewise_construct_tSt5tupleIJRS7_EESC_IJEEEEDTgsnwcvPvLi0E_T_pispcl7declvalIT0_EEEEPSH_DpOSI_ called 9 returned 100% blocks executed 77%
-        9:   94:    construct_at(_Tp* __location, _Args&&... __args)
+function _ZSt12construct_atISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEJRKSt21piecewise_construct_tSt5tupleIJRS7_EESC_IJEEEEDTgsnwcvPvLi0E_T_pispcl7declvalIT0_EEEEPSH_DpOSI_ called 7 returned 100% blocks executed 77%
+        7:   94:    construct_at(_Tp* __location, _Args&&... __args)
         -:   95:    noexcept(noexcept(::new((void*)0) _Tp(std::declval<_Args>()...)))
         -:   96:    -> decltype(::new((void*)0) _Tp(std::declval<_Args>()...))
-        9:   97:    { return ::new((void*)__location) _Tp(std::forward<_Args>(__args)...); }
-        9:   97-block  0
-call    0 returned 9
-call    1 returned 9
-call    2 returned 9
-call    3 returned 9
-call    4 returned 9
-call    5 returned 9
-branch  6 taken 9 (fallthrough)
+        7:   97:    { return ::new((void*)__location) _Tp(std::forward<_Args>(__args)...); }
+        7:   97-block  0
+call    0 returned 7
+call    1 returned 7
+call    2 returned 7
+call    3 returned 7
+call    4 returned 7
+call    5 returned 7
+branch  6 taken 7 (fallthrough)
 branch  7 taken 0 (throw)
-        9:   97-block  1
-        9:   97-block  2
-        9:   97-block  3
+        7:   97-block  1
+        7:   97-block  2
+        7:   97-block  3
     $$$$$:   97-block  4
     $$$$$:   97-block  5
 branch  8 never executed (fallthrough)
@@ -187,23 +187,23 @@ branch  9 never executed
 call   10 never executed
 ------------------
 _ZSt12construct_atISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS6_iSt4lessIS6_ESaIS0_IS7_iEEEEJRKSt21piecewise_construct_tSt5tupleIJRS7_EESI_IJEEEEDTgsnwcvPvLi0E_T_pispcl7declvalIT0_EEEEPSN_DpOSO_:
-function _ZSt12construct_atISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS6_iSt4lessIS6_ESaIS0_IS7_iEEEEJRKSt21piecewise_construct_tSt5tupleIJRS7_EESI_IJEEEEDTgsnwcvPvLi0E_T_pispcl7declvalIT0_EEEEPSN_DpOSO_ called 8 returned 100% blocks executed 77%
-        8:   94:    construct_at(_Tp* __location, _Args&&... __args)
+function _ZSt12construct_atISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS6_iSt4lessIS6_ESaIS0_IS7_iEEEEJRKSt21piecewise_construct_tSt5tupleIJRS7_EESI_IJEEEEDTgsnwcvPvLi0E_T_pispcl7declvalIT0_EEEEPSN_DpOSO_ called 7 returned 100% blocks executed 77%
+        7:   94:    construct_at(_Tp* __location, _Args&&... __args)
         -:   95:    noexcept(noexcept(::new((void*)0) _Tp(std::declval<_Args>()...)))
         -:   96:    -> decltype(::new((void*)0) _Tp(std::declval<_Args>()...))
-        8:   97:    { return ::new((void*)__location) _Tp(std::forward<_Args>(__args)...); }
-        8:   97-block  0
-call    0 returned 8
-call    1 returned 8
-call    2 returned 8
-call    3 returned 8
-call    4 returned 8
-call    5 returned 8
-branch  6 taken 8 (fallthrough)
+        7:   97:    { return ::new((void*)__location) _Tp(std::forward<_Args>(__args)...); }
+        7:   97-block  0
+call    0 returned 7
+call    1 returned 7
+call    2 returned 7
+call    3 returned 7
+call    4 returned 7
+call    5 returned 7
+branch  6 taken 7 (fallthrough)
 branch  7 taken 0 (throw)
-        8:   97-block  1
-        8:   97-block  2
-        8:   97-block  3
+        7:   97-block  1
+        7:   97-block  2
+        7:   97-block  3
     $$$$$:   97-block  4
     $$$$$:   97-block  5
 branch  8 never executed (fallthrough)
@@ -212,19 +212,19 @@ branch  9 never executed
 call   10 never executed
 ------------------
 _ZSt12construct_atINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEDTgsnwcvPvLi0E_T_pispcl7declvalIT0_EEEEPS9_DpOSA_:
-function _ZSt12construct_atINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEDTgsnwcvPvLi0E_T_pispcl7declvalIT0_EEEEPS9_DpOSA_ called 12 returned 100% blocks executed 75%
-       12:   94:    construct_at(_Tp* __location, _Args&&... __args)
+function _ZSt12construct_atINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEDTgsnwcvPvLi0E_T_pispcl7declvalIT0_EEEEPS9_DpOSA_ called 8 returned 100% blocks executed 75%
+        8:   94:    construct_at(_Tp* __location, _Args&&... __args)
         -:   95:    noexcept(noexcept(::new((void*)0) _Tp(std::declval<_Args>()...)))
         -:   96:    -> decltype(::new((void*)0) _Tp(std::declval<_Args>()...))
-       12:   97:    { return ::new((void*)__location) _Tp(std::forward<_Args>(__args)...); }
-       12:   97-block  0
-call    0 returned 12
-call    1 returned 12
-call    2 returned 12
-branch  3 taken 12 (fallthrough)
+        8:   97:    { return ::new((void*)__location) _Tp(std::forward<_Args>(__args)...); }
+        8:   97-block  0
+call    0 returned 8
+call    1 returned 8
+call    2 returned 8
+branch  3 taken 8 (fallthrough)
 branch  4 taken 0 (throw)
-       12:   97-block  1
-       12:   97-block  2
+        8:   97-block  1
+        8:   97-block  2
     $$$$$:   97-block  3
 branch  5 never executed (fallthrough)
 branch  6 never executed

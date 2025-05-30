@@ -5,7 +5,7 @@
 #include <string>
 
 // 主函数
-int main1() {
+int main2() {
   DirectedGraph graph;
 
   // 提示用户输入文本文件路径

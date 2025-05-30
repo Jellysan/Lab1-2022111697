@@ -196,25 +196,25 @@
         -:  192:#if __cplusplus < 201103L
         -:  193:      map() : _M_t() { }
         -:  194:#else
-       10:  195:      map() = default;
+       17:  195:      map() = default;
 ------------------
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_iSt4lessIS5_ESaISt4pairIKS5_iEEES7_SaIS8_IS9_SC_EEEC1Ev:
-function _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_iSt4lessIS5_ESaISt4pairIKS5_iEEES7_SaIS8_IS9_SC_EEEC1Ev called 1 returned 100% blocks executed 100%
-        1:  195:      map() = default;
-        1:  195-block  0
-call    0 returned 1
+function _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_iSt4lessIS5_ESaISt4pairIKS5_iEEES7_SaIS8_IS9_SC_EEEC1Ev called 5 returned 100% blocks executed 100%
+        5:  195:      map() = default;
+        5:  195-block  0
+call    0 returned 5
 ------------------
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt4pairIKS5_dEEEC1Ev:
-function _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt4pairIKS5_dEEEC1Ev called 1 returned 100% blocks executed 100%
-        1:  195:      map() = default;
-        1:  195-block  0
-call    0 returned 1
+function _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt4pairIKS5_dEEEC1Ev called 5 returned 100% blocks executed 100%
+        5:  195:      map() = default;
+        5:  195-block  0
+call    0 returned 5
 ------------------
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEEC1Ev:
-function _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEEC1Ev called 8 returned 100% blocks executed 100%
-        8:  195:      map() = default;
-        8:  195-block  0
-call    0 returned 8
+function _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEEC1Ev called 7 returned 100% blocks executed 100%
+        7:  195:      map() = default;
+        7:  195-block  0
+call    0 returned 7
 ------------------
         -:  196:#endif
         -:  197:
@@ -332,25 +332,25 @@ call    0 returned 8
         -:  309:       *  themselves are pointers, the pointed-to memory is not touched in any
         -:  310:       *  way.  Managing the pointer is the user's responsibility.
         -:  311:       */
-       10:  312:      ~map() = default;
+       17:  312:      ~map() = default;
 ------------------
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_iSt4lessIS5_ESaISt4pairIKS5_iEEES7_SaIS8_IS9_SC_EEED1Ev:
-function _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_iSt4lessIS5_ESaISt4pairIKS5_iEEES7_SaIS8_IS9_SC_EEED1Ev called 1 returned 100% blocks executed 100%
-        1:  312:      ~map() = default;
-        1:  312-block  0
-call    0 returned 1
+function _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_iSt4lessIS5_ESaISt4pairIKS5_iEEES7_SaIS8_IS9_SC_EEED1Ev called 5 returned 100% blocks executed 100%
+        5:  312:      ~map() = default;
+        5:  312-block  0
+call    0 returned 5
 ------------------
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt4pairIKS5_dEEED1Ev:
-function _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt4pairIKS5_dEEED1Ev called 1 returned 100% blocks executed 100%
-        1:  312:      ~map() = default;
-        1:  312-block  0
-call    0 returned 1
+function _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt4pairIKS5_dEEED1Ev called 5 returned 100% blocks executed 100%
+        5:  312:      ~map() = default;
+        5:  312-block  0
+call    0 returned 5
 ------------------
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEED1Ev:
-function _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEED1Ev called 8 returned 100% blocks executed 100%
-        8:  312:      ~map() = default;
-        8:  312-block  0
-call    0 returned 8
+function _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEED1Ev called 7 returned 100% blocks executed 100%
+        7:  312:      ~map() = default;
+        7:  312-block  0
+call    0 returned 7
 ------------------
         -:  313:#endif
         -:  314:
@@ -405,11 +405,11 @@ call    0 returned 8
         -:  363:       *  Iteration is done in ascending order according to the keys.
         -:  364:       */
         -:  365:      iterator
-function _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE5beginEv called 1 returned 100% blocks executed 100%
-        1:  366:      begin() _GLIBCXX_NOEXCEPT
-        1:  367:      { return _M_t.begin(); }
-        1:  367-block  0
-call    0 returned 1
+function _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE5beginEv called 12 returned 100% blocks executed 100%
+       12:  366:      begin() _GLIBCXX_NOEXCEPT
+       12:  367:      { return _M_t.begin(); }
+       12:  367-block  0
+call    0 returned 12
         -:  368:
         -:  369:      /**
         -:  370:       *  Returns a read-only (constant) iterator that points to the first pair
@@ -426,22 +426,22 @@ call    0 returned 1
         -:  381:       *  according to the keys.
         -:  382:       */
         -:  383:      iterator
-       25:  384:      end() _GLIBCXX_NOEXCEPT
-       25:  385:      { return _M_t.end(); }
+       76:  384:      end() _GLIBCXX_NOEXCEPT
+       76:  385:      { return _M_t.end(); }
 ------------------
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE3endEv:
-function _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE3endEv called 11 returned 100% blocks executed 100%
-       11:  384:      end() _GLIBCXX_NOEXCEPT
-       11:  385:      { return _M_t.end(); }
-       11:  385-block  0
-call    0 returned 11
+function _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE3endEv called 19 returned 100% blocks executed 100%
+       19:  384:      end() _GLIBCXX_NOEXCEPT
+       19:  385:      { return _M_t.end(); }
+       19:  385-block  0
+call    0 returned 19
 ------------------
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_iSt4lessIS5_ESaISt4pairIKS5_iEEES7_SaIS8_IS9_SC_EEE3endEv:
-function _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_iSt4lessIS5_ESaISt4pairIKS5_iEEES7_SaIS8_IS9_SC_EEE3endEv called 14 returned 100% blocks executed 100%
-       14:  384:      end() _GLIBCXX_NOEXCEPT
-       14:  385:      { return _M_t.end(); }
-       14:  385-block  0
-call    0 returned 14
+function _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_iSt4lessIS5_ESaISt4pairIKS5_iEEES7_SaIS8_IS9_SC_EEE3endEv called 57 returned 100% blocks executed 100%
+       57:  384:      end() _GLIBCXX_NOEXCEPT
+       57:  385:      { return _M_t.end(); }
+       57:  385-block  0
+call    0 returned 57
 ------------------
         -:  386:
         -:  387:      /**
@@ -559,138 +559,138 @@ call    0 returned 14
         -:  499:       *  Lookup requires logarithmic time.
         -:  500:       */
         -:  501:      mapped_type&
-       18:  502:      operator[](const key_type& __k)
+       50:  502:      operator[](const key_type& __k)
         -:  503:      {
         -:  504:	// concept requirements
         -:  505:	__glibcxx_function_requires(_DefaultConstructibleConcept<mapped_type>)
         -:  506:
-       18:  507:	iterator __i = lower_bound(__k);
+       50:  507:	iterator __i = lower_bound(__k);
         -:  508:	// __i->first is greater than or equivalent to __k.
-      18*:  509:	if (__i == end() || key_comp()(__k, (*__i).first))
+      50*:  509:	if (__i == end() || key_comp()(__k, (*__i).first))
         -:  510:#if __cplusplus >= 201103L
-       17:  511:	  __i = _M_t._M_emplace_hint_unique(__i, std::piecewise_construct,
-       17:  512:					    std::tuple<const key_type&>(__k),
-       17:  513:					    std::tuple<>());
+       14:  511:	  __i = _M_t._M_emplace_hint_unique(__i, std::piecewise_construct,
+       14:  512:					    std::tuple<const key_type&>(__k),
+       14:  513:					    std::tuple<>());
         -:  514:#else
         -:  515:	  __i = insert(__i, value_type(__k, mapped_type()));
         -:  516:#endif
-       36:  517:	return (*__i).second;
+      100:  517:	return (*__i).second;
         -:  518:      }
 ------------------
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEEixERS9_:
-function _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEEixERS9_ called 9 returned 100% blocks executed 76%
-        9:  502:      operator[](const key_type& __k)
+function _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEEixERS9_ called 7 returned 100% blocks executed 60%
+        7:  502:      operator[](const key_type& __k)
         -:  503:      {
         -:  504:	// concept requirements
         -:  505:	__glibcxx_function_requires(_DefaultConstructibleConcept<mapped_type>)
         -:  506:
-        9:  507:	iterator __i = lower_bound(__k);
-        9:  507-block  0
-call    0 returned 9
-branch  1 taken 9 (fallthrough)
+        7:  507:	iterator __i = lower_bound(__k);
+        7:  507-block  0
+call    0 returned 7
+branch  1 taken 7 (fallthrough)
 branch  2 taken 0 (throw)
         -:  508:	// __i->first is greater than or equivalent to __k.
-       9*:  509:	if (__i == end() || key_comp()(__k, (*__i).first))
-        9:  509-block  0
-call    0 returned 9
-call    1 returned 9
-branch  2 taken 1 (fallthrough)
-branch  3 taken 8
-        1:  509-block  1
-call    4 returned 1
-branch  5 taken 1 (fallthrough)
-branch  6 taken 0 (throw)
-        1:  509-block  2
-call    7 returned 1
-call    8 returned 1
-branch  9 taken 1 (fallthrough)
-branch 10 taken 0
-        9:  509-block  3
+       7*:  509:	if (__i == end() || key_comp()(__k, (*__i).first))
+        7:  509-block  0
+call    0 returned 7
+call    1 returned 7
+branch  2 taken 0 (fallthrough)
+branch  3 taken 7
+    %%%%%:  509-block  1
+call    4 never executed
+branch  5 never executed (fallthrough)
+branch  6 never executed (throw)
+    %%%%%:  509-block  2
+call    7 never executed
+call    8 never executed
+branch  9 never executed (fallthrough)
+branch 10 never executed
+        7:  509-block  3
     %%%%%:  509-block  4
-        9:  509-block  5
-branch 11 taken 9 (fallthrough)
+        7:  509-block  5
+branch 11 taken 7 (fallthrough)
 branch 12 taken 0
     $$$$$:  509-block  6
     $$$$$:  509-block  7
         -:  510:#if __cplusplus >= 201103L
-        9:  511:	  __i = _M_t._M_emplace_hint_unique(__i, std::piecewise_construct,
-call    0 returned 9
-call    1 returned 9
-branch  2 taken 9 (fallthrough)
+        7:  511:	  __i = _M_t._M_emplace_hint_unique(__i, std::piecewise_construct,
+call    0 returned 7
+call    1 returned 7
+branch  2 taken 7 (fallthrough)
 branch  3 taken 0 (throw)
     $$$$$:  511-block  0
-        9:  512:					    std::tuple<const key_type&>(__k),
-        9:  512-block  0
-call    0 returned 9
+        7:  512:					    std::tuple<const key_type&>(__k),
+        7:  512-block  0
+call    0 returned 7
     $$$$$:  512-block  1
-        9:  513:					    std::tuple<>());
-        9:  513-block  0
+        7:  513:					    std::tuple<>());
+        7:  513-block  0
     $$$$$:  513-block  1
         -:  514:#else
         -:  515:	  __i = insert(__i, value_type(__k, mapped_type()));
         -:  516:#endif
-       18:  517:	return (*__i).second;
-        9:  517-block  0
-call    0 returned 9
-        9:  517-block  1
+       14:  517:	return (*__i).second;
+        7:  517-block  0
+call    0 returned 7
+        7:  517-block  1
         -:  518:      }
 ------------------
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_iSt4lessIS5_ESaISt4pairIKS5_iEEES7_SaIS8_IS9_SC_EEEixERS9_:
-function _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_iSt4lessIS5_ESaISt4pairIKS5_iEEES7_SaIS8_IS9_SC_EEEixERS9_ called 9 returned 100% blocks executed 80%
-        9:  502:      operator[](const key_type& __k)
+function _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_iSt4lessIS5_ESaISt4pairIKS5_iEEES7_SaIS8_IS9_SC_EEEixERS9_ called 43 returned 100% blocks executed 80%
+       43:  502:      operator[](const key_type& __k)
         -:  503:      {
         -:  504:	// concept requirements
         -:  505:	__glibcxx_function_requires(_DefaultConstructibleConcept<mapped_type>)
         -:  506:
-        9:  507:	iterator __i = lower_bound(__k);
-        9:  507-block  0
-call    0 returned 9
-branch  1 taken 9 (fallthrough)
+       43:  507:	iterator __i = lower_bound(__k);
+       43:  507-block  0
+call    0 returned 43
+branch  1 taken 43 (fallthrough)
 branch  2 taken 0 (throw)
         -:  508:	// __i->first is greater than or equivalent to __k.
-        9:  509:	if (__i == end() || key_comp()(__k, (*__i).first))
-        9:  509-block  0
-call    0 returned 9
-call    1 returned 9
-branch  2 taken 8 (fallthrough)
-branch  3 taken 1
-        8:  509-block  1
-call    4 returned 8
-branch  5 taken 8 (fallthrough)
+       43:  509:	if (__i == end() || key_comp()(__k, (*__i).first))
+       43:  509-block  0
+call    0 returned 43
+call    1 returned 43
+branch  2 taken 40 (fallthrough)
+branch  3 taken 3
+       40:  509-block  1
+call    4 returned 40
+branch  5 taken 40 (fallthrough)
 branch  6 taken 0 (throw)
-        8:  509-block  2
-call    7 returned 8
-call    8 returned 8
-branch  9 taken 7 (fallthrough)
-branch 10 taken 1
-        8:  509-block  3
-        1:  509-block  4
-        9:  509-block  5
-branch 11 taken 8 (fallthrough)
-branch 12 taken 1
+       40:  509-block  2
+call    7 returned 40
+call    8 returned 40
+branch  9 taken 4 (fallthrough)
+branch 10 taken 36
+        7:  509-block  3
+       36:  509-block  4
+       43:  509-block  5
+branch 11 taken 7 (fallthrough)
+branch 12 taken 36
     $$$$$:  509-block  6
     $$$$$:  509-block  7
         -:  510:#if __cplusplus >= 201103L
-        8:  511:	  __i = _M_t._M_emplace_hint_unique(__i, std::piecewise_construct,
-call    0 returned 8
-call    1 returned 8
-branch  2 taken 8 (fallthrough)
+        7:  511:	  __i = _M_t._M_emplace_hint_unique(__i, std::piecewise_construct,
+call    0 returned 7
+call    1 returned 7
+branch  2 taken 7 (fallthrough)
 branch  3 taken 0 (throw)
     $$$$$:  511-block  0
-        8:  512:					    std::tuple<const key_type&>(__k),
-        8:  512-block  0
-call    0 returned 8
+        7:  512:					    std::tuple<const key_type&>(__k),
+        7:  512-block  0
+call    0 returned 7
     $$$$$:  512-block  1
-        8:  513:					    std::tuple<>());
-        8:  513-block  0
+        7:  513:					    std::tuple<>());
+        7:  513-block  0
     $$$$$:  513-block  1
         -:  514:#else
         -:  515:	  __i = insert(__i, value_type(__k, mapped_type()));
         -:  516:#endif
-       18:  517:	return (*__i).second;
-        9:  517-block  0
-call    0 returned 9
-        9:  517-block  1
+       86:  517:	return (*__i).second;
+       43:  517-block  0
+call    0 returned 43
+       43:  517-block  1
         -:  518:      }
 ------------------
         -:  519:
@@ -721,43 +721,43 @@ call    0 returned 9
         -:  544:       *  @throw  std::out_of_range  If no such data is present.
         -:  545:       */
         -:  546:      mapped_type&
-function _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_iSt4lessIS5_ESaISt4pairIKS5_iEEES7_SaIS8_IS9_SC_EEE2atERS9_ called 3 returned 100% blocks executed 79%
-        3:  547:      at(const key_type& __k)
+function _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_iSt4lessIS5_ESaISt4pairIKS5_iEEES7_SaIS8_IS9_SC_EEE2atERS9_ called 0 returned 0% blocks executed 0%
+    #####:  547:      at(const key_type& __k)
         -:  548:      {
-        3:  549:	iterator __i = lower_bound(__k);
-        3:  549-block  0
-call    0 returned 3
-branch  1 taken 3 (fallthrough)
-branch  2 taken 0 (throw)
-       3*:  550:	if (__i == end() || key_comp()(__k, (*__i).first))
-        3:  550-block  0
-call    0 returned 3
-call    1 returned 3
-branch  2 taken 3 (fallthrough)
-branch  3 taken 0
-        3:  550-block  1
-call    4 returned 3
-branch  5 taken 3 (fallthrough)
-branch  6 taken 0 (throw)
-        3:  550-block  2
-call    7 returned 3
-call    8 returned 3
-branch  9 taken 0 (fallthrough)
-branch 10 taken 3
+    #####:  549:	iterator __i = lower_bound(__k);
+    %%%%%:  549-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    #####:  550:	if (__i == end() || key_comp()(__k, (*__i).first))
+    %%%%%:  550-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed (fallthrough)
+branch  3 never executed
+    %%%%%:  550-block  1
+call    4 never executed
+branch  5 never executed (fallthrough)
+branch  6 never executed (throw)
+    %%%%%:  550-block  2
+call    7 never executed
+call    8 never executed
+branch  9 never executed (fallthrough)
+branch 10 never executed
     %%%%%:  550-block  3
-        3:  550-block  4
-        3:  550-block  5
-branch 11 taken 0 (fallthrough)
-branch 12 taken 3
+    %%%%%:  550-block  4
+    %%%%%:  550-block  5
+branch 11 never executed (fallthrough)
+branch 12 never executed
     $$$$$:  550-block  6
     $$$$$:  550-block  7
     #####:  551:	  __throw_out_of_range(__N("map::at"));
     %%%%%:  551-block  0
 call    0 never executed
-        6:  552:	return (*__i).second;
-        3:  552-block  0
-call    0 returned 3
-        3:  552-block  1
+    #####:  552:	return (*__i).second;
+    %%%%%:  552-block  0
+call    0 never executed
+    %%%%%:  552-block  1
         -:  553:      }
         -:  554:
         -:  555:      const mapped_type&
@@ -1395,22 +1395,22 @@ call    0 returned 3
         -: 1187:       *  constructed.
         -: 1188:       */
         -: 1189:      key_compare
-       12: 1190:      key_comp() const
-       12: 1191:      { return _M_t.key_comp(); }
+      40*: 1190:      key_comp() const
+      40*: 1191:      { return _M_t.key_comp(); }
 ------------------
 _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE8key_compEv:
-function _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE8key_compEv called 1 returned 100% blocks executed 100%
-        1: 1190:      key_comp() const
-        1: 1191:      { return _M_t.key_comp(); }
-        1: 1191-block  0
-call    0 returned 1
+function _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE8key_compEv called 0 returned 0% blocks executed 0%
+    #####: 1190:      key_comp() const
+    #####: 1191:      { return _M_t.key_comp(); }
+    %%%%%: 1191-block  0
+call    0 never executed
 ------------------
 _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_iSt4lessIS5_ESaISt4pairIKS5_iEEES7_SaIS8_IS9_SC_EEE8key_compEv:
-function _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_iSt4lessIS5_ESaISt4pairIKS5_iEEES7_SaIS8_IS9_SC_EEE8key_compEv called 11 returned 100% blocks executed 100%
-       11: 1190:      key_comp() const
-       11: 1191:      { return _M_t.key_comp(); }
-       11: 1191-block  0
-call    0 returned 11
+function _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_iSt4lessIS5_ESaISt4pairIKS5_iEEES7_SaIS8_IS9_SC_EEE8key_compEv called 40 returned 100% blocks executed 100%
+       40: 1190:      key_comp() const
+       40: 1191:      { return _M_t.key_comp(); }
+       40: 1191-block  0
+call    0 returned 40
 ------------------
         -: 1192:
         -: 1193:      /**
@@ -1437,22 +1437,22 @@ call    0 returned 11
         -: 1214:       */
         -: 1215:
         -: 1216:      iterator
-        3: 1217:      find(const key_type& __x)
-        3: 1218:      { return _M_t.find(__x); }
+      14*: 1217:      find(const key_type& __x)
+      14*: 1218:      { return _M_t.find(__x); }
 ------------------
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE4findERS9_:
-function _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE4findERS9_ called 1 returned 100% blocks executed 100%
-        1: 1217:      find(const key_type& __x)
-        1: 1218:      { return _M_t.find(__x); }
-        1: 1218-block  0
-call    0 returned 1
+function _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE4findERS9_ called 0 returned 0% blocks executed 0%
+    #####: 1217:      find(const key_type& __x)
+    #####: 1218:      { return _M_t.find(__x); }
+    %%%%%: 1218-block  0
+call    0 never executed
 ------------------
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_iSt4lessIS5_ESaISt4pairIKS5_iEEES7_SaIS8_IS9_SC_EEE4findERS9_:
-function _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_iSt4lessIS5_ESaISt4pairIKS5_iEEES7_SaIS8_IS9_SC_EEE4findERS9_ called 2 returned 100% blocks executed 100%
-        2: 1217:      find(const key_type& __x)
-        2: 1218:      { return _M_t.find(__x); }
-        2: 1218-block  0
-call    0 returned 2
+function _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_iSt4lessIS5_ESaISt4pairIKS5_iEEES7_SaIS8_IS9_SC_EEE4findERS9_ called 14 returned 100% blocks executed 100%
+       14: 1217:      find(const key_type& __x)
+       14: 1218:      { return _M_t.find(__x); }
+       14: 1218-block  0
+call    0 returned 14
 ------------------
         -: 1219:
         -: 1220:#if __cplusplus > 201103L
@@ -1541,22 +1541,22 @@ call    0 returned 2
         -: 1303:       *  or end() if no such element exists.
         -: 1304:       */
         -: 1305:      iterator
-       21: 1306:      lower_bound(const key_type& __x)
-       21: 1307:      { return _M_t.lower_bound(__x); }
+       50: 1306:      lower_bound(const key_type& __x)
+       50: 1307:      { return _M_t.lower_bound(__x); }
 ------------------
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE11lower_boundERS9_:
-function _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE11lower_boundERS9_ called 9 returned 100% blocks executed 100%
-        9: 1306:      lower_bound(const key_type& __x)
-        9: 1307:      { return _M_t.lower_bound(__x); }
-        9: 1307-block  0
-call    0 returned 9
+function _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE11lower_boundERS9_ called 7 returned 100% blocks executed 100%
+        7: 1306:      lower_bound(const key_type& __x)
+        7: 1307:      { return _M_t.lower_bound(__x); }
+        7: 1307-block  0
+call    0 returned 7
 ------------------
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_iSt4lessIS5_ESaISt4pairIKS5_iEEES7_SaIS8_IS9_SC_EEE11lower_boundERS9_:
-function _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_iSt4lessIS5_ESaISt4pairIKS5_iEEES7_SaIS8_IS9_SC_EEE11lower_boundERS9_ called 12 returned 100% blocks executed 100%
-       12: 1306:      lower_bound(const key_type& __x)
-       12: 1307:      { return _M_t.lower_bound(__x); }
-       12: 1307-block  0
-call    0 returned 12
+function _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_iSt4lessIS5_ESaISt4pairIKS5_iEEES7_SaIS8_IS9_SC_EEE11lower_boundERS9_ called 43 returned 100% blocks executed 100%
+       43: 1306:      lower_bound(const key_type& __x)
+       43: 1307:      { return _M_t.lower_bound(__x); }
+       43: 1307-block  0
+call    0 returned 43
 ------------------
         -: 1308:
         -: 1309:#if __cplusplus > 201103L

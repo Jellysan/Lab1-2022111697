@@ -234,20 +234,20 @@
         -:  230:  template<typename _Tp>
         -:  231:    _GLIBCXX14_CONSTEXPR
         -:  232:    inline const _Tp&
-function _ZSt3minIyERKT_S2_S2_ called 215 returned 100% blocks executed 100%
-      215:  233:    min(const _Tp& __a, const _Tp& __b)
+function _ZSt3minIyERKT_S2_S2_ called 327 returned 100% blocks executed 100%
+      327:  233:    min(const _Tp& __a, const _Tp& __b)
         -:  234:    {
         -:  235:      // concept requirements
         -:  236:      __glibcxx_function_requires(_LessThanComparableConcept<_Tp>)
         -:  237:      //return __b < __a ? __b : __a;
-      215:  238:      if (__b < __a)
-      215:  238-block  0
-branch  0 taken 68 (fallthrough)
-branch  1 taken 147
-       68:  239:	return __b;
-       68:  239-block  0
-      147:  240:      return __a;
-      147:  240-block  0
+      327:  238:      if (__b < __a)
+      327:  238-block  0
+branch  0 taken 40 (fallthrough)
+branch  1 taken 287
+       40:  239:	return __b;
+       40:  239-block  0
+      287:  240:      return __a;
+      287:  240-block  0
         -:  241:    }
         -:  242:
         -:  243:  /**

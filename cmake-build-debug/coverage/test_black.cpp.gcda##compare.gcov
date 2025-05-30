@@ -58,8 +58,8 @@
         -:   54:
         -:   55:    struct __unspec
         -:   56:    {
-function _ZNSt9__cmp_cat8__unspecC1EPS0_ called 157 returned 100% blocks executed 100%
-      157:   57:      constexpr __unspec(__unspec*) noexcept { }
+function _ZNSt9__cmp_cat8__unspecC1EPS0_ called 256 returned 100% blocks executed 100%
+      256:   57:      constexpr __unspec(__unspec*) noexcept { }
         -:   58:    };
         -:   59:  }
         -:   60:
@@ -294,10 +294,10 @@ function _ZNSt9__cmp_cat8__unspecC1EPS0_ called 157 returned 100% blocks execute
         -:  289:
         -:  290:    [[nodiscard]]
         -:  291:    friend constexpr bool
-function _ZStltSt15strong_orderingNSt9__cmp_cat8__unspecE called 157 returned 100% blocks executed 100%
-      157:  292:    operator< (strong_ordering __v, __cmp_cat::__unspec) noexcept
-      157:  293:    { return __v._M_value < 0; }
-      157:  293-block  0
+function _ZStltSt15strong_orderingNSt9__cmp_cat8__unspecE called 226 returned 100% blocks executed 100%
+      226:  292:    operator< (strong_ordering __v, __cmp_cat::__unspec) noexcept
+      226:  293:    { return __v._M_value < 0; }
+      226:  293-block  0
         -:  294:
         -:  295:    [[nodiscard]]
         -:  296:    friend constexpr bool

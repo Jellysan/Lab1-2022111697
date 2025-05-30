@@ -87,6 +87,13 @@ build CMakeFiles/BlackTest.dir/test/test_black.cpp.obj: CXX_COMPILER__BlackTest_
   OBJECT_DIR = CMakeFiles\BlackTest.dir
   OBJECT_FILE_DIR = CMakeFiles\BlackTest.dir\test
 
+build CMakeFiles/BlackTest.dir/test/test_white.cpp.obj: CXX_COMPILER__BlackTest_unscanned_Debug D$:/Code/Clion/software_engineering/lab1_git/test/test_white.cpp || cmake_object_order_depends_target_BlackTest
+  DEP_FILE = CMakeFiles\BlackTest.dir\test\test_white.cpp.obj.d
+  FLAGS = -fprofile-arcs -ftest-coverage -O0 -g -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -isystem D:/Code/Clion/software_engineering/lab1_git/lib/googletest/googletest/include -isystem D:/Code/Clion/software_engineering/lab1_git/lib/googletest/googletest
+  OBJECT_DIR = CMakeFiles\BlackTest.dir
+  OBJECT_FILE_DIR = CMakeFiles\BlackTest.dir\test
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target BlackTest
@@ -95,7 +102,7 @@ build CMakeFiles/BlackTest.dir/test/test_black.cpp.obj: CXX_COMPILER__BlackTest_
 #############################################
 # Link the executable BlackTest.exe
 
-build BlackTest.exe BlackTest[1]_tests.cmake | ${cmake_ninja_workdir}BlackTest[1]_tests.cmake: CXX_EXECUTABLE_LINKER__BlackTest_Debug CMakeFiles/BlackTest.dir/test/test_black.cpp.obj | libcorelib.a lib/libgtest.a lib/libgtest_main.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a libcorelib.a
+build BlackTest.exe BlackTest[1]_tests.cmake | ${cmake_ninja_workdir}BlackTest[1]_tests.cmake: CXX_EXECUTABLE_LINKER__BlackTest_Debug CMakeFiles/BlackTest.dir/test/test_black.cpp.obj CMakeFiles/BlackTest.dir/test/test_white.cpp.obj | libcorelib.a lib/libgtest.a lib/libgtest_main.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a libcorelib.a
   FLAGS = -fprofile-arcs -ftest-coverage -O0 -g -g
   LINK_FLAGS = -fprofile-arcs -ftest-coverage
   LINK_LIBRARIES = libcorelib.a  lib/libgtest.a  lib/libgtest_main.a  lib/libgtest.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32

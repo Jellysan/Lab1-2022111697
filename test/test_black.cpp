@@ -79,7 +79,7 @@ TEST_F(BridgeWordsTest, Selfcircle) {
             "No bridge words from \"carefully\" to \"carefully\"!");
 }
 
-int main(int argc, char **argv) {
+int main2(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
 }

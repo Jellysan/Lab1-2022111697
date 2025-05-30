@@ -4299,8 +4299,8 @@
         -: 4295:	   typename _UnaryOperation>
         -: 4296:    _GLIBCXX20_CONSTEXPR
         -: 4297:    _OutputIterator
-function _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PFiiEET0_T_SD_SC_T1_ called 2 returned 100% blocks executed 100%
-        2: 4298:    transform(_InputIterator __first, _InputIterator __last,
+function _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PFiiEET0_T_SD_SC_T1_ called 0 returned 0% blocks executed 0%
+    #####: 4298:    transform(_InputIterator __first, _InputIterator __last,
         -: 4299:	      _OutputIterator __result, _UnaryOperation __unary_op)
         -: 4300:    {
         -: 4301:      // concept requirements
@@ -4310,21 +4310,21 @@ function _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stri
         -: 4305:	    __typeof__(__unary_op(*__first))>)
         -: 4306:      __glibcxx_requires_valid_range(__first, __last);
         -: 4307:
-       14: 4308:      for (; __first != __last; ++__first, (void)++__result)
-        2: 4308-block  0
-call    0 returned 12
-       14: 4308-block  1
-call    1 returned 14
-branch  2 taken 12
-branch  3 taken 2 (fallthrough)
-       12: 4309:	*__result = __unary_op(*__first);
-       12: 4309-block  0
-call    0 returned 12
-call    1 returned 12
-call    2 returned 12
-call    3 returned 12
-        2: 4310:      return __result;
-        2: 4310-block  0
+    #####: 4308:      for (; __first != __last; ++__first, (void)++__result)
+    %%%%%: 4308-block  0
+call    0 never executed
+    %%%%%: 4308-block  1
+call    1 never executed
+branch  2 never executed
+branch  3 never executed (fallthrough)
+    #####: 4309:	*__result = __unary_op(*__first);
+    %%%%%: 4309-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+    #####: 4310:      return __result;
+    %%%%%: 4310-block  0
         -: 4311:    }
         -: 4312:
         -: 4313:  /**

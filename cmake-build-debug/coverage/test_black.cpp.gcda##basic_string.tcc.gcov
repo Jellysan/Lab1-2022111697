@@ -135,17 +135,17 @@
         -:  131:  template<typename _CharT, typename _Traits, typename _Alloc>
         -:  132:    _GLIBCXX20_CONSTEXPR
         -:  133:    typename basic_string<_CharT, _Traits, _Alloc>::pointer
-function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERyy called 94 returned 100% blocks executed 68%
-       94:  134:    basic_string<_CharT, _Traits, _Alloc>::
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERyy called 114 returned 100% blocks executed 68%
+      114:  134:    basic_string<_CharT, _Traits, _Alloc>::
         -:  135:    _M_create(size_type& __capacity, size_type __old_capacity)
         -:  136:    {
         -:  137:      // _GLIBCXX_RESOLVE_LIB_DEFECTS
         -:  138:      // 83.  String::npos vs. string::max_size()
-       94:  139:      if (__capacity > max_size())
-       94:  139-block  0
-call    0 returned 94
+      114:  139:      if (__capacity > max_size())
+      114:  139-block  0
+call    0 returned 114
 branch  1 taken 0 (fallthrough)
-branch  2 taken 94
+branch  2 taken 114
     #####:  140:	std::__throw_length_error(__N("basic_string::_M_create"));
     %%%%%:  140-block  0
 call    0 never executed
@@ -153,21 +153,21 @@ call    0 never executed
         -:  142:      // The below implements an exponential growth policy, necessary to
         -:  143:      // meet amortized linear time requirements of the library: see
         -:  144:      // http://gcc.gnu.org/ml/libstdc++/2001-07/msg00085.html.
-       94:  145:      if (__capacity > __old_capacity && __capacity < 2 * __old_capacity)
-       94:  145-block  0
-branch  0 taken 94 (fallthrough)
+      114:  145:      if (__capacity > __old_capacity && __capacity < 2 * __old_capacity)
+      114:  145-block  0
+branch  0 taken 114 (fallthrough)
 branch  1 taken 0
-       94:  145-block  1
-branch  2 taken 30 (fallthrough)
-branch  3 taken 64
+      114:  145-block  1
+branch  2 taken 32 (fallthrough)
+branch  3 taken 82
         -:  146:	{
-       30:  147:	  __capacity = 2 * __old_capacity;
+       32:  147:	  __capacity = 2 * __old_capacity;
         -:  148:	  // Never allocate a string bigger than max_size.
-       30:  149:	  if (__capacity > max_size())
-       30:  149-block  0
-call    0 returned 30
+       32:  149:	  if (__capacity > max_size())
+       32:  149-block  0
+call    0 returned 32
 branch  1 taken 0 (fallthrough)
-branch  2 taken 30
+branch  2 taken 32
     #####:  150:	    __capacity = max_size();
     %%%%%:  150-block  0
 call    0 never executed
@@ -175,10 +175,10 @@ call    0 never executed
         -:  152:
         -:  153:      // NB: Need an array of char_type[__capacity], plus a terminating
         -:  154:      // null char_type() element.
-      188:  155:      return _Alloc_traits::allocate(_M_get_allocator(), __capacity + 1);
-       94:  155-block  0
-call    0 returned 94
-       94:  155-block  1
+      228:  155:      return _Alloc_traits::allocate(_M_get_allocator(), __capacity + 1);
+      114:  155-block  0
+call    0 returned 114
+      114:  155-block  1
         -:  156:    }
         -:  157:
         -:  158:  // NB: This is the special case for Input Iterators, used in
@@ -240,16 +240,16 @@ call    0 returned 94
         -:  214:    template<typename _InIterator>
         -:  215:      _GLIBCXX20_CONSTEXPR
         -:  216:      void
-      114:  217:      basic_string<_CharT, _Traits, _Alloc>::
+      196:  217:      basic_string<_CharT, _Traits, _Alloc>::
         -:  218:      _M_construct(_InIterator __beg, _InIterator __end,
         -:  219:		   std::forward_iterator_tag)
         -:  220:      {
-      114:  221:	size_type __dnew = static_cast<size_type>(std::distance(__beg, __end));
+      196:  221:	size_type __dnew = static_cast<size_type>(std::distance(__beg, __end));
         -:  222:
-      114:  223:	if (__dnew > size_type(_S_local_capacity))
+      196:  223:	if (__dnew > size_type(_S_local_capacity))
         -:  224:	  {
-       28:  225:	    _M_data(_M_create(__dnew, size_type(0)));
-       28:  226:	    _M_capacity(__dnew);
+       38:  225:	    _M_data(_M_create(__dnew, size_type(0)));
+       38:  226:	    _M_capacity(__dnew);
         -:  227:	  }
         -:  228:	else
         -:  229:	  _M_use_local_data();
@@ -258,34 +258,34 @@ call    0 returned 94
         -:  232:	struct _Guard
         -:  233:	{
         -:  234:	  _GLIBCXX20_CONSTEXPR
-      114:  235:	  explicit _Guard(basic_string* __s) : _M_guarded(__s) { }
+      196:  235:	  explicit _Guard(basic_string* __s) : _M_guarded(__s) { }
         -:  236:
         -:  237:	  _GLIBCXX20_CONSTEXPR
-     114*:  238:	  ~_Guard() { if (_M_guarded) _M_guarded->_M_dispose(); }
+     196*:  238:	  ~_Guard() { if (_M_guarded) _M_guarded->_M_dispose(); }
         -:  239:
         -:  240:	  basic_string* _M_guarded;
-      114:  241:	} __guard(this);
+      196:  241:	} __guard(this);
         -:  242:
-      114:  243:	this->_S_copy_chars(_M_data(), __beg, __end);
+      196:  243:	this->_S_copy_chars(_M_data(), __beg, __end);
         -:  244:
-      114:  245:	__guard._M_guarded = 0;
+      196:  245:	__guard._M_guarded = 0;
         -:  246:
-      114:  247:	_M_set_length(__dnew);
-      114:  248:      }
+      196:  247:	_M_set_length(__dnew);
+      196:  248:      }
 ------------------
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag:
-function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag called 40 returned 100% blocks executed 81%
-       40:  217:      basic_string<_CharT, _Traits, _Alloc>::
-       40:  217-block  0
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag called 103 returned 100% blocks executed 81%
+      103:  217:      basic_string<_CharT, _Traits, _Alloc>::
+      103:  217-block  0
         -:  218:      _M_construct(_InIterator __beg, _InIterator __end,
         -:  219:		   std::forward_iterator_tag)
         -:  220:      {
-       40:  221:	size_type __dnew = static_cast<size_type>(std::distance(__beg, __end));
+      103:  221:	size_type __dnew = static_cast<size_type>(std::distance(__beg, __end));
         -:  222:
-       40:  223:	if (__dnew > size_type(_S_local_capacity))
-       40:  223-block  0
+      103:  223:	if (__dnew > size_type(_S_local_capacity))
+      103:  223-block  0
 branch  0 taken 3 (fallthrough)
-branch  1 taken 37
+branch  1 taken 100
         -:  224:	  {
         3:  225:	    _M_data(_M_create(__dnew, size_type(0)));
         3:  225-block  0
@@ -310,49 +310,49 @@ call    0 returned 3
         -:  238:	  ~_Guard() { if (_M_guarded) _M_guarded->_M_dispose(); }
         -:  239:
         -:  240:	  basic_string* _M_guarded;
-       40:  241:	} __guard(this);
-       40:  241-block  0
-call    0 returned 40
+      103:  241:	} __guard(this);
+      103:  241-block  0
+call    0 returned 103
         -:  242:
-       40:  243:	this->_S_copy_chars(_M_data(), __beg, __end);
-call    0 returned 40
-call    1 returned 40
+      103:  243:	this->_S_copy_chars(_M_data(), __beg, __end);
+call    0 returned 103
+call    1 returned 103
         -:  244:
-       40:  245:	__guard._M_guarded = 0;
+      103:  245:	__guard._M_guarded = 0;
         -:  246:
-       40:  247:	_M_set_length(__dnew);
-call    0 returned 40
-branch  1 taken 40 (fallthrough)
+      103:  247:	_M_set_length(__dnew);
+call    0 returned 103
+branch  1 taken 103 (fallthrough)
 branch  2 taken 0 (throw)
-       40:  248:      }
-       40:  248-block  0
-call    0 returned 40
+      103:  248:      }
+      103:  248-block  0
+call    0 returned 103
     $$$$$:  248-block  1
 call    1 never executed
 ------------------
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag:
-function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag called 74 returned 100% blocks executed 81%
-       74:  217:      basic_string<_CharT, _Traits, _Alloc>::
-       74:  217-block  0
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag called 93 returned 100% blocks executed 81%
+       93:  217:      basic_string<_CharT, _Traits, _Alloc>::
+       93:  217-block  0
         -:  218:      _M_construct(_InIterator __beg, _InIterator __end,
         -:  219:		   std::forward_iterator_tag)
         -:  220:      {
-       74:  221:	size_type __dnew = static_cast<size_type>(std::distance(__beg, __end));
+       93:  221:	size_type __dnew = static_cast<size_type>(std::distance(__beg, __end));
         -:  222:
-       74:  223:	if (__dnew > size_type(_S_local_capacity))
-       74:  223-block  0
-branch  0 taken 25 (fallthrough)
-branch  1 taken 49
+       93:  223:	if (__dnew > size_type(_S_local_capacity))
+       93:  223-block  0
+branch  0 taken 35 (fallthrough)
+branch  1 taken 58
         -:  224:	  {
-       25:  225:	    _M_data(_M_create(__dnew, size_type(0)));
-       25:  225-block  0
-call    0 returned 25
-branch  1 taken 25 (fallthrough)
+       35:  225:	    _M_data(_M_create(__dnew, size_type(0)));
+       35:  225-block  0
+call    0 returned 35
+branch  1 taken 35 (fallthrough)
 branch  2 taken 0 (throw)
-       25:  225-block  1
-call    3 returned 25
-       25:  226:	    _M_capacity(__dnew);
-call    0 returned 25
+       35:  225-block  1
+call    3 returned 35
+       35:  226:	    _M_capacity(__dnew);
+call    0 returned 35
         -:  227:	  }
         -:  228:	else
         -:  229:	  _M_use_local_data();
@@ -367,23 +367,23 @@ call    0 returned 25
         -:  238:	  ~_Guard() { if (_M_guarded) _M_guarded->_M_dispose(); }
         -:  239:
         -:  240:	  basic_string* _M_guarded;
-       74:  241:	} __guard(this);
-       74:  241-block  0
-call    0 returned 74
+       93:  241:	} __guard(this);
+       93:  241-block  0
+call    0 returned 93
         -:  242:
-       74:  243:	this->_S_copy_chars(_M_data(), __beg, __end);
-call    0 returned 74
-call    1 returned 74
+       93:  243:	this->_S_copy_chars(_M_data(), __beg, __end);
+call    0 returned 93
+call    1 returned 93
         -:  244:
-       74:  245:	__guard._M_guarded = 0;
+       93:  245:	__guard._M_guarded = 0;
         -:  246:
-       74:  247:	_M_set_length(__dnew);
-call    0 returned 74
-branch  1 taken 74 (fallthrough)
+       93:  247:	_M_set_length(__dnew);
+call    0 returned 93
+branch  1 taken 93 (fallthrough)
 branch  2 taken 0 (throw)
-       74:  248:      }
-       74:  248-block  0
-call    0 returned 74
+       93:  248:      }
+       93:  248-block  0
+call    0 returned 93
     $$$$$:  248-block  1
 call    1 never executed
 ------------------
@@ -438,84 +438,84 @@ call    1 never executed
         -:  297:  template<typename _CharT, typename _Traits, typename _Alloc>
         -:  298:    _GLIBCXX20_CONSTEXPR
         -:  299:    void
-function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEy called 67 returned 100% blocks executed 100%
-       67:  300:    basic_string<_CharT, _Traits, _Alloc>::
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEy called 83 returned 100% blocks executed 100%
+       83:  300:    basic_string<_CharT, _Traits, _Alloc>::
         -:  301:    reserve(size_type __res)
         -:  302:    {
-       67:  303:      const size_type __capacity = capacity();
-       67:  303-block  0
-call    0 returned 67
+       83:  303:      const size_type __capacity = capacity();
+       83:  303-block  0
+call    0 returned 83
         -:  304:      // _GLIBCXX_RESOLVE_LIB_DEFECTS
         -:  305:      // 2968. Inconsistencies between basic_string reserve and
         -:  306:      // vector/unordered_map/unordered_set reserve functions
         -:  307:      // P0966 reserve should not shrink
-       67:  308:      if (__res <= __capacity)
-branch  0 taken 11 (fallthrough)
-branch  1 taken 56
-       11:  309:	return;
-       11:  309-block  0
+       83:  308:      if (__res <= __capacity)
+branch  0 taken 29 (fallthrough)
+branch  1 taken 54
+       29:  309:	return;
+       29:  309-block  0
         -:  310:
-       56:  311:      pointer __tmp = _M_create(__res, __capacity);
-       56:  311-block  0
-call    0 returned 56
-       56:  312:      this->_S_copy(__tmp, _M_data(), length() + 1);
-call    0 returned 56
-call    1 returned 56
-call    2 returned 56
-       56:  313:      _M_dispose();
-call    0 returned 56
-       56:  314:      _M_data(__tmp);
-call    0 returned 56
-       56:  315:      _M_capacity(__res);
-call    0 returned 56
+       54:  311:      pointer __tmp = _M_create(__res, __capacity);
+       54:  311-block  0
+call    0 returned 54
+       54:  312:      this->_S_copy(__tmp, _M_data(), length() + 1);
+call    0 returned 54
+call    1 returned 54
+call    2 returned 54
+       54:  313:      _M_dispose();
+call    0 returned 54
+       54:  314:      _M_data(__tmp);
+call    0 returned 54
+       54:  315:      _M_capacity(__res);
+call    0 returned 54
         -:  316:    }
         -:  317:
         -:  318:  template<typename _CharT, typename _Traits, typename _Alloc>
         -:  319:    _GLIBCXX20_CONSTEXPR
         -:  320:    void
-function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEyyPKcy called 9 returned 100% blocks executed 89%
-        9:  321:    basic_string<_CharT, _Traits, _Alloc>::
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEyyPKcy called 17 returned 100% blocks executed 89%
+       17:  321:    basic_string<_CharT, _Traits, _Alloc>::
         -:  322:    _M_mutate(size_type __pos, size_type __len1, const _CharT* __s,
         -:  323:	      size_type __len2)
         -:  324:    {
-        9:  325:      const size_type __how_much = length() - __pos - __len1;
-        9:  325-block  0
-call    0 returned 9
+       17:  325:      const size_type __how_much = length() - __pos - __len1;
+       17:  325-block  0
+call    0 returned 17
         -:  326:
-        9:  327:      size_type __new_capacity = length() + __len2 - __len1;
-call    0 returned 9
-        9:  328:      pointer __r = _M_create(__new_capacity, capacity());
-call    0 returned 9
-call    1 returned 9
-branch  2 taken 9 (fallthrough)
+       17:  327:      size_type __new_capacity = length() + __len2 - __len1;
+call    0 returned 17
+       17:  328:      pointer __r = _M_create(__new_capacity, capacity());
+call    0 returned 17
+call    1 returned 17
+branch  2 taken 17 (fallthrough)
 branch  3 taken 0 (throw)
         -:  329:
-        9:  330:      if (__pos)
-        9:  330-block  0
-branch  0 taken 9 (fallthrough)
+       17:  330:      if (__pos)
+       17:  330-block  0
+branch  0 taken 17 (fallthrough)
 branch  1 taken 0
-        9:  331:	this->_S_copy(__r, _M_data(), __pos);
-        9:  331-block  0
-call    0 returned 9
-call    1 returned 9
-branch  2 taken 9 (fallthrough)
+       17:  331:	this->_S_copy(__r, _M_data(), __pos);
+       17:  331-block  0
+call    0 returned 17
+call    1 returned 17
+branch  2 taken 17 (fallthrough)
 branch  3 taken 0 (throw)
-        9:  332:      if (__s && __len2)
-        9:  332-block  0
-branch  0 taken 9 (fallthrough)
+       17:  332:      if (__s && __len2)
+       17:  332-block  0
+branch  0 taken 17 (fallthrough)
 branch  1 taken 0
-        9:  332-block  1
-branch  2 taken 9 (fallthrough)
+       17:  332-block  1
+branch  2 taken 17 (fallthrough)
 branch  3 taken 0
-        9:  333:	this->_S_copy(__r + __pos, __s, __len2);
-        9:  333-block  0
-call    0 returned 9
-branch  1 taken 9 (fallthrough)
+       17:  333:	this->_S_copy(__r + __pos, __s, __len2);
+       17:  333-block  0
+call    0 returned 17
+branch  1 taken 17 (fallthrough)
 branch  2 taken 0 (throw)
-        9:  334:      if (__how_much)
-        9:  334-block  0
+       17:  334:      if (__how_much)
+       17:  334-block  0
 branch  0 taken 0 (fallthrough)
-branch  1 taken 9
+branch  1 taken 17
     #####:  335:	this->_S_copy(__r + __pos + __len2,
     #####:  336:		      _M_data() + __pos + __len1, __how_much);
     %%%%%:  336-block  0
@@ -524,17 +524,17 @@ call    1 never executed
 branch  2 never executed (fallthrough)
 branch  3 never executed (throw)
         -:  337:
-        9:  338:      _M_dispose();
-        9:  338-block  0
-call    0 returned 9
-branch  1 taken 9 (fallthrough)
+       17:  338:      _M_dispose();
+       17:  338-block  0
+call    0 returned 17
+branch  1 taken 17 (fallthrough)
 branch  2 taken 0 (throw)
-        9:  339:      _M_data(__r);
-        9:  339-block  0
-call    0 returned 9
-        9:  340:      _M_capacity(__new_capacity);
-call    0 returned 9
-        9:  341:    }
+       17:  339:      _M_data(__r);
+       17:  339-block  0
+call    0 returned 17
+       17:  340:      _M_capacity(__new_capacity);
+call    0 returned 17
+       17:  341:    }
         -:  342:
         -:  343:  template<typename _CharT, typename _Traits, typename _Alloc>
         -:  344:    _GLIBCXX20_CONSTEXPR
@@ -602,39 +602,39 @@ call    0 returned 9
         -:  406:  template<typename _CharT, typename _Traits, typename _Alloc>
         -:  407:    _GLIBCXX20_CONSTEXPR
         -:  408:    basic_string<_CharT, _Traits, _Alloc>&
-function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcy called 56 returned 100% blocks executed 100%
-       56:  409:    basic_string<_CharT, _Traits, _Alloc>::
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcy called 93 returned 100% blocks executed 100%
+       93:  409:    basic_string<_CharT, _Traits, _Alloc>::
         -:  410:    _M_append(const _CharT* __s, size_type __n)
         -:  411:    {
-       56:  412:      const size_type __len = __n + this->size();
-       56:  412-block  0
-call    0 returned 56
+       93:  412:      const size_type __len = __n + this->size();
+       93:  412-block  0
+call    0 returned 93
         -:  413:
-       56:  414:      if (__len <= this->capacity())
-call    0 returned 56
-branch  1 taken 47 (fallthrough)
-branch  2 taken 9
+       93:  414:      if (__len <= this->capacity())
+call    0 returned 93
+branch  1 taken 76 (fallthrough)
+branch  2 taken 17
         -:  415:	{
-       47:  416:	  if (__n)
-       47:  416-block  0
-branch  0 taken 47 (fallthrough)
+       76:  416:	  if (__n)
+       76:  416-block  0
+branch  0 taken 76 (fallthrough)
 branch  1 taken 0
-       47:  417:	    this->_S_copy(this->_M_data() + this->size(), __s, __n);
-       47:  417-block  0
-call    0 returned 47
-call    1 returned 47
-call    2 returned 47
+       76:  417:	    this->_S_copy(this->_M_data() + this->size(), __s, __n);
+       76:  417-block  0
+call    0 returned 76
+call    1 returned 76
+call    2 returned 76
         -:  418:	}
         -:  419:      else
-        9:  420:	this->_M_mutate(this->size(), size_type(0), __s, __n);
-        9:  420-block  0
-call    0 returned 9
-call    1 returned 9
+       17:  420:	this->_M_mutate(this->size(), size_type(0), __s, __n);
+       17:  420-block  0
+call    0 returned 17
+call    1 returned 17
         -:  421:
-       56:  422:      this->_M_set_length(__len);
-       56:  422-block  0
-call    0 returned 56
-       56:  423:      return *this;
+       93:  422:      this->_M_set_length(__len);
+       93:  422-block  0
+call    0 returned 93
+       93:  423:      return *this;
         -:  424:    }
         -:  425:
         -:  426:  template<typename _CharT, typename _Traits, typename _Alloc>
@@ -825,19 +825,19 @@ call    0 returned 56
         -:  611:  template<typename _CharT, typename _Traits, typename _Alloc>
         -:  612:    _GLIBCXX_STRING_CONSTEXPR
         -:  613:    typename basic_string<_CharT, _Traits, _Alloc>::size_type
-function _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcyy called 1 returned 100% blocks executed 67%
-        1:  614:    basic_string<_CharT, _Traits, _Alloc>::
+function _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcyy called 4 returned 100% blocks executed 67%
+        4:  614:    basic_string<_CharT, _Traits, _Alloc>::
         -:  615:    find(const _CharT* __s, size_type __pos, size_type __n) const
         -:  616:    _GLIBCXX_NOEXCEPT
         -:  617:    {
         -:  618:      __glibcxx_requires_string_len(__s, __n);
-        1:  619:      const size_type __size = this->size();
-        1:  619-block  0
-call    0 returned 1
+        4:  619:      const size_type __size = this->size();
+        4:  619-block  0
+call    0 returned 4
         -:  620:
-        1:  621:      if (__n == 0)
+        4:  621:      if (__n == 0)
 branch  0 taken 0 (fallthrough)
-branch  1 taken 1
+branch  1 taken 4
     #####:  622:	return __pos <= __size ? __pos : npos;
     %%%%%:  622-block  0
 branch  0 never executed (fallthrough)
@@ -845,47 +845,47 @@ branch  1 never executed
     %%%%%:  622-block  1
     %%%%%:  622-block  2
     %%%%%:  622-block  3
-        1:  623:      if (__pos >= __size)
-        1:  623-block  0
+        4:  623:      if (__pos >= __size)
+        4:  623-block  0
 branch  0 taken 0 (fallthrough)
-branch  1 taken 1
+branch  1 taken 4
     #####:  624:	return npos;
     %%%%%:  624-block  0
         -:  625:
-        1:  626:      const _CharT __elem0 = __s[0];
-        1:  627:      const _CharT* const __data = data();
-        1:  627-block  0
-call    0 returned 1
-        1:  628:      const _CharT* __first = __data + __pos;
-        1:  629:      const _CharT* const __last = __data + __size;
-        1:  630:      size_type __len = __size - __pos;
+        4:  626:      const _CharT __elem0 = __s[0];
+        4:  627:      const _CharT* const __data = data();
+        4:  627-block  0
+call    0 returned 4
+        4:  628:      const _CharT* __first = __data + __pos;
+        4:  629:      const _CharT* const __last = __data + __size;
+        4:  630:      size_type __len = __size - __pos;
         -:  631:
-        2:  632:      while (__len >= __n)
-        2:  632-block  0
-branch  0 taken 2
+        6:  632:      while (__len >= __n)
+        6:  632-block  0
+branch  0 taken 6
 branch  1 taken 0 (fallthrough)
         -:  633:	{
         -:  634:	  // Find the first occurrence of __elem0:
-        2:  635:	  __first = traits_type::find(__first, __len - __n + 1, __elem0);
-        2:  635-block  0
-call    0 returned 2
-        2:  636:	  if (!__first)
+        6:  635:	  __first = traits_type::find(__first, __len - __n + 1, __elem0);
+        6:  635-block  0
+call    0 returned 6
+        6:  636:	  if (!__first)
 branch  0 taken 0 (fallthrough)
-branch  1 taken 2
+branch  1 taken 6
     #####:  637:	    return npos;
     %%%%%:  637-block  0
         -:  638:	  // Compare the full strings from the first occurrence of __elem0.
         -:  639:	  // We already know that __first[0] == __s[0] but compare them again
         -:  640:	  // anyway because __s is probably aligned, which helps memcmp.
-        2:  641:	  if (traits_type::compare(__first, __s, __n) == 0)
-        2:  641-block  0
-call    0 returned 2
-branch  1 taken 1 (fallthrough)
-branch  2 taken 1
-        1:  642:	    return __first - __data;
-        1:  642-block  0
-        1:  643:	  __len = __last - ++__first;
-        1:  643-block  0
+        6:  641:	  if (traits_type::compare(__first, __s, __n) == 0)
+        6:  641-block  0
+call    0 returned 6
+branch  1 taken 4 (fallthrough)
+branch  2 taken 2
+        4:  642:	    return __first - __data;
+        4:  642-block  0
+        2:  643:	  __len = __last - ++__first;
+        2:  643-block  0
         -:  644:	}
     #####:  645:      return npos;
     %%%%%:  645-block  0

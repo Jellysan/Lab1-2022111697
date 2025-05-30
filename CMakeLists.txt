@@ -14,6 +14,7 @@ add_subdirectory(lib/googletest)
 
 add_executable(BlackTest
         test/test_black.cpp
+        test/test_white.cpp
 )
 
 target_include_directories(BlackTest PRIVATE

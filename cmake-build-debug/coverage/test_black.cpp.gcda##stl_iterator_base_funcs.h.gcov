@@ -107,7 +107,7 @@
         -:  103:      // concept requirements
         -:  104:      __glibcxx_function_requires(_RandomAccessIteratorConcept<
         -:  105:				  _RandomAccessIterator>)
-      114:  106:      return __last - __first;
+      196:  106:      return __last - __first;
         -:  107:    }
         -:  108:
         -:  109:#if _GLIBCXX_USE_CXX11_ABI
@@ -152,14 +152,14 @@
         -:  148:    distance(_InputIterator __first, _InputIterator __last)
         -:  149:    {
         -:  150:      // concept requirements -- taken care of in __distance
-      228:  151:      return std::__distance(__first, __last,
-      228:  152:			     std::__iterator_category(__first));
-       40:  152-block  0
-       40:  152-block  1
-       40:  152-block  2
-       74:  152-block  3
-       74:  152-block  4
-       74:  152-block  5
+      392:  151:      return std::__distance(__first, __last,
+      392:  152:			     std::__iterator_category(__first));
+      103:  152-block  0
+      103:  152-block  1
+      103:  152-block  2
+       93:  152-block  3
+       93:  152-block  4
+       93:  152-block  5
         -:  153:    }
         -:  154:
         -:  155:  template<typename _InputIterator, typename _Distance>

@@ -440,8 +440,8 @@ function _ZN7testing8internal15TestFactoryBaseD2Ev called 0 returned 0% blocks e
         -:  433:  virtual Test* CreateTest() = 0;
         -:  434:
         -:  435: protected:
-function _ZN7testing8internal15TestFactoryBaseC2Ev called 7 returned 100% blocks executed 100%
-        7:  436:  TestFactoryBase() {}
+function _ZN7testing8internal15TestFactoryBaseC2Ev called 12 returned 100% blocks executed 100%
+       12:  436:  TestFactoryBase() {}
         -:  437:
         -:  438: private:
         -:  439:  TestFactoryBase(const TestFactoryBase&) = delete;
@@ -453,18 +453,18 @@ function _ZN7testing8internal15TestFactoryBaseC2Ev called 7 returned 100% blocks
         -:  445:template <class TestClass>
         -:  446:class TestFactoryImpl : public TestFactoryBase {
         -:  447: public:
-       1*:  448:  Test* CreateTest() override { return new TestClass; }
+    #####:  448:  Test* CreateTest() override { return new TestClass; }
 ------------------
 _ZN7testing8internal15TestFactoryImplI37BridgeWordsTest_SingleBridgeWord_TestE10CreateTestEv:
-function _ZN7testing8internal15TestFactoryImplI37BridgeWordsTest_SingleBridgeWord_TestE10CreateTestEv called 1 returned 100% blocks executed 71%
-        1:  448:  Test* CreateTest() override { return new TestClass; }
-        1:  448-block  0
-call    0 returned 1
-call    1 returned 1
-branch  2 taken 1 (fallthrough)
-branch  3 taken 0 (throw)
-        1:  448-block  1
-        1:  448-block  2
+function _ZN7testing8internal15TestFactoryImplI37BridgeWordsTest_SingleBridgeWord_TestE10CreateTestEv called 0 returned 0% blocks executed 0%
+    #####:  448:  Test* CreateTest() override { return new TestClass; }
+    %%%%%:  448-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed (fallthrough)
+branch  3 never executed (throw)
+    %%%%%:  448-block  1
+    %%%%%:  448-block  2
     $$$$$:  448-block  3
 branch  4 never executed (fallthrough)
 branch  5 never executed
@@ -587,12 +587,12 @@ call    6 never executed
         -:  466:using TearDownTestSuiteFunc = void (*)();
         -:  467:
         -:  468:struct CodeLocation {
-function _ZN7testing8internal12CodeLocationC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi called 7 returned 100% blocks executed 100%
-        7:  469:  CodeLocation(std::string a_file, int a_line)
-        7:  470:      : file(std::move(a_file)), line(a_line) {}
-        7:  470-block  0
-call    0 returned 7
-call    1 returned 7
+function _ZN7testing8internal12CodeLocationC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi called 12 returned 100% blocks executed 100%
+       12:  469:  CodeLocation(std::string a_file, int a_line)
+       12:  470:      : file(std::move(a_file)), line(a_line) {}
+       12:  470-block  0
+call    0 returned 12
+call    1 returned 12
         -:  471:
         -:  472:  std::string file;
         -:  473:  int line;
@@ -604,16 +604,16 @@ call    1 returned 7
         -:  479:// Utility functions to help SuiteApiResolver
         -:  480:using SetUpTearDownSuiteFuncType = void (*)();
         -:  481:
-function _ZN7testing8internal19GetNotDefaultOrNullEPFvvES2_ called 28 returned 100% blocks executed 80%
-       28:  482:inline SetUpTearDownSuiteFuncType GetNotDefaultOrNull(
+function _ZN7testing8internal19GetNotDefaultOrNullEPFvvES2_ called 48 returned 100% blocks executed 80%
+       48:  482:inline SetUpTearDownSuiteFuncType GetNotDefaultOrNull(
         -:  483:    SetUpTearDownSuiteFuncType a, SetUpTearDownSuiteFuncType def) {
-      28*:  484:  return a == def ? nullptr : a;
-       28:  484-block  0
+      48*:  484:  return a == def ? nullptr : a;
+       48:  484-block  0
 branch  0 taken 0 (fallthrough)
-branch  1 taken 28
+branch  1 taken 48
     %%%%%:  484-block  1
-       28:  484-block  2
-       28:  484-block  3
+       48:  484-block  2
+       48:  484-block  3
         -:  485:}
         -:  486:
         -:  487:template <typename T>
