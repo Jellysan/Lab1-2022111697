@@ -1,0 +1,790 @@
+        -:    0:Source:D:/Code/Clion/software_engineering/lab1_git/test/test_white.cpp
+        -:    0:Graph:D:\Code\Clion\software_engineering\lab1_git\cmake-build-debug\CMakeFiles\BlackTest.dir\test\test_white.cpp.gcno
+        -:    0:Data:D:\Code\Clion\software_engineering\lab1_git\cmake-build-debug\CMakeFiles\BlackTest.dir\test\test_white.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "../DirectedGraph.cpp" // 包含主程序代码
+        -:    2:#include <gtest/gtest.h>
+        -:    3:
+        -:    4:// 创建测试图类
+        -:    5:class TestableDirectedGraph : public DirectedGraph {
+        -:    6:public:
+function _ZN21TestableDirectedGraph11addTestEdgeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ called 0 returned 0% blocks executed 0%
+    #####:    7:  void addTestEdge(const std::string &from, const std::string &to) {
+    #####:    8:    nodes.insert(from);
+    %%%%%:    8-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    $$$$$:    8-block  1
+call    3 never executed
+    #####:    9:    nodes.insert(to);
+    %%%%%:    9-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    #####:   10:    adjacencyList[from][to]++;
+    %%%%%:   10-block  0
+call    0 never executed
+call    1 never executed
+    #####:   11:  }
+        -:   12:
+function _ZN21TestableDirectedGraph10clearGraphEv called 5 returned 100% blocks executed 100%
+        5:   13:  void clearGraph() {
+        5:   14:    nodes.clear();
+        5:   14-block  0
+call    0 returned 5
+        5:   15:    adjacencyList.clear();
+call    0 returned 5
+        5:   16:  }
+        -:   17:};
+        -:   18:
+        -:   19:class RandomWalkTest : public ::testing::Test {
+        -:   20:protected:
+        -:   21:  TestableDirectedGraph graph;
+        -:   22:
+function _ZN14RandomWalkTest5SetUpEv called 5 returned 100% blocks executed 100%
+        5:   23:  void SetUp() override { graph.clearGraph(); }
+        5:   23-block  0
+call    0 returned 5
+        -:   24:};
+        -:   25:
+        -:   26:// 测试用例1 - 正常游走后遇重复边终止
+        4:   27:TEST_F(RandomWalkTest, WalkAndEndOnVisitedEdge) {
+        4:   28:  graph.addTestEdge("scientist", "carefully");
+        4:   29:  graph.addTestEdge("carefully", "analyzed");
+        4:   30:  graph.addTestEdge("analyzed", "data");
+        4:   31:  graph.addTestEdge("data", "scientist"); // 形成环
+        -:   32:
+        1:   33:  std::string result = graph.randomWalk();
+       1*:   34:  EXPECT_TRUE(result.find("scientist") != std::string::npos);
+       1*:   35:  EXPECT_TRUE(result.find("carefully") != std::string::npos);
+       1*:   36:  EXPECT_TRUE(result.find("analyzed") != std::string::npos);
+       1*:   37:  EXPECT_TRUE(result.find("data") != std::string::npos);
+        1:   38:}
+------------------
+_ZN43RandomWalkTest_WalkAndEndOnVisitedEdge_TestC1Ev:
+function _ZN43RandomWalkTest_WalkAndEndOnVisitedEdge_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:   27:TEST_F(RandomWalkTest, WalkAndEndOnVisitedEdge) {
+        1:   27-block  0
+call    0 returned 1
+------------------
+_ZN43RandomWalkTest_WalkAndEndOnVisitedEdge_TestD0Ev:
+function _ZN43RandomWalkTest_WalkAndEndOnVisitedEdge_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:   27:TEST_F(RandomWalkTest, WalkAndEndOnVisitedEdge) {
+        1:   27-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN43RandomWalkTest_WalkAndEndOnVisitedEdge_TestD1Ev:
+function _ZN43RandomWalkTest_WalkAndEndOnVisitedEdge_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:   27:TEST_F(RandomWalkTest, WalkAndEndOnVisitedEdge) {
+        1:   27-block  0
+call    0 returned 1
+------------------
+_ZN43RandomWalkTest_WalkAndEndOnVisitedEdge_Test8TestBodyEv:
+function _ZN43RandomWalkTest_WalkAndEndOnVisitedEdge_Test8TestBodyEv called 1 returned 100% blocks executed 34%
+        1:   27:TEST_F(RandomWalkTest, WalkAndEndOnVisitedEdge) {
+        4:   28:  graph.addTestEdge("scientist", "carefully");
+        1:   28-block  0
+        1:   28-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   28-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   28-block  3
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:   28-block  4
+call    9 returned 1
+        1:   28-block  5
+call   10 returned 1
+    $$$$$:   28-block  6
+call   11 never executed
+    $$$$$:   28-block  7
+    $$$$$:   28-block  8
+    $$$$$:   28-block  9
+call   12 never executed
+    $$$$$:   28-block 10
+    $$$$$:   28-block 11
+        4:   29:  graph.addTestEdge("carefully", "analyzed");
+        1:   29-block  0
+        1:   29-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   29-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   29-block  3
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:   29-block  4
+call    9 returned 1
+        1:   29-block  5
+call   10 returned 1
+    $$$$$:   29-block  6
+call   11 never executed
+    $$$$$:   29-block  7
+    $$$$$:   29-block  8
+    $$$$$:   29-block  9
+call   12 never executed
+    $$$$$:   29-block 10
+    $$$$$:   29-block 11
+        4:   30:  graph.addTestEdge("analyzed", "data");
+        1:   30-block  0
+        1:   30-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   30-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   30-block  3
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:   30-block  4
+call    9 returned 1
+        1:   30-block  5
+call   10 returned 1
+    $$$$$:   30-block  6
+call   11 never executed
+    $$$$$:   30-block  7
+    $$$$$:   30-block  8
+    $$$$$:   30-block  9
+call   12 never executed
+    $$$$$:   30-block 10
+    $$$$$:   30-block 11
+        4:   31:  graph.addTestEdge("data", "scientist"); // 形成环
+        1:   31-block  0
+        1:   31-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   31-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   31-block  3
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:   31-block  4
+call    9 returned 1
+        1:   31-block  5
+call   10 returned 1
+    $$$$$:   31-block  6
+call   11 never executed
+    $$$$$:   31-block  7
+    $$$$$:   31-block  8
+    $$$$$:   31-block  9
+call   12 never executed
+    $$$$$:   31-block 10
+    $$$$$:   31-block 11
+        -:   32:
+        1:   33:  std::string result = graph.randomWalk();
+        1:   33-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:   34:  EXPECT_TRUE(result.find("scientist") != std::string::npos);
+        1:   34-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+branch  3 taken 0 (fallthrough)
+branch  4 taken 1
+    %%%%%:   34-block  1
+call    5 never executed
+branch  6 never executed (fallthrough)
+branch  7 never executed (throw)
+    %%%%%:   34-block  2
+call    8 never executed
+branch  9 never executed (fallthrough)
+branch 10 never executed (throw)
+    %%%%%:   34-block  3
+call   11 never executed
+call   12 never executed
+branch 13 never executed (fallthrough)
+branch 14 never executed (throw)
+    %%%%%:   34-block  4
+call   15 never executed
+branch 16 never executed (fallthrough)
+branch 17 never executed (throw)
+    %%%%%:   34-block  5
+call   18 never executed
+call   19 never executed
+call   20 never executed
+        1:   34-block  6
+call   21 returned 1
+    $$$$$:   34-block  7
+call   22 never executed
+    $$$$$:   34-block  8
+call   23 never executed
+    $$$$$:   34-block  9
+    $$$$$:   34-block 10
+    $$$$$:   34-block 11
+call   24 never executed
+    $$$$$:   34-block 12
+    $$$$$:   34-block 13
+call   25 never executed
+       1*:   35:  EXPECT_TRUE(result.find("carefully") != std::string::npos);
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+branch  3 taken 0 (fallthrough)
+branch  4 taken 1
+    %%%%%:   35-block  0
+call    5 never executed
+branch  6 never executed (fallthrough)
+branch  7 never executed (throw)
+    %%%%%:   35-block  1
+call    8 never executed
+branch  9 never executed (fallthrough)
+branch 10 never executed (throw)
+    %%%%%:   35-block  2
+call   11 never executed
+call   12 never executed
+branch 13 never executed (fallthrough)
+branch 14 never executed (throw)
+    %%%%%:   35-block  3
+call   15 never executed
+branch 16 never executed (fallthrough)
+branch 17 never executed (throw)
+    %%%%%:   35-block  4
+call   18 never executed
+call   19 never executed
+call   20 never executed
+        1:   35-block  5
+call   21 returned 1
+    $$$$$:   35-block  6
+call   22 never executed
+    $$$$$:   35-block  7
+call   23 never executed
+    $$$$$:   35-block  8
+    $$$$$:   35-block  9
+    $$$$$:   35-block 10
+call   24 never executed
+    $$$$$:   35-block 11
+    $$$$$:   35-block 12
+call   25 never executed
+       1*:   36:  EXPECT_TRUE(result.find("analyzed") != std::string::npos);
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+branch  3 taken 0 (fallthrough)
+branch  4 taken 1
+    %%%%%:   36-block  0
+call    5 never executed
+branch  6 never executed (fallthrough)
+branch  7 never executed (throw)
+    %%%%%:   36-block  1
+call    8 never executed
+branch  9 never executed (fallthrough)
+branch 10 never executed (throw)
+    %%%%%:   36-block  2
+call   11 never executed
+call   12 never executed
+branch 13 never executed (fallthrough)
+branch 14 never executed (throw)
+    %%%%%:   36-block  3
+call   15 never executed
+branch 16 never executed (fallthrough)
+branch 17 never executed (throw)
+    %%%%%:   36-block  4
+call   18 never executed
+call   19 never executed
+call   20 never executed
+        1:   36-block  5
+call   21 returned 1
+    $$$$$:   36-block  6
+call   22 never executed
+    $$$$$:   36-block  7
+call   23 never executed
+    $$$$$:   36-block  8
+    $$$$$:   36-block  9
+    $$$$$:   36-block 10
+call   24 never executed
+    $$$$$:   36-block 11
+    $$$$$:   36-block 12
+call   25 never executed
+       1*:   37:  EXPECT_TRUE(result.find("data") != std::string::npos);
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+branch  3 taken 0 (fallthrough)
+branch  4 taken 1
+    %%%%%:   37-block  0
+call    5 never executed
+branch  6 never executed (fallthrough)
+branch  7 never executed (throw)
+    %%%%%:   37-block  1
+call    8 never executed
+branch  9 never executed (fallthrough)
+branch 10 never executed (throw)
+    %%%%%:   37-block  2
+call   11 never executed
+call   12 never executed
+branch 13 never executed (fallthrough)
+branch 14 never executed (throw)
+    %%%%%:   37-block  3
+call   15 never executed
+branch 16 never executed (fallthrough)
+branch 17 never executed (throw)
+    %%%%%:   37-block  4
+call   18 never executed
+call   19 never executed
+call   20 never executed
+        1:   37-block  5
+call   21 returned 1
+    $$$$$:   37-block  6
+call   22 never executed
+    $$$$$:   37-block  7
+call   23 never executed
+    $$$$$:   37-block  8
+    $$$$$:   37-block  9
+    $$$$$:   37-block 10
+call   24 never executed
+    $$$$$:   37-block 11
+    $$$$$:   37-block 12
+call   25 never executed
+        1:   38:}
+call    0 returned 1
+    $$$$$:   38-block  0
+call    1 never executed
+------------------
+        -:   39:
+        -:   40:// 测试用例2 - 起始节点无出边
+        4:   41:TEST_F(RandomWalkTest, StartNodeWithoutOutEdges) {
+        2:   42:  graph.nodes.insert("scientist"); // 无出边
+        1:   43:  std::string result = graph.randomWalk();
+       1*:   44:  EXPECT_EQ(result, "scientist");
+        1:   45:}
+------------------
+_ZN44RandomWalkTest_StartNodeWithoutOutEdges_TestC1Ev:
+function _ZN44RandomWalkTest_StartNodeWithoutOutEdges_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:   41:TEST_F(RandomWalkTest, StartNodeWithoutOutEdges) {
+        1:   41-block  0
+call    0 returned 1
+------------------
+_ZN44RandomWalkTest_StartNodeWithoutOutEdges_TestD0Ev:
+function _ZN44RandomWalkTest_StartNodeWithoutOutEdges_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:   41:TEST_F(RandomWalkTest, StartNodeWithoutOutEdges) {
+        1:   41-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN44RandomWalkTest_StartNodeWithoutOutEdges_TestD1Ev:
+function _ZN44RandomWalkTest_StartNodeWithoutOutEdges_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:   41:TEST_F(RandomWalkTest, StartNodeWithoutOutEdges) {
+        1:   41-block  0
+call    0 returned 1
+------------------
+_ZN44RandomWalkTest_StartNodeWithoutOutEdges_Test8TestBodyEv:
+function _ZN44RandomWalkTest_StartNodeWithoutOutEdges_Test8TestBodyEv called 1 returned 100% blocks executed 36%
+        1:   41:TEST_F(RandomWalkTest, StartNodeWithoutOutEdges) {
+        2:   42:  graph.nodes.insert("scientist"); // 无出边
+        1:   42-block  0
+        1:   42-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   42-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   42-block  3
+call    6 returned 1
+    $$$$$:   42-block  4
+call    7 never executed
+    $$$$$:   42-block  5
+    $$$$$:   42-block  6
+    $$$$$:   42-block  7
+        1:   43:  std::string result = graph.randomWalk();
+        1:   43-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:   44:  EXPECT_EQ(result, "scientist");
+        1:   44-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   44-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:   44-block  2
+call    6 never executed
+branch  7 never executed (fallthrough)
+branch  8 never executed (throw)
+    %%%%%:   44-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed (fallthrough)
+branch 12 never executed (throw)
+    %%%%%:   44-block  4
+call   13 never executed
+branch 14 never executed (fallthrough)
+branch 15 never executed (throw)
+    %%%%%:   44-block  5
+call   16 never executed
+call   17 never executed
+        1:   44-block  6
+call   18 returned 1
+    $$$$$:   44-block  7
+call   19 never executed
+    $$$$$:   44-block  8
+    $$$$$:   44-block  9
+call   20 never executed
+    $$$$$:   44-block 10
+    $$$$$:   44-block 11
+call   21 never executed
+        1:   45:}
+call    0 returned 1
+    $$$$$:   45-block  0
+call    1 never executed
+------------------
+        -:   46:
+        -:   47:// 测试用例3 - 起始边即重复
+        4:   48:TEST_F(RandomWalkTest, FirstEdgeAlreadyVisited) {
+        4:   49:  graph.addTestEdge("scientist", "data");
+        4:   50:  graph.addTestEdge("data", "scientist");
+        -:   51:
+        -:   52:  // 手动模拟已访问过的边（通过调用一次 randomWalk 让它游走，第二次立即终止）
+        1:   53:  std::string first = graph.randomWalk();  // 第一次会执行一次边
+        1:   54:  std::string second = graph.randomWalk(); // 再次调用，应立刻遇到重复边终止
+        -:   55:
+       1*:   56:  EXPECT_TRUE(second.size() <= first.size());
+        1:   57:}
+------------------
+_ZN43RandomWalkTest_FirstEdgeAlreadyVisited_TestC1Ev:
+function _ZN43RandomWalkTest_FirstEdgeAlreadyVisited_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:   48:TEST_F(RandomWalkTest, FirstEdgeAlreadyVisited) {
+        1:   48-block  0
+call    0 returned 1
+------------------
+_ZN43RandomWalkTest_FirstEdgeAlreadyVisited_TestD0Ev:
+function _ZN43RandomWalkTest_FirstEdgeAlreadyVisited_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:   48:TEST_F(RandomWalkTest, FirstEdgeAlreadyVisited) {
+        1:   48-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN43RandomWalkTest_FirstEdgeAlreadyVisited_TestD1Ev:
+function _ZN43RandomWalkTest_FirstEdgeAlreadyVisited_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:   48:TEST_F(RandomWalkTest, FirstEdgeAlreadyVisited) {
+        1:   48-block  0
+call    0 returned 1
+------------------
+_ZN43RandomWalkTest_FirstEdgeAlreadyVisited_Test8TestBodyEv:
+function _ZN43RandomWalkTest_FirstEdgeAlreadyVisited_Test8TestBodyEv called 1 returned 100% blocks executed 41%
+        1:   48:TEST_F(RandomWalkTest, FirstEdgeAlreadyVisited) {
+        4:   49:  graph.addTestEdge("scientist", "data");
+        1:   49-block  0
+        1:   49-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   49-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   49-block  3
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:   49-block  4
+call    9 returned 1
+        1:   49-block  5
+call   10 returned 1
+    $$$$$:   49-block  6
+call   11 never executed
+    $$$$$:   49-block  7
+    $$$$$:   49-block  8
+    $$$$$:   49-block  9
+call   12 never executed
+    $$$$$:   49-block 10
+    $$$$$:   49-block 11
+        4:   50:  graph.addTestEdge("data", "scientist");
+        1:   50-block  0
+        1:   50-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   50-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   50-block  3
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:   50-block  4
+call    9 returned 1
+        1:   50-block  5
+call   10 returned 1
+    $$$$$:   50-block  6
+call   11 never executed
+    $$$$$:   50-block  7
+    $$$$$:   50-block  8
+    $$$$$:   50-block  9
+call   12 never executed
+    $$$$$:   50-block 10
+    $$$$$:   50-block 11
+        -:   51:
+        -:   52:  // 手动模拟已访问过的边（通过调用一次 randomWalk 让它游走，第二次立即终止）
+        1:   53:  std::string first = graph.randomWalk();  // 第一次会执行一次边
+        1:   53-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   54:  std::string second = graph.randomWalk(); // 再次调用，应立刻遇到重复边终止
+        1:   54-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   55:
+       1*:   56:  EXPECT_TRUE(second.size() <= first.size());
+        1:   56-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:   56-block  1
+call    6 never executed
+branch  7 never executed (fallthrough)
+branch  8 never executed (throw)
+    %%%%%:   56-block  2
+call    9 never executed
+branch 10 never executed (fallthrough)
+branch 11 never executed (throw)
+    %%%%%:   56-block  3
+call   12 never executed
+call   13 never executed
+branch 14 never executed (fallthrough)
+branch 15 never executed (throw)
+    %%%%%:   56-block  4
+call   16 never executed
+branch 17 never executed (fallthrough)
+branch 18 never executed (throw)
+    %%%%%:   56-block  5
+call   19 never executed
+call   20 never executed
+call   21 never executed
+        1:   56-block  6
+call   22 returned 1
+    $$$$$:   56-block  7
+call   23 never executed
+    $$$$$:   56-block  8
+call   24 never executed
+    $$$$$:   56-block  9
+    $$$$$:   56-block 10
+    $$$$$:   56-block 11
+call   25 never executed
+    $$$$$:   56-block 12
+    $$$$$:   56-block 13
+call   26 never executed
+        1:   57:}
+call    0 returned 1
+call    1 returned 1
+    $$$$$:   57-block  0
+call    2 never executed
+    $$$$$:   57-block  1
+call    3 never executed
+------------------
+        -:   58:
+        -:   59:// 测试用例4 - 游走一条边后终止
+        4:   60:TEST_F(RandomWalkTest, WalkOneEdgeThenStop) {
+        4:   61:  graph.addTestEdge("scientist", "again");
+        -:   62:  // again 无出边
+        1:   63:  std::string result = graph.randomWalk();
+       1*:   64:  EXPECT_EQ(result, "scientist again");
+        1:   65:}
+------------------
+_ZN39RandomWalkTest_WalkOneEdgeThenStop_TestC1Ev:
+function _ZN39RandomWalkTest_WalkOneEdgeThenStop_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:   60:TEST_F(RandomWalkTest, WalkOneEdgeThenStop) {
+        1:   60-block  0
+call    0 returned 1
+------------------
+_ZN39RandomWalkTest_WalkOneEdgeThenStop_TestD0Ev:
+function _ZN39RandomWalkTest_WalkOneEdgeThenStop_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:   60:TEST_F(RandomWalkTest, WalkOneEdgeThenStop) {
+        1:   60-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN39RandomWalkTest_WalkOneEdgeThenStop_TestD1Ev:
+function _ZN39RandomWalkTest_WalkOneEdgeThenStop_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:   60:TEST_F(RandomWalkTest, WalkOneEdgeThenStop) {
+        1:   60-block  0
+call    0 returned 1
+------------------
+_ZN39RandomWalkTest_WalkOneEdgeThenStop_Test8TestBodyEv:
+function _ZN39RandomWalkTest_WalkOneEdgeThenStop_Test8TestBodyEv called 1 returned 100% blocks executed 39%
+        1:   60:TEST_F(RandomWalkTest, WalkOneEdgeThenStop) {
+        4:   61:  graph.addTestEdge("scientist", "again");
+        1:   61-block  0
+        1:   61-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   61-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   61-block  3
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:   61-block  4
+call    9 returned 1
+        1:   61-block  5
+call   10 returned 1
+    $$$$$:   61-block  6
+call   11 never executed
+    $$$$$:   61-block  7
+    $$$$$:   61-block  8
+    $$$$$:   61-block  9
+call   12 never executed
+    $$$$$:   61-block 10
+    $$$$$:   61-block 11
+        -:   62:  // again 无出边
+        1:   63:  std::string result = graph.randomWalk();
+        1:   63-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:   64:  EXPECT_EQ(result, "scientist again");
+        1:   64-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   64-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:   64-block  2
+call    6 never executed
+branch  7 never executed (fallthrough)
+branch  8 never executed (throw)
+    %%%%%:   64-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed (fallthrough)
+branch 12 never executed (throw)
+    %%%%%:   64-block  4
+call   13 never executed
+branch 14 never executed (fallthrough)
+branch 15 never executed (throw)
+    %%%%%:   64-block  5
+call   16 never executed
+call   17 never executed
+        1:   64-block  6
+call   18 returned 1
+    $$$$$:   64-block  7
+call   19 never executed
+    $$$$$:   64-block  8
+    $$$$$:   64-block  9
+call   20 never executed
+    $$$$$:   64-block 10
+    $$$$$:   64-block 11
+call   21 never executed
+        1:   65:}
+call    0 returned 1
+    $$$$$:   65-block  0
+call    1 never executed
+------------------
+        -:   66:
+        -:   67:// 测试用例5 - 空图
+        4:   68:TEST_F(RandomWalkTest, EmptyGraph) {
+        1:   69:  std::string result = graph.randomWalk();
+       1*:   70:  EXPECT_EQ(result, "Graph is empty!");
+        1:   71:}
+------------------
+_ZN30RandomWalkTest_EmptyGraph_TestC1Ev:
+function _ZN30RandomWalkTest_EmptyGraph_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:   68:TEST_F(RandomWalkTest, EmptyGraph) {
+        1:   68-block  0
+call    0 returned 1
+------------------
+_ZN30RandomWalkTest_EmptyGraph_TestD0Ev:
+function _ZN30RandomWalkTest_EmptyGraph_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:   68:TEST_F(RandomWalkTest, EmptyGraph) {
+        1:   68-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN30RandomWalkTest_EmptyGraph_TestD1Ev:
+function _ZN30RandomWalkTest_EmptyGraph_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:   68:TEST_F(RandomWalkTest, EmptyGraph) {
+        1:   68-block  0
+call    0 returned 1
+------------------
+_ZN30RandomWalkTest_EmptyGraph_Test8TestBodyEv:
+function _ZN30RandomWalkTest_EmptyGraph_Test8TestBodyEv called 1 returned 100% blocks executed 31%
+        1:   68:TEST_F(RandomWalkTest, EmptyGraph) {
+        1:   69:  std::string result = graph.randomWalk();
+        1:   69-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:   70:  EXPECT_EQ(result, "Graph is empty!");
+        1:   70-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   70-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:   70-block  2
+call    6 never executed
+branch  7 never executed (fallthrough)
+branch  8 never executed (throw)
+    %%%%%:   70-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed (fallthrough)
+branch 12 never executed (throw)
+    %%%%%:   70-block  4
+call   13 never executed
+branch 14 never executed (fallthrough)
+branch 15 never executed (throw)
+    %%%%%:   70-block  5
+call   16 never executed
+call   17 never executed
+        1:   70-block  6
+call   18 returned 1
+    $$$$$:   70-block  7
+call   19 never executed
+    $$$$$:   70-block  8
+    $$$$$:   70-block  9
+call   20 never executed
+    $$$$$:   70-block 10
+    $$$$$:   70-block 11
+call   21 never executed
+        1:   71:}
+call    0 returned 1
+    $$$$$:   71-block  0
+call    1 never executed
+------------------
+        -:   72:
+function main called 1 returned 100% blocks executed 100%
+        1:   73:int main(int argc, char **argv) {
+        1:   74:  ::testing::InitGoogleTest(&argc, argv);
+        1:   74-block  0
+call    0 returned 1
+        1:   75:  return RUN_ALL_TESTS();
+call    0 returned 1
+        -:   76:}
