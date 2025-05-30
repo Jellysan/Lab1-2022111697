@@ -412,7 +412,7 @@ function _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocato
         -:  359:      _M_use_local_data() _GLIBCXX_NOEXCEPT
         -:  360:      {
         -:  361:#if __cpp_lib_is_constant_evaluated
-      97*:  362:	if (std::is_constant_evaluated())
+     122*:  362:	if (std::is_constant_evaluated())
 call    0 never executed
 branch  1 never executed (fallthrough)
 branch  2 never executed
@@ -428,7 +428,7 @@ call    9 never executed
 branch 10 never executed (fallthrough)
 branch 11 never executed
 branch 12 taken 0 (fallthrough)
-branch 13 taken 97
+branch 13 taken 122
     #####:  363:	  for (size_type __i = 0; __i <= _S_local_capacity; ++__i)
     %%%%%:  363-block  0
     %%%%%:  363-block  1
@@ -457,7 +457,7 @@ branch  9 never executed (fallthrough)
     %%%%%:  364-block  3
     %%%%%:  364-block  4
         -:  365:#endif
-      97*:  366:	return _M_local_data();
+     122*:  366:	return _M_local_data();
     %%%%%:  366-block  0
 call    0 never executed
     %%%%%:  366-block  1
@@ -466,8 +466,8 @@ call    1 never executed
 call    2 never executed
     %%%%%:  366-block  3
 call    3 never executed
-       97:  366-block  4
-call    4 returned 97
+      122:  366-block  4
+call    4 returned 122
         -:  367:      }
         -:  368:
         -:  369:    private:
@@ -488,13 +488,22 @@ call    4 returned 97
         -:  384:
         -:  385:      _GLIBCXX20_CONSTEXPR
         -:  386:      size_type
-        -:  387:      _M_check(size_type __pos, const char* __s) const
+function _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEyPKc called 36 returned 100% blocks executed 67%
+       36:  387:      _M_check(size_type __pos, const char* __s) const
         -:  388:      {
-        -:  389:	if (__pos > this->size())
-        -:  390:	  __throw_out_of_range_fmt(__N("%s: __pos (which is %zu) > "
+       36:  389:	if (__pos > this->size())
+       36:  389-block  0
+call    0 returned 36
+branch  1 taken 0 (fallthrough)
+branch  2 taken 36
+    #####:  390:	  __throw_out_of_range_fmt(__N("%s: __pos (which is %zu) > "
+    %%%%%:  390-block  0
+call    0 never executed
+call    1 never executed
         -:  391:				       "this->size() (which is %zu)"),
         -:  392:				   __s, __pos, this->size());
-        -:  393:	return __pos;
+       36:  393:	return __pos;
+       36:  393-block  0
         -:  394:      }
         -:  395:
         -:  396:      _GLIBCXX20_CONSTEXPR
@@ -517,18 +526,43 @@ call    0 never executed
         -:  405:      // NB: _M_limit doesn't check for a bad __pos value.
         -:  406:      _GLIBCXX20_CONSTEXPR
         -:  407:      size_type
-        -:  408:      _M_limit(size_type __pos, size_type __off) const _GLIBCXX_NOEXCEPT
+function _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_limitEyy called 18 returned 100% blocks executed 100%
+       18:  408:      _M_limit(size_type __pos, size_type __off) const _GLIBCXX_NOEXCEPT
         -:  409:      {
-        -:  410:	const bool __testoff =  __off < this->size() - __pos;
-        -:  411:	return __testoff ? __off : this->size() - __pos;
+       18:  410:	const bool __testoff =  __off < this->size() - __pos;
+       18:  410-block  0
+call    0 returned 18
+       18:  411:	return __testoff ? __off : this->size() - __pos;
+branch  0 taken 11 (fallthrough)
+branch  1 taken 7
+       11:  411-block  0
+        7:  411-block  1
+call    2 returned 7
+       18:  411-block  2
         -:  412:      }
         -:  413:
         -:  414:      // True if _Rep and source do not overlap.
         -:  415:      bool
-        -:  416:      _M_disjunct(const _CharT* __s) const _GLIBCXX_NOEXCEPT
+function _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_disjunctEPKc called 1 returned 100% blocks executed 92%
+        1:  416:      _M_disjunct(const _CharT* __s) const _GLIBCXX_NOEXCEPT
         -:  417:      {
-        -:  418:	return (less<const _CharT*>()(__s, _M_data())
-        -:  419:		|| less<const _CharT*>()(_M_data() + this->size(), __s));
+        1:  418:	return (less<const _CharT*>()(__s, _M_data())
+        1:  418-block  0
+call    0 returned 1
+call    1 returned 1
+       1*:  419:		|| less<const _CharT*>()(_M_data() + this->size(), __s));
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+        1:  419-block  0
+call    2 returned 1
+call    3 returned 1
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0
+        1:  419-block  1
+    %%%%%:  419-block  2
+        1:  419-block  3
+        1:  419-block  4
         -:  420:      }
         -:  421:
         -:  422:      // When __n = 1 way faster than the general multichar
@@ -553,23 +587,39 @@ call    0 never executed
         -:  433:
         -:  434:      _GLIBCXX20_CONSTEXPR
         -:  435:      static void
-        -:  436:      _S_move(_CharT* __d, const _CharT* __s, size_type __n)
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_moveEPcPKcy called 0 returned 0% blocks executed 0%
+    #####:  436:      _S_move(_CharT* __d, const _CharT* __s, size_type __n)
         -:  437:      {
-        -:  438:	if (__n == 1)
-        -:  439:	  traits_type::assign(*__d, *__s);
+    #####:  438:	if (__n == 1)
+    %%%%%:  438-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:  439:	  traits_type::assign(*__d, *__s);
+    %%%%%:  439-block  0
+call    0 never executed
         -:  440:	else
-        -:  441:	  traits_type::move(__d, __s, __n);
-        -:  442:      }
+    #####:  441:	  traits_type::move(__d, __s, __n);
+    %%%%%:  441-block  0
+call    0 never executed
+    #####:  442:      }
         -:  443:
         -:  444:      _GLIBCXX20_CONSTEXPR
         -:  445:      static void
-        -:  446:      _S_assign(_CharT* __d, size_type __n, _CharT __c)
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_S_assignEPcyc called 0 returned 0% blocks executed 0%
+    #####:  446:      _S_assign(_CharT* __d, size_type __n, _CharT __c)
         -:  447:      {
-        -:  448:	if (__n == 1)
-        -:  449:	  traits_type::assign(*__d, __c);
+    #####:  448:	if (__n == 1)
+    %%%%%:  448-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:  449:	  traits_type::assign(*__d, __c);
+    %%%%%:  449-block  0
+call    0 never executed
         -:  450:	else
-        -:  451:	  traits_type::assign(__d, __n, __c);
-        -:  452:      }
+    #####:  451:	  traits_type::assign(__d, __n, __c);
+    %%%%%:  451-block  0
+call    0 never executed
+    #####:  452:      }
         -:  453:
         -:  454:      // _S_copy_chars is a separate template to permit specialization
         -:  455:      // to optimize for the common case of pointers as iterators.
@@ -656,22 +706,22 @@ branch  1 never executed
         -:  520:       *  @brief  Default constructor creates an empty string.
         -:  521:       */
         -:  522:      _GLIBCXX20_CONSTEXPR
-function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev called 97 returned 100% blocks executed 79%
-       97:  523:      basic_string()
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev called 122 returned 100% blocks executed 79%
+      122:  523:      basic_string()
         -:  524:      _GLIBCXX_NOEXCEPT_IF(is_nothrow_default_constructible<_Alloc>::value)
-      291:  525:      : _M_dataplus(_M_local_data())
-       97:  525-block  0
-       97:  525-block  1
-call    0 returned 97
-call    1 returned 97
-       97:  525-block  2
-call    2 returned 97
+      366:  525:      : _M_dataplus(_M_local_data())
+      122:  525-block  0
+      122:  525-block  1
+call    0 returned 122
+call    1 returned 122
+      122:  525-block  2
+call    2 returned 122
         -:  526:      {
         -:  527:	_M_use_local_data();
-       97:  528:	_M_set_length(0);
-       97:  528-block  0
-call    0 returned 97
-       97:  529:      }
+      122:  528:	_M_set_length(0);
+      122:  528-block  0
+call    0 returned 122
+      122:  529:      }
         -:  530:
         -:  531:      /**
         -:  532:       *  @brief  Construct an empty string using allocator @a a.
@@ -1020,12 +1070,12 @@ call    1 never executed
         -:  808:       */
         -:  809:      _GLIBCXX20_CONSTEXPR
         -:  810:      basic_string&
-function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_ called 70 returned 100% blocks executed 100%
-       70:  811:      operator=(const basic_string& __str)
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_ called 105 returned 100% blocks executed 100%
+      105:  811:      operator=(const basic_string& __str)
         -:  812:      {
-       70:  813:	return this->assign(__str);
-       70:  813-block  0
-call    0 returned 70
+      105:  813:	return this->assign(__str);
+      105:  813-block  0
+call    0 returned 105
         -:  814:      }
         -:  815:
         -:  816:      /**
@@ -1034,8 +1084,11 @@ call    0 returned 70
         -:  819:       */
         -:  820:      _GLIBCXX20_CONSTEXPR
         -:  821:      basic_string&
-        -:  822:      operator=(const _CharT* __s)
-        -:  823:      { return this->assign(__s); }
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc called 2 returned 100% blocks executed 100%
+        2:  822:      operator=(const _CharT* __s)
+        2:  823:      { return this->assign(__s); }
+        2:  823-block  0
+call    0 returned 2
         -:  824:
         -:  825:      /**
         -:  826:       *  @brief  Set value to string of length 1.
@@ -1452,8 +1505,11 @@ branch  2 never executed
         -: 1216:       */
         -: 1217:      _GLIBCXX_NODISCARD _GLIBCXX20_CONSTEXPR
         -: 1218:      bool
-        -: 1219:      empty() const _GLIBCXX_NOEXCEPT
-        -: 1220:      { return this->size() == 0; }
+function _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv called 22 returned 100% blocks executed 100%
+       22: 1219:      empty() const _GLIBCXX_NOEXCEPT
+       22: 1220:      { return this->size() == 0; }
+       22: 1220-block  0
+call    0 returned 22
         -: 1221:
         -: 1222:      // Element access:
         -: 1223:      /**
@@ -1611,8 +1667,11 @@ call    0 never executed
         -: 1372:       */
         -: 1373:      _GLIBCXX20_CONSTEXPR
         -: 1374:      basic_string&
-        -: 1375:      operator+=(const _CharT* __s)
-        -: 1376:      { return this->append(__s); }
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc called 0 returned 0% blocks executed 0%
+    #####: 1375:      operator+=(const _CharT* __s)
+    #####: 1376:      { return this->append(__s); }
+    %%%%%: 1376-block  0
+call    0 never executed
         -: 1377:
         -: 1378:      /**
         -: 1379:       *  @brief  Append a character.
@@ -1713,12 +1772,17 @@ call    0 never executed
         -: 1465:       */
         -: 1466:      _GLIBCXX20_CONSTEXPR
         -: 1467:      basic_string&
-        -: 1468:      append(const _CharT* __s)
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc called 0 returned 0% blocks executed 0%
+    #####: 1468:      append(const _CharT* __s)
         -: 1469:      {
         -: 1470:	__glibcxx_requires_string(__s);
-        -: 1471:	const size_type __n = traits_type::length(__s);
-        -: 1472:	_M_check_length(size_type(0), __n, "basic_string::append");
-        -: 1473:	return _M_append(__s, __n);
+    #####: 1471:	const size_type __n = traits_type::length(__s);
+    %%%%%: 1471-block  0
+call    0 never executed
+    #####: 1472:	_M_check_length(size_type(0), __n, "basic_string::append");
+call    0 never executed
+    #####: 1473:	return _M_append(__s, __n);
+call    0 never executed
         -: 1474:      }
         -: 1475:
         -: 1476:      /**
@@ -1821,15 +1885,15 @@ call    0 never executed
         -: 1573:       */
         -: 1574:      _GLIBCXX20_CONSTEXPR
         -: 1575:      basic_string&
-function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignERKS4_ called 70 returned 100% blocks executed 12%
-       70: 1576:      assign(const basic_string& __str)
-       70: 1576-block  0
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignERKS4_ called 105 returned 100% blocks executed 12%
+      105: 1576:      assign(const basic_string& __str)
+      105: 1576-block  0
         -: 1577:      {
         -: 1578:#if __cplusplus >= 201103L
-       70: 1579:	if (_Alloc_traits::_S_propagate_on_copy_assign())
-       70: 1579-block  0
+      105: 1579:	if (_Alloc_traits::_S_propagate_on_copy_assign())
+      105: 1579-block  0
 branch  0 taken 0 (fallthrough)
-branch  1 taken 70
+branch  1 taken 105
         -: 1580:	  {
     #####: 1581:	    if (!_Alloc_traits::_S_always_equal() && !_M_is_local()
     %%%%%: 1581-block  0
@@ -1899,11 +1963,11 @@ call    0 never executed
 call    1 never executed
         -: 1605:	  }
         -: 1606:#endif
-       70: 1607:	this->_M_assign(__str);
-       70: 1607-block  0
-call    0 returned 70
-       70: 1608:	return *this;
-       70: 1608-block  0
+      105: 1607:	this->_M_assign(__str);
+      105: 1607-block  0
+call    0 returned 105
+      105: 1608:	return *this;
+      105: 1608-block  0
         -: 1609:      }
         -: 1610:
         -: 1611:#if __cplusplus >= 201103L
@@ -1975,11 +2039,16 @@ call    0 returned 70
         -: 1677:       */
         -: 1678:      _GLIBCXX20_CONSTEXPR
         -: 1679:      basic_string&
-        -: 1680:      assign(const _CharT* __s)
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKc called 2 returned 100% blocks executed 100%
+        2: 1680:      assign(const _CharT* __s)
         -: 1681:      {
         -: 1682:	__glibcxx_requires_string(__s);
-        -: 1683:	return _M_replace(size_type(0), this->size(), __s,
-        -: 1684:			  traits_type::length(__s));
+        2: 1683:	return _M_replace(size_type(0), this->size(), __s,
+        2: 1683-block  0
+call    0 returned 2
+call    1 returned 2
+call    2 returned 2
+        2: 1684:			  traits_type::length(__s));
         -: 1685:      }
         -: 1686:
         -: 1687:      /**
@@ -2363,14 +2432,28 @@ call    0 returned 70
         -: 2065:      */
         -: 2066:      _GLIBCXX20_CONSTEXPR
         -: 2067:      basic_string&
-        -: 2068:      erase(size_type __pos = 0, size_type __n = npos)
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEyy called 0 returned 0% blocks executed 0%
+    #####: 2068:      erase(size_type __pos = 0, size_type __n = npos)
         -: 2069:      {
-        -: 2070:	_M_check(__pos, "basic_string::erase");
-        -: 2071:	if (__n == npos)
-        -: 2072:	  this->_M_set_length(__pos);
-        -: 2073:	else if (__n != 0)
-        -: 2074:	  this->_M_erase(__pos, _M_limit(__pos, __n));
-        -: 2075:	return *this;
+    #####: 2070:	_M_check(__pos, "basic_string::erase");
+    %%%%%: 2070-block  0
+call    0 never executed
+    #####: 2071:	if (__n == npos)
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####: 2072:	  this->_M_set_length(__pos);
+    %%%%%: 2072-block  0
+call    0 never executed
+    #####: 2073:	else if (__n != 0)
+    %%%%%: 2073-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####: 2074:	  this->_M_erase(__pos, _M_limit(__pos, __n));
+    %%%%%: 2074-block  0
+call    0 never executed
+call    1 never executed
+    #####: 2075:	return *this;
+    %%%%%: 2075-block  0
         -: 2076:      }
         -: 2077:
         -: 2078:      /**
@@ -2549,9 +2632,14 @@ call    0 returned 70
         -: 2251:      */
         -: 2252:      _GLIBCXX20_CONSTEXPR
         -: 2253:      basic_string&
-        -: 2254:      replace(size_type __pos, size_type __n1, size_type __n2, _CharT __c)
-        -: 2255:      { return _M_replace_aux(_M_check(__pos, "basic_string::replace"),
-        -: 2256:			      _M_limit(__pos, __n1), __n2, __c); }
+function _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEyyyc called 0 returned 0% blocks executed 0%
+    #####: 2254:      replace(size_type __pos, size_type __n1, size_type __n2, _CharT __c)
+    #####: 2255:      { return _M_replace_aux(_M_check(__pos, "basic_string::replace"),
+    %%%%%: 2255-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+    #####: 2256:			      _M_limit(__pos, __n1), __n2, __c); }
         -: 2257:
         -: 2258:      /**
         -: 2259:       *  @brief  Replace range of characters with string.
@@ -3704,17 +3792,37 @@ call    0 never executed
         -: 3379:      */
         -: 3380:      _GLIBCXX_NODISCARD _GLIBCXX20_CONSTEXPR
         -: 3381:      int
-        -: 3382:      compare(size_type __pos, size_type __n1, const _CharT* __s) const
+function _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEyyPKc called 0 returned 0% blocks executed 0%
+    #####: 3382:      compare(size_type __pos, size_type __n1, const _CharT* __s) const
         -: 3383:      {
         -: 3384:	__glibcxx_requires_string(__s);
-        -: 3385:	_M_check(__pos, "basic_string::compare");
-        -: 3386:	__n1 = _M_limit(__pos, __n1);
-        -: 3387:	const size_type __osize = traits_type::length(__s);
-        -: 3388:	const size_type __len = std::min(__n1, __osize);
-        -: 3389:	int __r = traits_type::compare(_M_data() + __pos, __s, __len);
-        -: 3390:	if (!__r)
-        -: 3391:	  __r = _S_compare(__n1, __osize);
-        -: 3392:	return __r;
+    #####: 3385:	_M_check(__pos, "basic_string::compare");
+    %%%%%: 3385-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    #####: 3386:	__n1 = _M_limit(__pos, __n1);
+    %%%%%: 3386-block  0
+call    0 never executed
+    #####: 3387:	const size_type __osize = traits_type::length(__s);
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    #####: 3388:	const size_type __len = std::min(__n1, __osize);
+    %%%%%: 3388-block  0
+call    0 never executed
+    #####: 3389:	int __r = traits_type::compare(_M_data() + __pos, __s, __len);
+call    0 never executed
+call    1 never executed
+    #####: 3390:	if (!__r)
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####: 3391:	  __r = _S_compare(__n1, __osize);
+    %%%%%: 3391-block  0
+call    0 never executed
+    #####: 3392:	return __r;
+    %%%%%: 3392-block  0
+    %%%%%: 3392-block  1
         -: 3393:      }
         -: 3394:
         -: 3395:      /**

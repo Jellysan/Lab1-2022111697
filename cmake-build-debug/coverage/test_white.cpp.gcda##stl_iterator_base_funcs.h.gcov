@@ -82,28 +82,28 @@
         -:   78:  template<typename _InputIterator>
         -:   79:    inline _GLIBCXX14_CONSTEXPR
         -:   80:    typename iterator_traits<_InputIterator>::difference_type
-function _ZSt10__distanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEENSt15iterator_traitsIT_E15difference_typeESC_SC_St18input_iterator_tag called 12 returned 100% blocks executed 100%
-       12:   81:    __distance(_InputIterator __first, _InputIterator __last,
+function _ZSt10__distanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEENSt15iterator_traitsIT_E15difference_typeESC_SC_St18input_iterator_tag called 10 returned 100% blocks executed 100%
+       10:   81:    __distance(_InputIterator __first, _InputIterator __last,
         -:   82:               input_iterator_tag)
         -:   83:    {
         -:   84:      // concept requirements
         -:   85:      __glibcxx_function_requires(_InputIteratorConcept<_InputIterator>)
         -:   86:
-       12:   87:      typename iterator_traits<_InputIterator>::difference_type __n = 0;
-       24:   88:      while (__first != __last)
-       12:   88-block  0
-       24:   88-block  1
-call    0 returned 24
-branch  1 taken 12
-branch  2 taken 12 (fallthrough)
+       10:   87:      typename iterator_traits<_InputIterator>::difference_type __n = 0;
+       21:   88:      while (__first != __last)
+       10:   88-block  0
+       21:   88-block  1
+call    0 returned 21
+branch  1 taken 11
+branch  2 taken 10 (fallthrough)
         -:   89:	{
-       12:   90:	  ++__first;
-       12:   90-block  0
-call    0 returned 12
-       12:   91:	  ++__n;
+       11:   90:	  ++__first;
+       11:   90-block  0
+call    0 returned 11
+       11:   91:	  ++__n;
         -:   92:	}
-       12:   93:      return __n;
-       12:   93-block  0
+       10:   93:      return __n;
+       10:   93-block  0
         -:   94:    }
         -:   95:
         -:   96:  template<typename _RandomAccessIterator>
@@ -161,12 +161,12 @@ call    0 returned 12
         -:  148:    distance(_InputIterator __first, _InputIterator __last)
         -:  149:    {
         -:  150:      // concept requirements -- taken care of in __distance
-      12*:  151:      return std::__distance(__first, __last,
-      12*:  152:			     std::__iterator_category(__first));
-       12:  152-block  0
-call    0 returned 12
-       12:  152-block  1
-       12:  152-block  2
+      10*:  151:      return std::__distance(__first, __last,
+      10*:  152:			     std::__iterator_category(__first));
+       10:  152-block  0
+call    0 returned 10
+       10:  152-block  1
+       10:  152-block  2
     %%%%%:  152-block  3
     %%%%%:  152-block  4
     %%%%%:  152-block  5
@@ -188,35 +188,35 @@ call    0 returned 12
         -:  165:
         -:  166:  template<typename _BidirectionalIterator, typename _Distance>
         -:  167:    inline _GLIBCXX14_CONSTEXPR void
-function _ZSt9__advanceISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEExEvRT_T0_St26bidirectional_iterator_tag called 5 returned 100% blocks executed 88%
-        5:  168:    __advance(_BidirectionalIterator& __i, _Distance __n,
+function _ZSt9__advanceISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEExEvRT_T0_St26bidirectional_iterator_tag called 7 returned 100% blocks executed 88%
+        7:  168:    __advance(_BidirectionalIterator& __i, _Distance __n,
         -:  169:	      bidirectional_iterator_tag)
         -:  170:    {
         -:  171:      // concept requirements
         -:  172:      __glibcxx_function_requires(_BidirectionalIteratorConcept<
         -:  173:				  _BidirectionalIterator>)
-        5:  174:      if (__n > 0)
-        5:  174-block  0
-branch  0 taken 3 (fallthrough)
-branch  1 taken 2
-        6:  175:        while (__n--)
-        3:  175-block  0
-        6:  175-block  1
-branch  0 taken 3
+        7:  174:      if (__n > 0)
+        7:  174-block  0
+branch  0 taken 4 (fallthrough)
 branch  1 taken 3
-        3:  176:	  ++__i;
-        3:  176-block  0
-call    0 returned 3
+        9:  175:        while (__n--)
+        4:  175-block  0
+        9:  175-block  1
+branch  0 taken 5
+branch  1 taken 4
+        5:  176:	  ++__i;
+        5:  176-block  0
+call    0 returned 5
         -:  177:      else
-        2:  178:        while (__n++)
-        2:  178-block  0
-        2:  178-block  1
+        3:  178:        while (__n++)
+        3:  178-block  0
+        3:  178-block  1
 branch  0 taken 0
-branch  1 taken 2 (fallthrough)
+branch  1 taken 3 (fallthrough)
     #####:  179:	  --__i;
     %%%%%:  179-block  0
 call    0 never executed
-        5:  180:    }
+        7:  180:    }
         -:  181:
         -:  182:  template<typename _RandomAccessIterator, typename _Distance>
         -:  183:    inline _GLIBCXX14_CONSTEXPR void
@@ -259,12 +259,12 @@ call    0 never executed
         -:  220:    advance(_InputIterator& __i, _Distance __n)
         -:  221:    {
         -:  222:      // concept requirements -- taken care of in __advance
-        5:  223:      typename iterator_traits<_InputIterator>::difference_type __d = __n;
-        5:  223-block  0
-        5:  224:      std::__advance(__i, __d, std::__iterator_category(__i));
-        5:  224-block  0
-call    0 returned 5
-        5:  225:    }
+        7:  223:      typename iterator_traits<_InputIterator>::difference_type __d = __n;
+        7:  223-block  0
+        7:  224:      std::__advance(__i, __d, std::__iterator_category(__i));
+        7:  224-block  0
+call    0 returned 7
+        7:  225:    }
         -:  226:
         -:  227:#if __cplusplus >= 201103L
         -:  228:

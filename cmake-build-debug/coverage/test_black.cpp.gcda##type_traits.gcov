@@ -3645,14 +3645,14 @@
         -: 3641:  /// Returns true only when called during constant evaluation.
         -: 3642:  /// @since C++20
         -: 3643:  constexpr inline bool
-function _ZSt21is_constant_evaluatedv called 317 returned 100% blocks executed 100%
-      317: 3644:  is_constant_evaluated() noexcept
+function _ZSt21is_constant_evaluatedv called 375 returned 100% blocks executed 100%
+      375: 3644:  is_constant_evaluated() noexcept
         -: 3645:  {
         -: 3646:#if __cpp_if_consteval >= 202106L
         -: 3647:    if consteval { return true; } else { return false; }
         -: 3648:#else
-      317: 3649:    return __builtin_is_constant_evaluated();
-      317: 3649-block  0
+      375: 3649:    return __builtin_is_constant_evaluated();
+      375: 3649-block  0
         -: 3650:#endif
         -: 3651:  }
         -: 3652:#endif

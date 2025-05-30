@@ -285,10 +285,10 @@ function _ZNSt9__cmp_cat8__unspecC1EPS0_ called 0 returned 0% blocks executed 0%
         -:  280:    // comparisons
         -:  281:    [[nodiscard]]
         -:  282:    friend constexpr bool
-function _ZSteqSt15strong_orderingNSt9__cmp_cat8__unspecE called 30 returned 100% blocks executed 100%
-       30:  283:    operator==(strong_ordering __v, __cmp_cat::__unspec) noexcept
-       30:  284:    { return __v._M_value == 0; }
-       30:  284-block  0
+function _ZSteqSt15strong_orderingNSt9__cmp_cat8__unspecE called 23 returned 100% blocks executed 100%
+       23:  283:    operator==(strong_ordering __v, __cmp_cat::__unspec) noexcept
+       23:  284:    { return __v._M_value == 0; }
+       23:  284-block  0
         -:  285:
         -:  286:    [[nodiscard]]
         -:  287:    friend constexpr bool
@@ -1220,8 +1220,8 @@ function _ZStltSt15strong_orderingNSt9__cmp_cat8__unspecE called 0 returned 0% b
         -: 1211:      template<typename _Tp, typename _Up>
         -: 1212:	[[nodiscard]]
         -: 1213:	constexpr auto
-function _ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDaRKT_RKT0_ called 36 returned 100% blocks executed 100%
-       36: 1214:	operator()(const _Tp& __t, const _Up& __u) const
+function _ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDaRKT_RKT0_ called 27 returned 100% blocks executed 100%
+       27: 1214:	operator()(const _Tp& __t, const _Up& __u) const
         -: 1215:	noexcept(_S_noexcept<_Tp, _Up>())
         -: 1216:	requires requires
         -: 1217:	{
@@ -1230,9 +1230,9 @@ function _ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_trait
         -: 1220:	}
         -: 1221:	{
         -: 1222:	  if constexpr (three_way_comparable_with<_Tp, _Up>)
-       36: 1223:	    return __t <=> __u;
-       36: 1223-block  0
-call    0 returned 36
+       27: 1223:	    return __t <=> __u;
+       27: 1223-block  0
+call    0 returned 27
         -: 1224:	  else
         -: 1225:	    {
         -: 1226:	      if (__t < __u)

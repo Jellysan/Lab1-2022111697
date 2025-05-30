@@ -327,33 +327,33 @@
         -:  323:	   _UIntType __b, size_t __t, _UIntType __c, size_t __l,
         -:  324:	   _UIntType __f>
         -:  325:    void
-function _ZNSt23mersenne_twister_engineIjLy32ELy624ELy397ELy31ELj2567483615ELy11ELj4294967295ELy7ELj2636928640ELy15ELj4022730752ELy18ELj1812433253EE4seedEj called 5 returned 100% blocks executed 100%
-        5:  326:    mersenne_twister_engine<_UIntType, __w, __n, __m, __r, __a, __u, __d,
+function _ZNSt23mersenne_twister_engineIjLy32ELy624ELy397ELy31ELj2567483615ELy11ELj4294967295ELy7ELj2636928640ELy15ELj4022730752ELy18ELj1812433253EE4seedEj called 7 returned 100% blocks executed 100%
+        7:  326:    mersenne_twister_engine<_UIntType, __w, __n, __m, __r, __a, __u, __d,
         -:  327:			    __s, __b, __t, __c, __l, __f>::
         -:  328:    seed(result_type __sd)
         -:  329:    {
-        5:  330:      _M_x[0] = __detail::__mod<_UIntType,
-        5:  331:	__detail::_Shift<_UIntType, __w>::__value>(__sd);
-        5:  331-block  0
-call    0 returned 5
+        7:  330:      _M_x[0] = __detail::__mod<_UIntType,
+        7:  331:	__detail::_Shift<_UIntType, __w>::__value>(__sd);
+        7:  331-block  0
+call    0 returned 7
         -:  332:
-     3120:  333:      for (size_t __i = 1; __i < state_size; ++__i)
-     3120:  333-block  0
-branch  0 taken 3115
-branch  1 taken 5 (fallthrough)
+     4368:  333:      for (size_t __i = 1; __i < state_size; ++__i)
+     4368:  333-block  0
+branch  0 taken 4361
+branch  1 taken 7 (fallthrough)
         -:  334:	{
-     3115:  335:	  _UIntType __x = _M_x[__i - 1];
-     3115:  336:	  __x ^= __x >> (__w - 2);
-     3115:  337:	  __x *= __f;
-     3115:  338:	  __x += __detail::__mod<_UIntType, __n>(__i);
-     3115:  338-block  0
-call    0 returned 3115
-     3115:  339:	  _M_x[__i] = __detail::__mod<_UIntType,
-     3115:  340:	    __detail::_Shift<_UIntType, __w>::__value>(__x);
-call    0 returned 3115
+     4361:  335:	  _UIntType __x = _M_x[__i - 1];
+     4361:  336:	  __x ^= __x >> (__w - 2);
+     4361:  337:	  __x *= __f;
+     4361:  338:	  __x += __detail::__mod<_UIntType, __n>(__i);
+     4361:  338-block  0
+call    0 returned 4361
+     4361:  339:	  _M_x[__i] = __detail::__mod<_UIntType,
+     4361:  340:	    __detail::_Shift<_UIntType, __w>::__value>(__x);
+call    0 returned 4361
         -:  341:	}
-        5:  342:      _M_p = state_size;
-        5:  343:    }
+        7:  342:      _M_p = state_size;
+        7:  343:    }
         -:  344:
         -:  345:  template<typename _UIntType,
         -:  346:	   size_t __w, size_t __n, size_t __m, size_t __r,
@@ -407,61 +407,61 @@ call    0 returned 3115
         -:  394:	   _UIntType __b, size_t __t, _UIntType __c, size_t __l,
         -:  395:	   _UIntType __f>
         -:  396:    void
-function _ZNSt23mersenne_twister_engineIjLy32ELy624ELy397ELy31ELj2567483615ELy11ELj4294967295ELy7ELj2636928640ELy15ELj4022730752ELy18ELj1812433253EE11_M_gen_randEv called 5 returned 100% blocks executed 100%
-        5:  397:    mersenne_twister_engine<_UIntType, __w, __n, __m, __r, __a, __u, __d,
+function _ZNSt23mersenne_twister_engineIjLy32ELy624ELy397ELy31ELj2567483615ELy11ELj4294967295ELy7ELj2636928640ELy15ELj4022730752ELy18ELj1812433253EE11_M_gen_randEv called 7 returned 100% blocks executed 100%
+        7:  397:    mersenne_twister_engine<_UIntType, __w, __n, __m, __r, __a, __u, __d,
         -:  398:			    __s, __b, __t, __c, __l, __f>::
         -:  399:    _M_gen_rand(void)
         -:  400:    {
-        5:  401:      const _UIntType __upper_mask = (~_UIntType()) << __r;
-        5:  402:      const _UIntType __lower_mask = ~__upper_mask;
+        7:  401:      const _UIntType __upper_mask = (~_UIntType()) << __r;
+        7:  402:      const _UIntType __lower_mask = ~__upper_mask;
         -:  403:
-     1140:  404:      for (size_t __k = 0; __k < (__n - __m); ++__k)
-        5:  404-block  0
-     1140:  404-block  1
-branch  0 taken 1135
-branch  1 taken 5 (fallthrough)
+     1596:  404:      for (size_t __k = 0; __k < (__n - __m); ++__k)
+        7:  404-block  0
+     1596:  404-block  1
+branch  0 taken 1589
+branch  1 taken 7 (fallthrough)
         -:  405:        {
-     1135:  406:	  _UIntType __y = ((_M_x[__k] & __upper_mask)
-     1135:  407:			   | (_M_x[__k + 1] & __lower_mask));
-     2270:  408:	  _M_x[__k] = (_M_x[__k + __m] ^ (__y >> 1)
-     1135:  409:		       ^ ((__y & 0x01) ? __a : 0));
-     1135:  409-block  0
-branch  0 taken 574 (fallthrough)
-branch  1 taken 561
-      574:  409-block  1
-      561:  409-block  2
-     1135:  409-block  3
+     1589:  406:	  _UIntType __y = ((_M_x[__k] & __upper_mask)
+     1589:  407:			   | (_M_x[__k + 1] & __lower_mask));
+     3178:  408:	  _M_x[__k] = (_M_x[__k + __m] ^ (__y >> 1)
+     1589:  409:		       ^ ((__y & 0x01) ? __a : 0));
+     1589:  409-block  0
+branch  0 taken 777 (fallthrough)
+branch  1 taken 812
+      777:  409-block  1
+      812:  409-block  2
+     1589:  409-block  3
         -:  410:        }
         -:  411:
-     1985:  412:      for (size_t __k = (__n - __m); __k < (__n - 1); ++__k)
-        5:  412-block  0
-     1985:  412-block  1
-branch  0 taken 1980
-branch  1 taken 5 (fallthrough)
+     2779:  412:      for (size_t __k = (__n - __m); __k < (__n - 1); ++__k)
+        7:  412-block  0
+     2779:  412-block  1
+branch  0 taken 2772
+branch  1 taken 7 (fallthrough)
         -:  413:	{
-     1980:  414:	  _UIntType __y = ((_M_x[__k] & __upper_mask)
-     1980:  415:			   | (_M_x[__k + 1] & __lower_mask));
-     3960:  416:	  _M_x[__k] = (_M_x[__k + (__m - __n)] ^ (__y >> 1)
-     1980:  417:		       ^ ((__y & 0x01) ? __a : 0));
-     1980:  417-block  0
-branch  0 taken 941 (fallthrough)
-branch  1 taken 1039
-      941:  417-block  1
-     1039:  417-block  2
-     1980:  417-block  3
+     2772:  414:	  _UIntType __y = ((_M_x[__k] & __upper_mask)
+     2772:  415:			   | (_M_x[__k + 1] & __lower_mask));
+     5544:  416:	  _M_x[__k] = (_M_x[__k + (__m - __n)] ^ (__y >> 1)
+     2772:  417:		       ^ ((__y & 0x01) ? __a : 0));
+     2772:  417-block  0
+branch  0 taken 1364 (fallthrough)
+branch  1 taken 1408
+     1364:  417-block  1
+     1408:  417-block  2
+     2772:  417-block  3
         -:  418:	}
         -:  419:
-        5:  420:      _UIntType __y = ((_M_x[__n - 1] & __upper_mask)
-        5:  421:		       | (_M_x[0] & __lower_mask));
-       10:  422:      _M_x[__n - 1] = (_M_x[__m - 1] ^ (__y >> 1)
-        5:  423:		       ^ ((__y & 0x01) ? __a : 0));
-        5:  423-block  0
+        7:  420:      _UIntType __y = ((_M_x[__n - 1] & __upper_mask)
+        7:  421:		       | (_M_x[0] & __lower_mask));
+       14:  422:      _M_x[__n - 1] = (_M_x[__m - 1] ^ (__y >> 1)
+        7:  423:		       ^ ((__y & 0x01) ? __a : 0));
+        7:  423-block  0
 branch  0 taken 3 (fallthrough)
-branch  1 taken 2
+branch  1 taken 4
         3:  423-block  1
-        2:  423-block  2
-        5:  424:      _M_p = 0;
-        5:  425:    }
+        4:  423-block  2
+        7:  424:      _M_p = 0;
+        7:  425:    }
         -:  426:
         -:  427:  template<typename _UIntType, size_t __w,
         -:  428:	   size_t __n, size_t __m, size_t __r,
@@ -497,11 +497,11 @@ function _ZNSt23mersenne_twister_engineIjLy32ELy624ELy397ELy31ELj2567483615ELy11
         -:  457:      // Reload the vector - cost is O(n) amortized over n calls.
        17:  458:      if (_M_p >= state_size)
        17:  458-block  0
-branch  0 taken 5 (fallthrough)
-branch  1 taken 12
-        5:  459:	_M_gen_rand();
-        5:  459-block  0
-call    0 returned 5
+branch  0 taken 7 (fallthrough)
+branch  1 taken 10
+        7:  459:	_M_gen_rand();
+        7:  459-block  0
+call    0 returned 7
         -:  460:
         -:  461:      // Calculate o(x(i)).
        17:  462:      result_type __z = _M_x[_M_p++];
