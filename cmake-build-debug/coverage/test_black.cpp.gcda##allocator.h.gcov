@@ -164,11 +164,11 @@
         -:  160:      // 3035. std::allocator's constructors should be constexpr
         -:  161:      __attribute__((__always_inline__))
         -:  162:      _GLIBCXX20_CONSTEXPR
-      23*:  163:      allocator() _GLIBCXX_NOTHROW { }
-        5:  163-block  0
-        5:  163-block  1
-        7:  163-block  2
-        6:  163-block  3
+      37*:  163:      allocator() _GLIBCXX_NOTHROW { }
+        8:  163-block  0
+        8:  163-block  1
+       12:  163-block  2
+        9:  163-block  3
     %%%%%:  163-block  4
     %%%%%:  163-block  5
     %%%%%:  163-block  6
@@ -206,12 +206,12 @@
         -:  165:      __attribute__((__always_inline__))
         -:  166:      _GLIBCXX20_CONSTEXPR
         -:  167:      allocator(const allocator& __a) _GLIBCXX_NOTHROW
-      648:  168:      : __allocator_base<_Tp>(__a) { }
-       22:  168-block  0
-       22:  168-block  1
-      103:  168-block  2
-       97:  168-block  3
-      404:  168-block  4
+      748:  168:      : __allocator_base<_Tp>(__a) { }
+       24:  168-block  0
+       24:  168-block  1
+      115:  168-block  2
+      123:  168-block  3
+      462:  168-block  4
         -:  169:
         -:  170:#if __cplusplus >= 201103L
         -:  171:      // Avoid implicit deprecation.
@@ -227,7 +227,7 @@
         -:  181:#if __cpp_constexpr_dynamic_alloc
         -:  182:      constexpr
         -:  183:#endif
-     134*:  184:      ~allocator() _GLIBCXX_NOTHROW { }
+     147*:  184:      ~allocator() _GLIBCXX_NOTHROW { }
     $$$$$:  184-block  0
     $$$$$:  184-block  1
     $$$$$:  184-block  2
@@ -261,7 +261,7 @@
     $$$$$:  184-block 30
     $$$$$:  184-block 31
     $$$$$:  184-block 32
-        9:  184-block 33
+        8:  184-block 33
     $$$$$:  184-block 34
         -:  185:
         -:  186:#if __cplusplus > 201703L
@@ -269,19 +269,19 @@
         -:  188:      constexpr _Tp*
         -:  189:      allocate(size_t __n)
         -:  190:      {
-      137:  191:	if (std::__is_constant_evaluated())
-call    0 returned 9
+      162:  191:	if (std::__is_constant_evaluated())
+call    0 returned 17
 branch  1 taken 0 (fallthrough)
-branch  2 taken 9
-call    3 returned 7
+branch  2 taken 17
+call    3 returned 13
 branch  4 taken 0 (fallthrough)
-branch  5 taken 7
-call    6 returned 7
+branch  5 taken 13
+call    6 returned 12
 branch  7 taken 0 (fallthrough)
-branch  8 taken 7
-call    9 returned 114
+branch  8 taken 12
+call    9 returned 120
 branch 10 taken 0 (fallthrough)
-branch 11 taken 114
+branch 11 taken 120
         -:  192:	  {
     #####:  193:	    if (__builtin_mul_overflow(__n, sizeof(_Tp), &__n))
     %%%%%:  193-block  0
@@ -316,37 +316,37 @@ call    2 never executed
 call    3 never executed
         -:  196:	  }
         -:  197:
-      137:  198:	return __allocator_base<_Tp>::allocate(__n, 0);
-        9:  198-block  0
-call    0 returned 9
-        7:  198-block  1
-call    1 returned 7
-        7:  198-block  2
-call    2 returned 7
-      114:  198-block  3
-call    3 returned 114
+      162:  198:	return __allocator_base<_Tp>::allocate(__n, 0);
+       17:  198-block  0
+call    0 returned 17
+       13:  198-block  1
+call    1 returned 13
+       12:  198-block  2
+call    2 returned 12
+      120:  198-block  3
+call    3 returned 120
         -:  199:      }
         -:  200:
         -:  201:      [[__gnu__::__always_inline__]]
         -:  202:      constexpr void
         -:  203:      deallocate(_Tp* __p, size_t __n)
         -:  204:      {
-     146*:  205:	if (std::__is_constant_evaluated())
-call    0 returned 7
+     169*:  205:	if (std::__is_constant_evaluated())
+call    0 returned 12
 branch  1 taken 0 (fallthrough)
-branch  2 taken 7
+branch  2 taken 12
 call    3 never executed
 branch  4 never executed (fallthrough)
 branch  5 never executed
-call    6 returned 7
+call    6 returned 13
 branch  7 taken 0 (fallthrough)
-branch  8 taken 7
-call    9 returned 9
+branch  8 taken 13
+call    9 returned 17
 branch 10 taken 0 (fallthrough)
-branch 11 taken 9
-call   12 returned 123
+branch 11 taken 17
+call   12 returned 127
 branch 13 taken 0 (fallthrough)
-branch 14 taken 123
+branch 14 taken 127
         -:  206:	  {
     #####:  207:	    ::operator delete(__p);
     %%%%%:  207-block  0
@@ -361,17 +361,17 @@ call    3 never executed
 call    4 never executed
     #####:  208:	    return;
         -:  209:	  }
-     146*:  210:	__allocator_base<_Tp>::deallocate(__p, __n);
-        7:  210-block  0
-call    0 returned 7
+     169*:  210:	__allocator_base<_Tp>::deallocate(__p, __n);
+       12:  210-block  0
+call    0 returned 12
     %%%%%:  210-block  1
 call    1 never executed
-        7:  210-block  2
-call    2 returned 7
-        9:  210-block  3
-call    3 returned 9
-      123:  210-block  4
-call    4 returned 123
+       13:  210-block  2
+call    2 returned 13
+       17:  210-block  3
+call    3 returned 17
+      127:  210-block  4
+call    4 returned 127
         -:  211:      }
         -:  212:#endif // C++20
         -:  213:

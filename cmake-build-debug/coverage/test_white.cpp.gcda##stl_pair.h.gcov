@@ -199,11 +199,11 @@
         -:  195:
         -:  196:#if __cplusplus >= 201103L
         -:  197:      constexpr pair(const pair&) = default;	///< Copy constructor
-function _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC1EOS6_ called 9 returned 100% blocks executed 100%
-        9:  198:      constexpr pair(pair&&) = default;		///< Move constructor
-        9:  198-block  0
-call    0 returned 9
-call    1 returned 9
+function _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC1EOS6_ called 8 returned 100% blocks executed 100%
+        8:  198:      constexpr pair(pair&&) = default;		///< Move constructor
+        8:  198-block  0
+call    0 returned 8
+call    1 returned 8
         -:  199:
         -:  200:      template<typename... _Args1, typename... _Args2>
         -:  201:	_GLIBCXX20_CONSTEXPR
@@ -321,10 +321,10 @@ function _ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC1ERKS1_S4_ called 0 returned 0% 
         -:  312:      template<typename _U1, typename _U2>
         -:  313:	requires (_S_constructible<_U1, _U2>()) && (!_S_dangles<_U1, _U2>())
         -:  314:	constexpr explicit(!_S_convertible<_U1, _U2>())
-      48*:  315:	pair(_U1&& __x, _U2&& __y)
+      42*:  315:	pair(_U1&& __x, _U2&& __y)
         -:  316:	noexcept(_S_nothrow_constructible<_U1, _U2>())
-      48*:  317:	: first(std::forward<_U1>(__x)), second(std::forward<_U2>(__y))
-      48*:  318:	{ }
+      42*:  317:	: first(std::forward<_U1>(__x)), second(std::forward<_U2>(__y))
+      42*:  318:	{ }
 ------------------
 _ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC1IRPSt13_Rb_tree_nodeIS_IKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEERS1_EEOT_OT0_:
 function _ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC1IRPSt13_Rb_tree_nodeIS_IKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEERS1_EEOT_OT0_ called 0 returned 0% blocks executed 0%
@@ -347,14 +347,14 @@ call    1 never executed
     #####:  318:	{ }
 ------------------
 _ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC1IRPSt13_Rb_tree_nodeIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_EERS1_EEOT_OT0_:
-function _ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC1IRPSt13_Rb_tree_nodeIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_EERS1_EEOT_OT0_ called 9 returned 100% blocks executed 100%
-        9:  315:	pair(_U1&& __x, _U2&& __y)
+function _ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC1IRPSt13_Rb_tree_nodeIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_EERS1_EEOT_OT0_ called 8 returned 100% blocks executed 100%
+        8:  315:	pair(_U1&& __x, _U2&& __y)
         -:  316:	noexcept(_S_nothrow_constructible<_U1, _U2>())
-        9:  317:	: first(std::forward<_U1>(__x)), second(std::forward<_U2>(__y))
-        9:  317-block  0
-call    0 returned 9
-call    1 returned 9
-        9:  318:	{ }
+        8:  317:	: first(std::forward<_U1>(__x)), second(std::forward<_U2>(__y))
+        8:  317-block  0
+call    0 returned 8
+call    1 returned 8
+        8:  318:	{ }
 ------------------
 _ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC1IRS1_S4_EEOT_OT0_:
 function _ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC1IRS1_S4_EEOT_OT0_ called 0 returned 0% blocks executed 0%
@@ -377,14 +377,14 @@ call    1 never executed
     #####:  318:	{ }
 ------------------
 _ZNSt4pairISt17_Rb_tree_iteratorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEbEC1IS8_bEEOT_OT0_:
-function _ZNSt4pairISt17_Rb_tree_iteratorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEbEC1IS8_bEEOT_OT0_ called 9 returned 100% blocks executed 100%
-        9:  315:	pair(_U1&& __x, _U2&& __y)
+function _ZNSt4pairISt17_Rb_tree_iteratorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEbEC1IS8_bEEOT_OT0_ called 8 returned 100% blocks executed 100%
+        8:  315:	pair(_U1&& __x, _U2&& __y)
         -:  316:	noexcept(_S_nothrow_constructible<_U1, _U2>())
-        9:  317:	: first(std::forward<_U1>(__x)), second(std::forward<_U2>(__y))
-        9:  317-block  0
-call    0 returned 9
-call    1 returned 9
-        9:  318:	{ }
+        8:  317:	: first(std::forward<_U1>(__x)), second(std::forward<_U2>(__y))
+        8:  317-block  0
+call    0 returned 8
+call    1 returned 8
+        8:  318:	{ }
 ------------------
 _ZNSt4pairISt17_Rb_tree_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEbEC1IS7_bEEOT_OT0_:
 function _ZNSt4pairISt17_Rb_tree_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEbEC1IS7_bEEOT_OT0_ called 0 returned 0% blocks executed 0%
@@ -397,15 +397,15 @@ call    1 never executed
     #####:  318:	{ }
 ------------------
 _ZNSt4pairISt23_Rb_tree_const_iteratorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEbEC1IRSt17_Rb_tree_iteratorIS7_ERbEEOT_OT0_:
-function _ZNSt4pairISt23_Rb_tree_const_iteratorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEbEC1IRSt17_Rb_tree_iteratorIS7_ERbEEOT_OT0_ called 9 returned 100% blocks executed 100%
-        9:  315:	pair(_U1&& __x, _U2&& __y)
+function _ZNSt4pairISt23_Rb_tree_const_iteratorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEbEC1IRSt17_Rb_tree_iteratorIS7_ERbEEOT_OT0_ called 8 returned 100% blocks executed 100%
+        8:  315:	pair(_U1&& __x, _U2&& __y)
         -:  316:	noexcept(_S_nothrow_constructible<_U1, _U2>())
-        9:  317:	: first(std::forward<_U1>(__x)), second(std::forward<_U2>(__y))
-        9:  317-block  0
-call    0 returned 9
-call    1 returned 9
-call    2 returned 9
-        9:  318:	{ }
+        8:  317:	: first(std::forward<_U1>(__x)), second(std::forward<_U2>(__y))
+        8:  317-block  0
+call    0 returned 8
+call    1 returned 8
+call    2 returned 8
+        8:  318:	{ }
 ------------------
 _ZNSt4pairISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEbEC1IRSt17_Rb_tree_iteratorIS6_ERbEEOT_OT0_:
 function _ZNSt4pairISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEbEC1IRSt17_Rb_tree_iteratorIS6_ERbEEOT_OT0_ called 0 returned 0% blocks executed 0%
@@ -419,19 +419,19 @@ call    2 never executed
     #####:  318:	{ }
 ------------------
 _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC1IRS5_S8_EEOT_OT0_:
-function _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC1IRS5_S8_EEOT_OT0_ called 21 returned 100% blocks executed 86%
-       21:  315:	pair(_U1&& __x, _U2&& __y)
+function _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC1IRS5_S8_EEOT_OT0_ called 18 returned 100% blocks executed 86%
+       18:  315:	pair(_U1&& __x, _U2&& __y)
         -:  316:	noexcept(_S_nothrow_constructible<_U1, _U2>())
-       21:  317:	: first(std::forward<_U1>(__x)), second(std::forward<_U2>(__y))
-       21:  317-block  0
-call    0 returned 21
-call    1 returned 21
-call    2 returned 21
-call    3 returned 21
-branch  4 taken 21 (fallthrough)
+       18:  317:	: first(std::forward<_U1>(__x)), second(std::forward<_U2>(__y))
+       18:  317-block  0
+call    0 returned 18
+call    1 returned 18
+call    2 returned 18
+call    3 returned 18
+branch  4 taken 18 (fallthrough)
 branch  5 taken 0 (throw)
-       21:  318:	{ }
-       21:  318-block  0
+       18:  318:	{ }
+       18:  318-block  0
     $$$$$:  318-block  1
 call    0 never executed
 ------------------
@@ -446,13 +446,13 @@ call    0 never executed
         -:  327:	requires (_S_constructible<const _U1&, const _U2&>())
         -:  328:	  && (!_S_dangles<_U1, _U2>())
         -:  329:	constexpr explicit(!_S_convertible<const _U1&, const _U2&>())
-function _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEC1IKS5_iEERKS_IT_T0_E called 12 returned 100% blocks executed 100%
-       12:  330:	pair(const pair<_U1, _U2>& __p)
+function _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEC1IKS5_iEERKS_IT_T0_E called 11 returned 100% blocks executed 100%
+       11:  330:	pair(const pair<_U1, _U2>& __p)
         -:  331:	noexcept(_S_nothrow_constructible<const _U1&, const _U2&>())
-       12:  332:	: first(__p.first), second(__p.second)
-       12:  332-block  0
-call    0 returned 12
-       12:  333:	{ }
+       11:  332:	: first(__p.first), second(__p.second)
+       11:  332-block  0
+call    0 returned 11
+       11:  333:	{ }
         -:  334:
         -:  335:      template<typename _U1, typename _U2>
         -:  336:	requires (_S_constructible<const _U1&, const _U2&>())
@@ -938,21 +938,21 @@ call    0 returned 12
         -:  816:  template<typename _T1, typename _T2>
         -:  817:    constexpr common_comparison_category_t<__detail::__synth3way_t<_T1>,
         -:  818:					   __detail::__synth3way_t<_T2>>
-function _ZStssINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEcl7declvalIRT_EEcl7declvalIS9_EEEEDTclL_ZNS7_11__synth3wayEEcl7declvalIRT0_EEcl7declvalISC_EEEEEE4typeERKSt4pairIS8_SB_ESJ_ called 30 returned 100% blocks executed 100%
-       30:  819:    operator<=>(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+function _ZStssINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEcl7declvalIRT_EEcl7declvalIS9_EEEEDTclL_ZNS7_11__synth3wayEEcl7declvalIRT0_EEcl7declvalISC_EEEEEE4typeERKSt4pairIS8_SB_ESJ_ called 23 returned 100% blocks executed 100%
+       23:  819:    operator<=>(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
         -:  820:    {
-       30:  821:      if (auto __c = __detail::__synth3way(__x.first, __y.first); __c != 0)
-       30:  821-block  0
-call    0 returned 30
-call    1 returned 30
-call    2 returned 30
-branch  3 taken 24 (fallthrough)
-branch  4 taken 6
-       24:  822:	return __c;
-       24:  822-block  0
-        6:  823:      return __detail::__synth3way(__x.second, __y.second);
-        6:  823-block  0
-call    0 returned 6
+       23:  821:      if (auto __c = __detail::__synth3way(__x.first, __y.first); __c != 0)
+       23:  821-block  0
+call    0 returned 23
+call    1 returned 23
+call    2 returned 23
+branch  3 taken 19 (fallthrough)
+branch  4 taken 4
+       19:  822:	return __c;
+       19:  822-block  0
+        4:  823:      return __detail::__synth3way(__x.second, __y.second);
+        4:  823-block  0
+call    0 returned 4
         -:  824:    }
         -:  825:#else
         -:  826:  /** Defines a lexicographical order for pairs.

@@ -411,14 +411,14 @@
         -:  407:// returned for different types.  Calling the function twice with the
         -:  408:// same type argument is guaranteed to return the same ID.
         -:  409:template <typename T>
-function _ZN7testing8internal9GetTypeIdI14RandomWalkTestEEPKvv called 5 returned 100% blocks executed 100%
-        5:  410:TypeId GetTypeId() {
+function _ZN7testing8internal9GetTypeIdI14RandomWalkTestEEPKvv called 8 returned 100% blocks executed 100%
+        8:  410:TypeId GetTypeId() {
         -:  411:  // The compiler is required to allocate a different
         -:  412:  // TypeIdHelper<T>::dummy_ variable for each T used to instantiate
         -:  413:  // the template.  Therefore, the address of dummy_ is guaranteed to
         -:  414:  // be unique.
-        5:  415:  return &(TypeIdHelper<T>::dummy_);
-        5:  415-block  0
+        8:  415:  return &(TypeIdHelper<T>::dummy_);
+        8:  415-block  0
         -:  416:}
         -:  417:
         -:  418:// Returns the type ID of ::testing::Test.  Always call this instead
@@ -453,74 +453,122 @@ function _ZN7testing8internal15TestFactoryBaseC2Ev called 0 returned 0% blocks e
         -:  445:template <class TestClass>
         -:  446:class TestFactoryImpl : public TestFactoryBase {
         -:  447: public:
-        5:  448:  Test* CreateTest() override { return new TestClass; }
-------------------
-_ZN7testing8internal15TestFactoryImplI43RandomWalkTest_WalkAndEndOnVisitedEdge_TestE10CreateTestEv:
-function _ZN7testing8internal15TestFactoryImplI43RandomWalkTest_WalkAndEndOnVisitedEdge_TestE10CreateTestEv called 1 returned 100% blocks executed 71%
-        1:  448:  Test* CreateTest() override { return new TestClass; }
-        1:  448-block  0
-call    0 returned 1
-call    1 returned 1
-branch  2 taken 1 (fallthrough)
-branch  3 taken 0 (throw)
-        1:  448-block  1
-        1:  448-block  2
-    $$$$$:  448-block  3
-branch  4 never executed (fallthrough)
-branch  5 never executed
-    $$$$$:  448-block  4
-call    6 never executed
-------------------
-_ZN7testing8internal15TestFactoryImplI44RandomWalkTest_StartNodeWithoutOutEdges_TestE10CreateTestEv:
-function _ZN7testing8internal15TestFactoryImplI44RandomWalkTest_StartNodeWithoutOutEdges_TestE10CreateTestEv called 1 returned 100% blocks executed 71%
-        1:  448:  Test* CreateTest() override { return new TestClass; }
-        1:  448-block  0
-call    0 returned 1
-call    1 returned 1
-branch  2 taken 1 (fallthrough)
-branch  3 taken 0 (throw)
-        1:  448-block  1
-        1:  448-block  2
-    $$$$$:  448-block  3
-branch  4 never executed (fallthrough)
-branch  5 never executed
-    $$$$$:  448-block  4
-call    6 never executed
-------------------
-_ZN7testing8internal15TestFactoryImplI43RandomWalkTest_FirstEdgeAlreadyVisited_TestE10CreateTestEv:
-function _ZN7testing8internal15TestFactoryImplI43RandomWalkTest_FirstEdgeAlreadyVisited_TestE10CreateTestEv called 1 returned 100% blocks executed 71%
-        1:  448:  Test* CreateTest() override { return new TestClass; }
-        1:  448-block  0
-call    0 returned 1
-call    1 returned 1
-branch  2 taken 1 (fallthrough)
-branch  3 taken 0 (throw)
-        1:  448-block  1
-        1:  448-block  2
-    $$$$$:  448-block  3
-branch  4 never executed (fallthrough)
-branch  5 never executed
-    $$$$$:  448-block  4
-call    6 never executed
-------------------
-_ZN7testing8internal15TestFactoryImplI39RandomWalkTest_WalkOneEdgeThenStop_TestE10CreateTestEv:
-function _ZN7testing8internal15TestFactoryImplI39RandomWalkTest_WalkOneEdgeThenStop_TestE10CreateTestEv called 1 returned 100% blocks executed 71%
-        1:  448:  Test* CreateTest() override { return new TestClass; }
-        1:  448-block  0
-call    0 returned 1
-call    1 returned 1
-branch  2 taken 1 (fallthrough)
-branch  3 taken 0 (throw)
-        1:  448-block  1
-        1:  448-block  2
-    $$$$$:  448-block  3
-branch  4 never executed (fallthrough)
-branch  5 never executed
-    $$$$$:  448-block  4
-call    6 never executed
+        8:  448:  Test* CreateTest() override { return new TestClass; }
 ------------------
 _ZN7testing8internal15TestFactoryImplI30RandomWalkTest_EmptyGraph_TestE10CreateTestEv:
 function _ZN7testing8internal15TestFactoryImplI30RandomWalkTest_EmptyGraph_TestE10CreateTestEv called 1 returned 100% blocks executed 71%
+        1:  448:  Test* CreateTest() override { return new TestClass; }
+        1:  448-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  448-block  1
+        1:  448-block  2
+    $$$$$:  448-block  3
+branch  4 never executed (fallthrough)
+branch  5 never executed
+    $$$$$:  448-block  4
+call    6 never executed
+------------------
+_ZN7testing8internal15TestFactoryImplI37RandomWalkTest_SingleNodeNoEdges_TestE10CreateTestEv:
+function _ZN7testing8internal15TestFactoryImplI37RandomWalkTest_SingleNodeNoEdges_TestE10CreateTestEv called 1 returned 100% blocks executed 71%
+        1:  448:  Test* CreateTest() override { return new TestClass; }
+        1:  448-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  448-block  1
+        1:  448-block  2
+    $$$$$:  448-block  3
+branch  4 never executed (fallthrough)
+branch  5 never executed
+    $$$$$:  448-block  4
+call    6 never executed
+------------------
+_ZN7testing8internal15TestFactoryImplI27RandomWalkTest_OneEdge_TestE10CreateTestEv:
+function _ZN7testing8internal15TestFactoryImplI27RandomWalkTest_OneEdge_TestE10CreateTestEv called 1 returned 100% blocks executed 71%
+        1:  448:  Test* CreateTest() override { return new TestClass; }
+        1:  448-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  448-block  1
+        1:  448-block  2
+    $$$$$:  448-block  3
+branch  4 never executed (fallthrough)
+branch  5 never executed
+    $$$$$:  448-block  4
+call    6 never executed
+------------------
+_ZN7testing8internal15TestFactoryImplI33RandomWalkTest_TwoEdgesCycle_TestE10CreateTestEv:
+function _ZN7testing8internal15TestFactoryImplI33RandomWalkTest_TwoEdgesCycle_TestE10CreateTestEv called 1 returned 100% blocks executed 71%
+        1:  448:  Test* CreateTest() override { return new TestClass; }
+        1:  448-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  448-block  1
+        1:  448-block  2
+    $$$$$:  448-block  3
+branch  4 never executed (fallthrough)
+branch  5 never executed
+    $$$$$:  448-block  4
+call    6 never executed
+------------------
+_ZN7testing8internal15TestFactoryImplI37RandomWalkTest_ThreeEdgesComplex_TestE10CreateTestEv:
+function _ZN7testing8internal15TestFactoryImplI37RandomWalkTest_ThreeEdgesComplex_TestE10CreateTestEv called 1 returned 100% blocks executed 71%
+        1:  448:  Test* CreateTest() override { return new TestClass; }
+        1:  448-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  448-block  1
+        1:  448-block  2
+    $$$$$:  448-block  3
+branch  4 never executed (fallthrough)
+branch  5 never executed
+    $$$$$:  448-block  4
+call    6 never executed
+------------------
+_ZN7testing8internal15TestFactoryImplI35RandomWalkTest_ThreeEdgesCycle_TestE10CreateTestEv:
+function _ZN7testing8internal15TestFactoryImplI35RandomWalkTest_ThreeEdgesCycle_TestE10CreateTestEv called 1 returned 100% blocks executed 71%
+        1:  448:  Test* CreateTest() override { return new TestClass; }
+        1:  448-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  448-block  1
+        1:  448-block  2
+    $$$$$:  448-block  3
+branch  4 never executed (fallthrough)
+branch  5 never executed
+    $$$$$:  448-block  4
+call    6 never executed
+------------------
+_ZN7testing8internal15TestFactoryImplI34RandomWalkTest_FourNodesChain_TestE10CreateTestEv:
+function _ZN7testing8internal15TestFactoryImplI34RandomWalkTest_FourNodesChain_TestE10CreateTestEv called 1 returned 100% blocks executed 71%
+        1:  448:  Test* CreateTest() override { return new TestClass; }
+        1:  448-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  448-block  1
+        1:  448-block  2
+    $$$$$:  448-block  3
+branch  4 never executed (fallthrough)
+branch  5 never executed
+    $$$$$:  448-block  4
+call    6 never executed
+------------------
+_ZN7testing8internal15TestFactoryImplI36RandomWalkTest_FileWriteSuccess_TestE10CreateTestEv:
+function _ZN7testing8internal15TestFactoryImplI36RandomWalkTest_FileWriteSuccess_TestE10CreateTestEv called 1 returned 100% blocks executed 71%
         1:  448:  Test* CreateTest() override { return new TestClass; }
         1:  448-block  0
 call    0 returned 1
@@ -594,30 +642,30 @@ branch  1 never executed
         -:  494:  using Test =
         -:  495:      typename std::conditional<sizeof(T) != 0, ::testing::Test, void>::type;
         -:  496:
-function _ZN7testing8internal16SuiteApiResolverI14RandomWalkTestE19GetSetUpCaseOrSuiteEPKci called 5 returned 100% blocks executed 44%
-        5:  497:  static SetUpTearDownSuiteFuncType GetSetUpCaseOrSuite(const char* filename,
+function _ZN7testing8internal16SuiteApiResolverI14RandomWalkTestE19GetSetUpCaseOrSuiteEPKci called 8 returned 100% blocks executed 44%
+        8:  497:  static SetUpTearDownSuiteFuncType GetSetUpCaseOrSuite(const char* filename,
         -:  498:                                                        int line_num) {
         -:  499:#ifndef GTEST_REMOVE_LEGACY_TEST_CASEAPI_
         -:  500:    SetUpTearDownSuiteFuncType test_case_fp =
-        5:  501:        GetNotDefaultOrNull(&T::SetUpTestCase, &Test::SetUpTestCase);
-        5:  501-block  0
-call    0 returned 5
+        8:  501:        GetNotDefaultOrNull(&T::SetUpTestCase, &Test::SetUpTestCase);
+        8:  501-block  0
+call    0 returned 8
         -:  502:    SetUpTearDownSuiteFuncType test_suite_fp =
-        5:  503:        GetNotDefaultOrNull(&T::SetUpTestSuite, &Test::SetUpTestSuite);
-call    0 returned 5
+        8:  503:        GetNotDefaultOrNull(&T::SetUpTestSuite, &Test::SetUpTestSuite);
+call    0 returned 8
         -:  504:
-       5*:  505:    GTEST_CHECK_(!test_case_fp || !test_suite_fp)
+       8*:  505:    GTEST_CHECK_(!test_case_fp || !test_suite_fp)
 branch  0 taken 0 (fallthrough)
-branch  1 taken 5
+branch  1 taken 8
     %%%%%:  505-block  0
 branch  2 never executed (fallthrough)
 branch  3 never executed
-        5:  505-block  1
+        8:  505-block  1
     %%%%%:  505-block  2
-        5:  505-block  3
-call    4 returned 5
+        8:  505-block  3
+call    4 returned 8
 branch  5 taken 0 (fallthrough)
-branch  6 taken 5
+branch  6 taken 8
     %%%%%:  505-block  4
 call    7 never executed
 branch  8 never executed (fallthrough)
@@ -651,14 +699,14 @@ call   12 never executed
 branch 13 never executed (fallthrough)
 branch 14 never executed (throw)
         -:  509:
-       5*:  510:    return test_case_fp != nullptr ? test_case_fp : test_suite_fp;
-        5:  510-block  0
+       8*:  510:    return test_case_fp != nullptr ? test_case_fp : test_suite_fp;
+        8:  510-block  0
 branch  0 taken 0 (fallthrough)
-branch  1 taken 5
+branch  1 taken 8
     %%%%%:  510-block  1
-        5:  510-block  2
-        5:  510-block  3
-        5:  510-block  4
+        8:  510-block  2
+        8:  510-block  3
+        8:  510-block  4
         -:  511:#else
         -:  512:    (void)(filename);
         -:  513:    (void)(line_num);
@@ -666,30 +714,30 @@ branch  1 taken 5
         -:  515:#endif
         -:  516:  }
         -:  517:
-function _ZN7testing8internal16SuiteApiResolverI14RandomWalkTestE22GetTearDownCaseOrSuiteEPKci called 5 returned 100% blocks executed 44%
-        5:  518:  static SetUpTearDownSuiteFuncType GetTearDownCaseOrSuite(const char* filename,
+function _ZN7testing8internal16SuiteApiResolverI14RandomWalkTestE22GetTearDownCaseOrSuiteEPKci called 8 returned 100% blocks executed 44%
+        8:  518:  static SetUpTearDownSuiteFuncType GetTearDownCaseOrSuite(const char* filename,
         -:  519:                                                           int line_num) {
         -:  520:#ifndef GTEST_REMOVE_LEGACY_TEST_CASEAPI_
         -:  521:    SetUpTearDownSuiteFuncType test_case_fp =
-        5:  522:        GetNotDefaultOrNull(&T::TearDownTestCase, &Test::TearDownTestCase);
-        5:  522-block  0
-call    0 returned 5
+        8:  522:        GetNotDefaultOrNull(&T::TearDownTestCase, &Test::TearDownTestCase);
+        8:  522-block  0
+call    0 returned 8
         -:  523:    SetUpTearDownSuiteFuncType test_suite_fp =
-        5:  524:        GetNotDefaultOrNull(&T::TearDownTestSuite, &Test::TearDownTestSuite);
-call    0 returned 5
+        8:  524:        GetNotDefaultOrNull(&T::TearDownTestSuite, &Test::TearDownTestSuite);
+call    0 returned 8
         -:  525:
-       5*:  526:    GTEST_CHECK_(!test_case_fp || !test_suite_fp)
+       8*:  526:    GTEST_CHECK_(!test_case_fp || !test_suite_fp)
 branch  0 taken 0 (fallthrough)
-branch  1 taken 5
+branch  1 taken 8
     %%%%%:  526-block  0
 branch  2 never executed (fallthrough)
 branch  3 never executed
-        5:  526-block  1
+        8:  526-block  1
     %%%%%:  526-block  2
-        5:  526-block  3
-call    4 returned 5
+        8:  526-block  3
+call    4 returned 8
 branch  5 taken 0 (fallthrough)
-branch  6 taken 5
+branch  6 taken 8
     %%%%%:  526-block  4
 call    7 never executed
 branch  8 never executed (fallthrough)
@@ -723,14 +771,14 @@ call   12 never executed
 branch 13 never executed (fallthrough)
 branch 14 never executed (throw)
         -:  530:
-       5*:  531:    return test_case_fp != nullptr ? test_case_fp : test_suite_fp;
-        5:  531-block  0
+       8*:  531:    return test_case_fp != nullptr ? test_case_fp : test_suite_fp;
+        8:  531-block  0
 branch  0 taken 0 (fallthrough)
-branch  1 taken 5
+branch  1 taken 8
     %%%%%:  531-block  1
-        5:  531-block  2
-        5:  531-block  3
-        5:  531-block  4
+        8:  531-block  2
+        8:  531-block  3
+        8:  531-block  4
         -:  532:#else
         -:  533:    (void)(filename);
         -:  534:    (void)(line_num);
@@ -1028,10 +1076,15 @@ branch  1 taken 5
         -:  826:// Helper for declaring std::string within 'if' statement
         -:  827:// in pre C++17 build environment.
         -:  828:struct TrueWithString {
-        -:  829:  TrueWithString() = default;
+function _ZN7testing8internal14TrueWithStringC1Ev called 1 returned 100% blocks executed 100%
+        1:  829:  TrueWithString() = default;
+        1:  829-block  0
+call    0 returned 1
         -:  830:  explicit TrueWithString(const char* str) : value(str) {}
         -:  831:  explicit TrueWithString(const std::string& str) : value(str) {}
-        -:  832:  explicit operator bool() const { return true; }
+function _ZNK7testing8internal14TrueWithStringcvbEv called 1 returned 100% blocks executed 100%
+        1:  832:  explicit operator bool() const { return true; }
+        1:  832-block  0
         -:  833:  std::string value;
         -:  834:};
         -:  835:

@@ -1389,8 +1389,8 @@ function _ZN7testing4Test5SetupEv called 0 returned 0% blocks executed 0%
     #####: 1379:                   FormatForComparisonFailureMessage(rhs, lhs), false);
         -: 1380:}
 ------------------
-_ZN7testing8internal18CmpHelperEQFailureINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA16_cEENS_15AssertionResultEPKcSB_RKT_RKT0_:
-function _ZN7testing8internal18CmpHelperEQFailureINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA16_cEENS_15AssertionResultEPKcSB_RKT_RKT0_ called 0 returned 0% blocks executed 0%
+_ZN7testing8internal18CmpHelperEQFailureINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA2_cEENS_15AssertionResultEPKcSB_RKT_RKT0_:
+function _ZN7testing8internal18CmpHelperEQFailureINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA2_cEENS_15AssertionResultEPKcSB_RKT_RKT0_ called 0 returned 0% blocks executed 0%
     #####: 1374:AssertionResult CmpHelperEQFailure(const char* lhs_expression,
         -: 1375:                                   const char* rhs_expression, const T1& lhs,
         -: 1376:                                   const T2& rhs) {
@@ -1420,8 +1420,8 @@ call   11 never executed
 call   12 never executed
         -: 1380:}
 ------------------
-_ZN7testing8internal18CmpHelperEQFailureINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA10_cEENS_15AssertionResultEPKcSB_RKT_RKT0_:
-function _ZN7testing8internal18CmpHelperEQFailureINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA10_cEENS_15AssertionResultEPKcSB_RKT_RKT0_ called 0 returned 0% blocks executed 0%
+_ZN7testing8internal18CmpHelperEQFailureINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA16_cEENS_15AssertionResultEPKcSB_RKT_RKT0_:
+function _ZN7testing8internal18CmpHelperEQFailureINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA16_cEENS_15AssertionResultEPKcSB_RKT_RKT0_ called 0 returned 0% blocks executed 0%
     #####: 1374:AssertionResult CmpHelperEQFailure(const char* lhs_expression,
         -: 1375:                                   const char* rhs_expression, const T1& lhs,
         -: 1376:                                   const T2& rhs) {
@@ -1461,29 +1461,29 @@ call   12 never executed
         -: 1388:
         -: 1389:// The helper function for {ASSERT|EXPECT}_EQ.
         -: 1390:template <typename T1, typename T2>
-        3: 1391:AssertionResult CmpHelperEQ(const char* lhs_expression,
+        2: 1391:AssertionResult CmpHelperEQ(const char* lhs_expression,
         -: 1392:                            const char* rhs_expression, const T1& lhs,
         -: 1393:                            const T2& rhs) {
-        3: 1394:  if (lhs == rhs) {
-        3: 1395:    return AssertionSuccess();
+        2: 1394:  if (lhs == rhs) {
+        2: 1395:    return AssertionSuccess();
         -: 1396:  }
         -: 1397:
     #####: 1398:  return CmpHelperEQFailure(lhs_expression, rhs_expression, lhs, rhs);
         -: 1399:}
 ------------------
-_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA16_cEENS_15AssertionResultEPKcSB_RKT_RKT0_:
-function _ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA16_cEENS_15AssertionResultEPKcSB_RKT_RKT0_ called 2 returned 100% blocks executed 80%
-        2: 1391:AssertionResult CmpHelperEQ(const char* lhs_expression,
+_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA2_cEENS_15AssertionResultEPKcSB_RKT_RKT0_:
+function _ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA2_cEENS_15AssertionResultEPKcSB_RKT_RKT0_ called 1 returned 100% blocks executed 80%
+        1: 1391:AssertionResult CmpHelperEQ(const char* lhs_expression,
         -: 1392:                            const char* rhs_expression, const T1& lhs,
         -: 1393:                            const T2& rhs) {
-        2: 1394:  if (lhs == rhs) {
-        2: 1394-block  0
-call    0 returned 2
-branch  1 taken 2 (fallthrough)
+        1: 1394:  if (lhs == rhs) {
+        1: 1394-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
 branch  2 taken 0
-        2: 1395:    return AssertionSuccess();
-        2: 1395-block  0
-call    0 returned 2
+        1: 1395:    return AssertionSuccess();
+        1: 1395-block  0
+call    0 returned 1
         -: 1396:  }
         -: 1397:
     #####: 1398:  return CmpHelperEQFailure(lhs_expression, rhs_expression, lhs, rhs);
@@ -1491,8 +1491,8 @@ call    0 returned 2
 call    0 never executed
         -: 1399:}
 ------------------
-_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA10_cEENS_15AssertionResultEPKcSB_RKT_RKT0_:
-function _ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA10_cEENS_15AssertionResultEPKcSB_RKT_RKT0_ called 1 returned 100% blocks executed 80%
+_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA16_cEENS_15AssertionResultEPKcSB_RKT_RKT0_:
+function _ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA16_cEENS_15AssertionResultEPKcSB_RKT_RKT0_ called 1 returned 100% blocks executed 80%
         1: 1391:AssertionResult CmpHelperEQ(const char* lhs_expression,
         -: 1392:                            const char* rhs_expression, const T1& lhs,
         -: 1393:                            const T2& rhs) {
@@ -1521,24 +1521,24 @@ call    0 never executed
         -: 1407:      // and the other is the null pointer constant.
         -: 1408:      typename std::enable_if<!std::is_integral<T1>::value ||
         -: 1409:                              !std::is_pointer<T2>::value>::type* = nullptr>
-        3: 1410:  static AssertionResult Compare(const char* lhs_expression,
-        -: 1411:                                 const char* rhs_expression, const T1& lhs,
-        -: 1412:                                 const T2& rhs) {
-        3: 1413:    return CmpHelperEQ(lhs_expression, rhs_expression, lhs, rhs);
-        -: 1414:  }
-------------------
-_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA16_cLPv0EEENS_15AssertionResultEPKcSD_RKT_RKT0_:
-function _ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA16_cLPv0EEENS_15AssertionResultEPKcSD_RKT_RKT0_ called 2 returned 100% blocks executed 100%
         2: 1410:  static AssertionResult Compare(const char* lhs_expression,
         -: 1411:                                 const char* rhs_expression, const T1& lhs,
         -: 1412:                                 const T2& rhs) {
         2: 1413:    return CmpHelperEQ(lhs_expression, rhs_expression, lhs, rhs);
-        2: 1413-block  0
-call    0 returned 2
         -: 1414:  }
 ------------------
-_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA10_cLPv0EEENS_15AssertionResultEPKcSD_RKT_RKT0_:
-function _ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA10_cLPv0EEENS_15AssertionResultEPKcSD_RKT_RKT0_ called 1 returned 100% blocks executed 100%
+_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA2_cLPv0EEENS_15AssertionResultEPKcSD_RKT_RKT0_:
+function _ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA2_cLPv0EEENS_15AssertionResultEPKcSD_RKT_RKT0_ called 1 returned 100% blocks executed 100%
+        1: 1410:  static AssertionResult Compare(const char* lhs_expression,
+        -: 1411:                                 const char* rhs_expression, const T1& lhs,
+        -: 1412:                                 const T2& rhs) {
+        1: 1413:    return CmpHelperEQ(lhs_expression, rhs_expression, lhs, rhs);
+        1: 1413-block  0
+call    0 returned 1
+        -: 1414:  }
+------------------
+_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA16_cLPv0EEENS_15AssertionResultEPKcSD_RKT_RKT0_:
+function _ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA16_cLPv0EEENS_15AssertionResultEPKcSD_RKT_RKT0_ called 1 returned 100% blocks executed 100%
         1: 1410:  static AssertionResult Compare(const char* lhs_expression,
         -: 1411:                                 const char* rhs_expression, const T1& lhs,
         -: 1412:                                 const T2& rhs) {
@@ -1575,13 +1575,84 @@ call    0 returned 1
         -: 1440:// frame size of CmpHelperOP. This helps reduce the overhead of some sanitizers
         -: 1441:// when calling EXPECT_OP in a tight loop.
         -: 1442:template <typename T1, typename T2>
-        -: 1443:AssertionResult CmpHelperOpFailure(const char* expr1, const char* expr2,
+function _ZN7testing8internal18CmpHelperOpFailureIyyEENS_15AssertionResultEPKcS4_RKT_RKT0_S4_ called 0 returned 0% blocks executed 0%
+    #####: 1443:AssertionResult CmpHelperOpFailure(const char* expr1, const char* expr2,
         -: 1444:                                   const T1& val1, const T2& val2,
         -: 1445:                                   const char* op) {
         -: 1446:  return AssertionFailure()
-        -: 1447:         << "Expected: (" << expr1 << ") " << op << " (" << expr2
-        -: 1448:         << "), actual: " << FormatForComparisonFailureMessage(val1, val2)
-        -: 1449:         << " vs " << FormatForComparisonFailureMessage(val2, val1);
+    #####: 1447:         << "Expected: (" << expr1 << ") " << op << " (" << expr2
+    %%%%%: 1447-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    %%%%%: 1447-block  1
+call    3 never executed
+branch  4 never executed (fallthrough)
+branch  5 never executed (throw)
+    %%%%%: 1447-block  2
+call    6 never executed
+branch  7 never executed (fallthrough)
+branch  8 never executed (throw)
+    %%%%%: 1447-block  3
+call    9 never executed
+branch 10 never executed (fallthrough)
+branch 11 never executed (throw)
+    %%%%%: 1447-block  4
+call   12 never executed
+branch 13 never executed (fallthrough)
+branch 14 never executed (throw)
+    %%%%%: 1447-block  5
+call   15 never executed
+branch 16 never executed (fallthrough)
+branch 17 never executed (throw)
+    %%%%%: 1447-block  6
+call   18 never executed
+branch 19 never executed (fallthrough)
+branch 20 never executed (throw)
+    $$$$$: 1447-block  7
+call   21 never executed
+    #####: 1448:         << "), actual: " << FormatForComparisonFailureMessage(val1, val2)
+    %%%%%: 1448-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    %%%%%: 1448-block  1
+call    3 never executed
+branch  4 never executed (fallthrough)
+branch  5 never executed (throw)
+    %%%%%: 1448-block  2
+call    6 never executed
+branch  7 never executed (fallthrough)
+branch  8 never executed (throw)
+call    9 never executed
+    $$$$$: 1448-block  3
+call   10 never executed
+    $$$$$: 1448-block  4
+    #####: 1449:         << " vs " << FormatForComparisonFailureMessage(val2, val1);
+    %%%%%: 1449-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    %%%%%: 1449-block  1
+call    3 never executed
+branch  4 never executed (fallthrough)
+branch  5 never executed (throw)
+    %%%%%: 1449-block  2
+call    6 never executed
+branch  7 never executed (fallthrough)
+branch  8 never executed (throw)
+    %%%%%: 1449-block  3
+call    9 never executed
+branch 10 never executed (fallthrough)
+branch 11 never executed (throw)
+    %%%%%: 1449-block  4
+    %%%%%: 1449-block  5
+call   12 never executed
+call   13 never executed
+    %%%%%: 1449-block  6
+    $$$$$: 1449-block  7
+call   14 never executed
+    $$$$$: 1449-block  8
         -: 1450:}
         -: 1451:
         -: 1452:// A macro for implementing the helper functions needed to implement
@@ -1604,7 +1675,15 @@ call    0 returned 1
         -: 1469:// INTERNAL IMPLEMENTATION - DO NOT USE IN A USER PROGRAM.
         -: 1470:
         -: 1471:// Implements the helper function for {ASSERT|EXPECT}_NE
-        -: 1472:GTEST_IMPL_CMP_HELPER_(NE, !=)
+function _ZN7testing8internal11CmpHelperNEIyyEENS_15AssertionResultEPKcS4_RKT_RKT0_ called 1 returned 100% blocks executed 75%
+       1*: 1472:GTEST_IMPL_CMP_HELPER_(NE, !=)
+        1: 1472-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+        1: 1472-block  1
+call    2 returned 1
+    %%%%%: 1472-block  2
+call    3 never executed
         -: 1473:// Implements the helper function for {ASSERT|EXPECT}_LE
         -: 1474:GTEST_IMPL_CMP_HELPER_(LE, <=)
         -: 1475:// Implements the helper function for {ASSERT|EXPECT}_LT

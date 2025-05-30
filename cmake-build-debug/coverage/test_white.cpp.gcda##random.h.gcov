@@ -140,82 +140,82 @@
         -:  136:      struct _Mod<_Tp, __m, __a, __c, true, __s>
         -:  137:      {
         -:  138:	static _Tp
-     6235:  139:	__calc(_Tp __x)
+     8729:  139:	__calc(_Tp __x)
         -:  140:	{
-     6235:  141:	  _Tp __res = __a * __x + __c;
+     8729:  141:	  _Tp __res = __a * __x + __c;
         -:  142:	  if (__m)
-     3115:  143:	    __res %= __m;
-     6235:  144:	  return __res;
+     4361:  143:	    __res %= __m;
+     8729:  144:	  return __res;
         -:  145:	}
 ------------------
 _ZNSt8__detail4_ModIjLj624ELj1ELj0ELb1ELb1EE6__calcEj:
-function _ZNSt8__detail4_ModIjLj624ELj1ELj0ELb1ELb1EE6__calcEj called 3115 returned 100% blocks executed 100%
-     3115:  139:	__calc(_Tp __x)
+function _ZNSt8__detail4_ModIjLj624ELj1ELj0ELb1ELb1EE6__calcEj called 4361 returned 100% blocks executed 100%
+     4361:  139:	__calc(_Tp __x)
         -:  140:	{
-     3115:  141:	  _Tp __res = __a * __x + __c;
+     4361:  141:	  _Tp __res = __a * __x + __c;
         -:  142:	  if (__m)
-     3115:  143:	    __res %= __m;
-     3115:  144:	  return __res;
-     3115:  144-block  0
+     4361:  143:	    __res %= __m;
+     4361:  144:	  return __res;
+     4361:  144-block  0
         -:  145:	}
 ------------------
 _ZNSt8__detail4_ModIjLj0ELj1ELj0ELb1ELb0EE6__calcEj:
-function _ZNSt8__detail4_ModIjLj0ELj1ELj0ELb1ELb0EE6__calcEj called 3120 returned 100% blocks executed 100%
-     3120:  139:	__calc(_Tp __x)
+function _ZNSt8__detail4_ModIjLj0ELj1ELj0ELb1ELb0EE6__calcEj called 4368 returned 100% blocks executed 100%
+     4368:  139:	__calc(_Tp __x)
         -:  140:	{
-     3120:  141:	  _Tp __res = __a * __x + __c;
-     3120:  141-block  0
+     4368:  141:	  _Tp __res = __a * __x + __c;
+     4368:  141-block  0
         -:  142:	  if (__m)
         -:  143:	    __res %= __m;
-     3120:  144:	  return __res;
-     3120:  144-block  0
+     4368:  144:	  return __res;
+     4368:  144-block  0
         -:  145:	}
 ------------------
         -:  146:      };
         -:  147:
         -:  148:    template<typename _Tp, _Tp __m, _Tp __a = 1, _Tp __c = 0>
         -:  149:      inline _Tp
-     6235:  150:      __mod(_Tp __x)
+     8729:  150:      __mod(_Tp __x)
         -:  151:      {
         -:  152:	if _GLIBCXX17_CONSTEXPR (__a == 0)
         -:  153:	  return __c;
         -:  154:	else
         -:  155:	  {
         -:  156:	    // _Mod must not be instantiated with a == 0
-     6235:  157:	    constexpr _Tp __a1 = __a ? __a : 1;
-     6235:  158:	    return _Mod<_Tp, __m, __a1, __c>::__calc(__x);
+     8729:  157:	    constexpr _Tp __a1 = __a ? __a : 1;
+     8729:  158:	    return _Mod<_Tp, __m, __a1, __c>::__calc(__x);
         -:  159:	  }
         -:  160:      }
 ------------------
 _ZNSt8__detail5__modIjLj624ELj1ELj0EEET_S1_:
-function _ZNSt8__detail5__modIjLj624ELj1ELj0EEET_S1_ called 3115 returned 100% blocks executed 100%
-     3115:  150:      __mod(_Tp __x)
+function _ZNSt8__detail5__modIjLj624ELj1ELj0EEET_S1_ called 4361 returned 100% blocks executed 100%
+     4361:  150:      __mod(_Tp __x)
         -:  151:      {
         -:  152:	if _GLIBCXX17_CONSTEXPR (__a == 0)
         -:  153:	  return __c;
         -:  154:	else
         -:  155:	  {
         -:  156:	    // _Mod must not be instantiated with a == 0
-     3115:  157:	    constexpr _Tp __a1 = __a ? __a : 1;
-     3115:  158:	    return _Mod<_Tp, __m, __a1, __c>::__calc(__x);
-     3115:  158-block  0
-call    0 returned 3115
+     4361:  157:	    constexpr _Tp __a1 = __a ? __a : 1;
+     4361:  158:	    return _Mod<_Tp, __m, __a1, __c>::__calc(__x);
+     4361:  158-block  0
+call    0 returned 4361
         -:  159:	  }
         -:  160:      }
 ------------------
 _ZNSt8__detail5__modIjLj0ELj1ELj0EEET_S1_:
-function _ZNSt8__detail5__modIjLj0ELj1ELj0EEET_S1_ called 3120 returned 100% blocks executed 100%
-     3120:  150:      __mod(_Tp __x)
+function _ZNSt8__detail5__modIjLj0ELj1ELj0EEET_S1_ called 4368 returned 100% blocks executed 100%
+     4368:  150:      __mod(_Tp __x)
         -:  151:      {
         -:  152:	if _GLIBCXX17_CONSTEXPR (__a == 0)
         -:  153:	  return __c;
         -:  154:	else
         -:  155:	  {
         -:  156:	    // _Mod must not be instantiated with a == 0
-     3120:  157:	    constexpr _Tp __a1 = __a ? __a : 1;
-     3120:  158:	    return _Mod<_Tp, __m, __a1, __c>::__calc(__x);
-     3120:  158-block  0
-call    0 returned 3120
+     4368:  157:	    constexpr _Tp __a1 = __a ? __a : 1;
+     4368:  158:	    return _Mod<_Tp, __m, __a1, __c>::__calc(__x);
+     4368:  158-block  0
+call    0 returned 4368
         -:  159:	  }
         -:  160:      }
 ------------------
@@ -597,11 +597,11 @@ call    0 returned 3120
         -:  536:      mersenne_twister_engine() : mersenne_twister_engine(default_seed) { }
         -:  537:
         -:  538:      explicit
-function _ZNSt23mersenne_twister_engineIjLy32ELy624ELy397ELy31ELj2567483615ELy11ELj4294967295ELy7ELj2636928640ELy15ELj4022730752ELy18ELj1812433253EEC1Ej called 5 returned 100% blocks executed 100%
-        5:  539:      mersenne_twister_engine(result_type __sd)
-        5:  540:      { seed(__sd); }
-        5:  540-block  0
-call    0 returned 5
+function _ZNSt23mersenne_twister_engineIjLy32ELy624ELy397ELy31ELj2567483615ELy11ELj4294967295ELy7ELj2636928640ELy15ELj4022730752ELy18ELj1812433253EEC1Ej called 7 returned 100% blocks executed 100%
+        7:  539:      mersenne_twister_engine(result_type __sd)
+        7:  540:      { seed(__sd); }
+        7:  540-block  0
+call    0 returned 7
         -:  541:
         -:  542:      /**
         -:  543:       * @brief Constructs a %mersenne_twister_engine random number generator
@@ -1698,20 +1698,20 @@ call    0 returned 5
         -: 1634:
         -: 1635:    // constructors, destructors and member functions
         -: 1636:
-function _ZNSt13random_deviceC1Ev called 5 returned 100% blocks executed 62%
-       15: 1637:    random_device() { _M_init("default"); }
-        5: 1637-block  0
-        5: 1637-block  1
-call    0 returned 5
-branch  1 taken 5 (fallthrough)
+function _ZNSt13random_deviceC1Ev called 7 returned 100% blocks executed 62%
+       21: 1637:    random_device() { _M_init("default"); }
+        7: 1637-block  0
+        7: 1637-block  1
+call    0 returned 7
+branch  1 taken 7 (fallthrough)
 branch  2 taken 0 (throw)
-        5: 1637-block  2
-call    3 returned 5
-branch  4 taken 5 (fallthrough)
+        7: 1637-block  2
+call    3 returned 7
+branch  4 taken 7 (fallthrough)
 branch  5 taken 0 (throw)
-        5: 1637-block  3
-call    6 returned 5
-        5: 1637-block  4
+        7: 1637-block  3
+call    6 returned 7
+        7: 1637-block  4
     $$$$$: 1637-block  5
 call    7 never executed
     $$$$$: 1637-block  6
@@ -1719,11 +1719,11 @@ call    7 never executed
         -: 1639:    explicit
         -: 1640:    random_device(const std::string& __token) { _M_init(__token); }
         -: 1641:
-function _ZNSt13random_deviceD1Ev called 5 returned 100% blocks executed 100%
-        5: 1642:    ~random_device()
-        5: 1643:    { _M_fini(); }
-        5: 1643-block  0
-call    0 returned 5
+function _ZNSt13random_deviceD1Ev called 7 returned 100% blocks executed 100%
+        7: 1642:    ~random_device()
+        7: 1643:    { _M_fini(); }
+        7: 1643-block  0
+call    0 returned 7
         -: 1644:
         -: 1645:    static constexpr result_type
         -: 1646:    min()
@@ -1738,11 +1738,11 @@ call    0 returned 5
         -: 1655:    { return this->_M_getentropy(); }
         -: 1656:
         -: 1657:    result_type
-function _ZNSt13random_deviceclEv called 5 returned 100% blocks executed 100%
-        5: 1658:    operator()()
-        5: 1659:    { return this->_M_getval(); }
-        5: 1659-block  0
-call    0 returned 5
+function _ZNSt13random_deviceclEv called 7 returned 100% blocks executed 100%
+        7: 1658:    operator()()
+        7: 1659:    { return this->_M_getval(); }
+        7: 1659-block  0
+call    0 returned 7
         -: 1660:
         -: 1661:    // No copy functions.
         -: 1662:    random_device(const random_device&) = delete;

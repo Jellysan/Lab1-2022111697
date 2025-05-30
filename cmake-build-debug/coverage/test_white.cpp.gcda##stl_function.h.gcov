@@ -408,17 +408,17 @@
         -:  404:    {
         -:  405:      _GLIBCXX14_CONSTEXPR
         -:  406:      bool
-      30*:  407:      operator()(const _Tp& __x, const _Tp& __y) const
-      30*:  408:      { return __x < __y; }
+      23*:  407:      operator()(const _Tp& __x, const _Tp& __y) const
+      23*:  408:      { return __x < __y; }
 ------------------
 _ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEclERKS7_SA_:
-function _ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEclERKS7_SA_ called 30 returned 100% blocks executed 100%
-       30:  407:      operator()(const _Tp& __x, const _Tp& __y) const
-       30:  408:      { return __x < __y; }
-       30:  408-block  0
-call    0 returned 30
-call    1 returned 30
-call    2 returned 30
+function _ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEclERKS7_SA_ called 23 returned 100% blocks executed 100%
+       23:  407:      operator()(const _Tp& __x, const _Tp& __y) const
+       23:  408:      { return __x < __y; }
+       23:  408-block  0
+call    0 returned 23
+call    1 returned 23
+call    2 returned 23
 ------------------
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_:
 function _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_ called 0 returned 0% blocks executed 0%
@@ -471,13 +471,20 @@ call    2 never executed
         -:  448:    struct less<_Tp*> : public binary_function<_Tp*, _Tp*, bool>
         -:  449:    {
         -:  450:      _GLIBCXX14_CONSTEXPR bool
-        -:  451:      operator()(_Tp* __x, _Tp* __y) const _GLIBCXX_NOTHROW
+function _ZNKSt4lessIPKcEclES1_S1_ called 2 returned 100% blocks executed 80%
+        2:  451:      operator()(_Tp* __x, _Tp* __y) const _GLIBCXX_NOTHROW
         -:  452:      {
         -:  453:#if __cplusplus >= 201402L
-        -:  454:	if (std::__is_constant_evaluated())
-        -:  455:	  return __x < __y;
+        2:  454:	if (std::__is_constant_evaluated())
+        2:  454-block  0
+call    0 returned 2
+branch  1 taken 0 (fallthrough)
+branch  2 taken 2
+    #####:  455:	  return __x < __y;
+    %%%%%:  455-block  0
         -:  456:#endif
-        -:  457:	return (__UINTPTR_TYPE__)__x < (__UINTPTR_TYPE__)__y;
+        2:  457:	return (__UINTPTR_TYPE__)__x < (__UINTPTR_TYPE__)__y;
+        2:  457-block  0
         -:  458:      }
         -:  459:    };
         -:  460:
@@ -1182,8 +1189,8 @@ call    2 never executed
         -: 1159:    : public unary_function<_Tp, _Tp>
         -: 1160:    {
         -: 1161:      _Tp&
-       15: 1162:      operator()(_Tp& __x) const
-       15: 1163:      { return __x; }
+       13: 1162:      operator()(_Tp& __x) const
+       13: 1163:      { return __x; }
 ------------------
 _ZNKSt9_IdentityINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERS5_:
 function _ZNKSt9_IdentityINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERS5_ called 1 returned 100% blocks executed 100%
@@ -1192,21 +1199,21 @@ function _ZNKSt9_IdentityINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEc
         1: 1163-block  0
 ------------------
 _ZNKSt9_IdentityISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEclERS7_:
-function _ZNKSt9_IdentityISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEclERS7_ called 14 returned 100% blocks executed 100%
-       14: 1162:      operator()(_Tp& __x) const
-       14: 1163:      { return __x; }
-       14: 1163-block  0
+function _ZNKSt9_IdentityISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEclERS7_ called 12 returned 100% blocks executed 100%
+       12: 1162:      operator()(_Tp& __x) const
+       12: 1163:      { return __x; }
+       12: 1163-block  0
 ------------------
         -: 1164:
         -: 1165:      const _Tp&
-      30*: 1166:      operator()(const _Tp& __x) const
-      30*: 1167:      { return __x; }
+      23*: 1166:      operator()(const _Tp& __x) const
+      23*: 1167:      { return __x; }
 ------------------
 _ZNKSt9_IdentityISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEclERKS7_:
-function _ZNKSt9_IdentityISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEclERKS7_ called 30 returned 100% blocks executed 100%
-       30: 1166:      operator()(const _Tp& __x) const
-       30: 1167:      { return __x; }
-       30: 1167-block  0
+function _ZNKSt9_IdentityISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEclERKS7_ called 23 returned 100% blocks executed 100%
+       23: 1166:      operator()(const _Tp& __x) const
+       23: 1167:      { return __x; }
+       23: 1167-block  0
 ------------------
 _ZNKSt9_IdentityINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_:
 function _ZNKSt9_IdentityINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_ called 0 returned 0% blocks executed 0%

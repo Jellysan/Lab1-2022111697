@@ -50,8 +50,8 @@
         -:   46:   */
         -:   47:  template<typename _Tp>
         -:   48:    inline _GLIBCXX_CONSTEXPR _Tp*
-      94*:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
-      94*:   50:    { return __builtin_addressof(__r); }
+     127*:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+     127*:   50:    { return __builtin_addressof(__r); }
 ------------------
 _ZSt11__addressofIKcEPT_RS1_:
 function _ZSt11__addressofIKcEPT_RS1_ called 0 returned 0% blocks executed 0%
@@ -60,16 +60,16 @@ function _ZSt11__addressofIKcEPT_RS1_ called 0 returned 0% blocks executed 0%
     %%%%%:   50-block  0
 ------------------
 _ZSt11__addressofISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEPT_RS8_:
-function _ZSt11__addressofISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEPT_RS8_ called 24 returned 100% blocks executed 100%
-       24:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
-       24:   50:    { return __builtin_addressof(__r); }
-       24:   50-block  0
+function _ZSt11__addressofISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEPT_RS8_ called 22 returned 100% blocks executed 100%
+       22:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+       22:   50:    { return __builtin_addressof(__r); }
+       22:   50-block  0
 ------------------
 _ZSt11__addressofIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPT_RS7_:
-function _ZSt11__addressofIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPT_RS7_ called 70 returned 100% blocks executed 100%
-       70:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
-       70:   50:    { return __builtin_addressof(__r); }
-       70:   50-block  0
+function _ZSt11__addressofIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPT_RS7_ called 105 returned 100% blocks executed 100%
+      105:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+      105:   50:    { return __builtin_addressof(__r); }
+      105:   50-block  0
 ------------------
 _ZSt11__addressofIcEPT_RS0_:
 function _ZSt11__addressofIcEPT_RS0_ called 0 returned 0% blocks executed 0%
@@ -103,14 +103,14 @@ function _ZSt11__addressofIcEPT_RS0_ called 0 returned 0% blocks executed 0%
         -:   74:  template<typename _Tp>
         -:   75:    _GLIBCXX_NODISCARD
         -:   76:    constexpr _Tp&&
-     297*:   77:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
-     297*:   78:    { return static_cast<_Tp&&>(__t); }
+     280*:   77:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+     280*:   78:    { return static_cast<_Tp&&>(__t); }
 ------------------
-_ZSt7forwardISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEOT_RNSt16remove_referenceIS8_E4typeE:
-function _ZSt7forwardISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEOT_RNSt16remove_referenceIS8_E4typeE called 63 returned 100% blocks executed 100%
-       63:   77:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
-       63:   78:    { return static_cast<_Tp&&>(__t); }
-       63:   78-block  0
+_ZSt7forwardISt5tupleIJEEEOT_RNSt16remove_referenceIS2_E4typeE:
+function _ZSt7forwardISt5tupleIJEEEOT_RNSt16remove_referenceIS2_E4typeE called 0 returned 0% blocks executed 0%
+    #####:   77:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+    #####:   78:    { return static_cast<_Tp&&>(__t); }
+    %%%%%:   78-block  0
 ------------------
 _ZSt7forwardIRKcEOT_RNSt16remove_referenceIS2_E4typeE:
 function _ZSt7forwardIRKcEOT_RNSt16remove_referenceIS2_E4typeE called 0 returned 0% blocks executed 0%
@@ -119,13 +119,25 @@ function _ZSt7forwardIRKcEOT_RNSt16remove_referenceIS2_E4typeE called 0 returned
     %%%%%:   78-block  0
 ------------------
 _ZSt7forwardIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEOT_RNSt16remove_referenceIS7_E4typeE:
-function _ZSt7forwardIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEOT_RNSt16remove_referenceIS7_E4typeE called 42 returned 100% blocks executed 100%
-       42:   77:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
-       42:   78:    { return static_cast<_Tp&&>(__t); }
-       42:   78-block  0
+function _ZSt7forwardIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEOT_RNSt16remove_referenceIS7_E4typeE called 36 returned 100% blocks executed 100%
+       36:   77:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+       36:   78:    { return static_cast<_Tp&&>(__t); }
+       36:   78-block  0
+------------------
+_ZSt7forwardISt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEOT_RNSt16remove_referenceIS8_E4typeE:
+function _ZSt7forwardISt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEOT_RNSt16remove_referenceIS8_E4typeE called 0 returned 0% blocks executed 0%
+    #####:   77:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+    #####:   78:    { return static_cast<_Tp&&>(__t); }
+    %%%%%:   78-block  0
 ------------------
 _ZSt7forwardIbEOT_RNSt16remove_referenceIS0_E4typeE:
 function _ZSt7forwardIbEOT_RNSt16remove_referenceIS0_E4typeE called 0 returned 0% blocks executed 0%
+    #####:   77:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+    #####:   78:    { return static_cast<_Tp&&>(__t); }
+    %%%%%:   78-block  0
+------------------
+_ZSt7forwardIRcEOT_RNSt16remove_referenceIS1_E4typeE:
+function _ZSt7forwardIRcEOT_RNSt16remove_referenceIS1_E4typeE called 0 returned 0% blocks executed 0%
     #####:   77:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
     #####:   78:    { return static_cast<_Tp&&>(__t); }
     %%%%%:   78-block  0
@@ -160,23 +172,23 @@ function _ZSt7forwardISt5tupleIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
     #####:   78:    { return static_cast<_Tp&&>(__t); }
     %%%%%:   78-block  0
 ------------------
-_ZSt7forwardISt5tupleIJEEEOT_RNSt16remove_referenceIS2_E4typeE:
-function _ZSt7forwardISt5tupleIJEEEOT_RNSt16remove_referenceIS2_E4typeE called 0 returned 0% blocks executed 0%
-    #####:   77:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
-    #####:   78:    { return static_cast<_Tp&&>(__t); }
-    %%%%%:   78-block  0
-------------------
 _ZSt7forwardIRSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEOT_RNSt16remove_referenceISA_E4typeE:
-function _ZSt7forwardIRSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEOT_RNSt16remove_referenceISA_E4typeE called 12 returned 100% blocks executed 100%
-       12:   77:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
-       12:   78:    { return static_cast<_Tp&&>(__t); }
-       12:   78-block  0
+function _ZSt7forwardIRSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEOT_RNSt16remove_referenceISA_E4typeE called 11 returned 100% blocks executed 100%
+       11:   77:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+       11:   78:    { return static_cast<_Tp&&>(__t); }
+       11:   78-block  0
+------------------
+_ZSt7forwardISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEOT_RNSt16remove_referenceIS8_E4typeE:
+function _ZSt7forwardISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEOT_RNSt16remove_referenceIS8_E4typeE called 56 returned 100% blocks executed 100%
+       56:   77:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+       56:   78:    { return static_cast<_Tp&&>(__t); }
+       56:   78-block  0
 ------------------
 _ZSt7forwardIRSt17_Rb_tree_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEEOT_RNSt16remove_referenceISB_E4typeE:
-function _ZSt7forwardIRSt17_Rb_tree_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEEOT_RNSt16remove_referenceISB_E4typeE called 9 returned 100% blocks executed 100%
-        9:   77:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
-        9:   78:    { return static_cast<_Tp&&>(__t); }
-        9:   78-block  0
+function _ZSt7forwardIRSt17_Rb_tree_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEEOT_RNSt16remove_referenceISB_E4typeE called 8 returned 100% blocks executed 100%
+        8:   77:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+        8:   78:    { return static_cast<_Tp&&>(__t); }
+        8:   78-block  0
 ------------------
 _ZSt7forwardINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEOT_RNSt16remove_referenceIS6_E4typeE:
 function _ZSt7forwardINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEOT_RNSt16remove_referenceIS6_E4typeE called 153 returned 100% blocks executed 100%
@@ -191,10 +203,10 @@ function _ZSt7forwardISt17_Rb_tree_iteratorINSt7__cxx1112basic_stringIcSt11char_
     %%%%%:   78-block  0
 ------------------
 _ZSt7forwardISt17_Rb_tree_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEEOT_RNSt16remove_referenceISA_E4typeE:
-function _ZSt7forwardISt17_Rb_tree_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEEOT_RNSt16remove_referenceISA_E4typeE called 9 returned 100% blocks executed 100%
-        9:   77:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
-        9:   78:    { return static_cast<_Tp&&>(__t); }
-        9:   78-block  0
+function _ZSt7forwardISt17_Rb_tree_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEEOT_RNSt16remove_referenceISA_E4typeE called 8 returned 100% blocks executed 100%
+        8:   77:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+        8:   78:    { return static_cast<_Tp&&>(__t); }
+        8:   78-block  0
 ------------------
 _ZSt7forwardIRPSt13_Rb_tree_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEOT_RNSt16remove_referenceISA_E4typeE:
 function _ZSt7forwardIRPSt13_Rb_tree_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEOT_RNSt16remove_referenceISA_E4typeE called 0 returned 0% blocks executed 0%
@@ -209,10 +221,10 @@ function _ZSt7forwardIRPSt18_Rb_tree_node_baseEOT_RNSt16remove_referenceIS3_E4ty
     %%%%%:   78-block  0
 ------------------
 _ZSt7forwardIRPSt13_Rb_tree_nodeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEEOT_RNSt16remove_referenceISC_E4typeE:
-function _ZSt7forwardIRPSt13_Rb_tree_nodeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEEOT_RNSt16remove_referenceISC_E4typeE called 9 returned 100% blocks executed 100%
-        9:   77:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
-        9:   78:    { return static_cast<_Tp&&>(__t); }
-        9:   78-block  0
+function _ZSt7forwardIRPSt13_Rb_tree_nodeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEEOT_RNSt16remove_referenceISC_E4typeE called 8 returned 100% blocks executed 100%
+        8:   77:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+        8:   78:    { return static_cast<_Tp&&>(__t); }
+        8:   78-block  0
 ------------------
 _ZSt7forwardIRPSt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS7_iSt4lessIS7_ESaIS1_IS8_iEEEEEEOT_RNSt16remove_referenceISJ_E4typeE:
 function _ZSt7forwardIRPSt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS7_iSt4lessIS7_ESaIS1_IS8_iEEEEEEOT_RNSt16remove_referenceISJ_E4typeE called 0 returned 0% blocks executed 0%
@@ -251,8 +263,8 @@ function _ZSt7forwardIRPSt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt
         -:  101:  template<typename _Tp>
         -:  102:    _GLIBCXX_NODISCARD
         -:  103:    constexpr typename std::remove_reference<_Tp>::type&&
-       9*:  104:    move(_Tp&& __t) noexcept
-       9*:  105:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
+       8*:  104:    move(_Tp&& __t) noexcept
+       8*:  105:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
 ------------------
 _ZSt4moveIRPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEONSt16remove_referenceIT_E4typeEOS9_:
 function _ZSt4moveIRPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEONSt16remove_referenceIT_E4typeEOS9_ called 0 returned 0% blocks executed 0%
@@ -267,10 +279,10 @@ function _ZSt4moveIRPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE
     %%%%%:  105-block  0
 ------------------
 _ZSt4moveIRSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEONSt16remove_referenceIT_E4typeEOSA_:
-function _ZSt4moveIRSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEONSt16remove_referenceIT_E4typeEOSA_ called 9 returned 100% blocks executed 100%
-        9:  104:    move(_Tp&& __t) noexcept
-        9:  105:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
-        9:  105-block  0
+function _ZSt4moveIRSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEONSt16remove_referenceIT_E4typeEOSA_ called 8 returned 100% blocks executed 100%
+        8:  104:    move(_Tp&& __t) noexcept
+        8:  105:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
+        8:  105-block  0
 ------------------
 _ZSt4moveIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEONSt16remove_referenceIT_E4typeEOS8_:
 function _ZSt4moveIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEONSt16remove_referenceIT_E4typeEOS8_ called 0 returned 0% blocks executed 0%

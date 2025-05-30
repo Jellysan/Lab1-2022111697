@@ -168,13 +168,13 @@
         -:  164:#if __cplusplus < 201103L
         -:  165:      set() : _M_t() { }
         -:  166:#else
-       5*:  167:      set() = default;
+       7*:  167:      set() = default;
 ------------------
 _ZNSt3setISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESt4lessIS7_ESaIS7_EEC1Ev:
-function _ZNSt3setISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESt4lessIS7_ESaIS7_EEC1Ev called 5 returned 100% blocks executed 100%
-        5:  167:      set() = default;
-        5:  167-block  0
-call    0 returned 5
+function _ZNSt3setISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESt4lessIS7_ESaIS7_EEC1Ev called 7 returned 100% blocks executed 100%
+        7:  167:      set() = default;
+        7:  167-block  0
+call    0 returned 7
 ------------------
 _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC1Ev:
 function _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC1Ev called 0 returned 0% blocks executed 0%
@@ -295,13 +295,13 @@ call    0 never executed
         -:  278:       *  themselves are pointers, the pointed-to memory is not touched in any
         -:  279:       *  way. Managing the pointer is the user's responsibility.
         -:  280:       */
-       5*:  281:      ~set() = default;
+       7*:  281:      ~set() = default;
 ------------------
 _ZNSt3setISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESt4lessIS7_ESaIS7_EED1Ev:
-function _ZNSt3setISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESt4lessIS7_ESaIS7_EED1Ev called 5 returned 100% blocks executed 100%
-        5:  281:      ~set() = default;
-        5:  281-block  0
-call    0 returned 5
+function _ZNSt3setISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESt4lessIS7_ESaIS7_EED1Ev called 7 returned 100% blocks executed 100%
+        7:  281:      ~set() = default;
+        7:  281-block  0
+call    0 returned 7
 ------------------
 _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED1Ev:
 function _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED1Ev called 0 returned 0% blocks executed 0%
@@ -383,11 +383,11 @@ call    0 never executed
         -:  350:       *  to the keys.
         -:  351:       */
         -:  352:      iterator
-function _ZNKSt3setISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESt4lessIS7_ESaIS7_EE3endEv called 12 returned 100% blocks executed 100%
-       12:  353:      end() const _GLIBCXX_NOEXCEPT
-       12:  354:      { return _M_t.end(); }
-       12:  354-block  0
-call    0 returned 12
+function _ZNKSt3setISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESt4lessIS7_ESaIS7_EE3endEv called 10 returned 100% blocks executed 100%
+       10:  353:      end() const _GLIBCXX_NOEXCEPT
+       10:  354:      { return _M_t.end(); }
+       10:  354-block  0
+call    0 returned 10
         -:  355:
         -:  356:      /**
         -:  357:       *  Returns a read-only (constant) iterator that points to the last
@@ -565,11 +565,11 @@ call    0 never executed
         -:  515:
         -:  516:#if __cplusplus >= 201103L
         -:  517:      std::pair<iterator, bool>
-       10:  518:      insert(value_type&& __x)
+        9:  518:      insert(value_type&& __x)
         -:  519:      {
         -:  520:	std::pair<typename _Rep_type::iterator, bool> __p =
-       10:  521:	  _M_t._M_insert_unique(std::move(__x));
-       20:  522:	return std::pair<iterator, bool>(__p.first, __p.second);
+        9:  521:	  _M_t._M_insert_unique(std::move(__x));
+       18:  522:	return std::pair<iterator, bool>(__p.first, __p.second);
         -:  523:      }
 ------------------
 _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE6insertEOS5_:
@@ -590,20 +590,20 @@ call    0 returned 1
         -:  523:      }
 ------------------
 _ZNSt3setISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESt4lessIS7_ESaIS7_EE6insertEOS7_:
-function _ZNSt3setISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESt4lessIS7_ESaIS7_EE6insertEOS7_ called 9 returned 100% blocks executed 100%
-        9:  518:      insert(value_type&& __x)
+function _ZNSt3setISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESt4lessIS7_ESaIS7_EE6insertEOS7_ called 8 returned 100% blocks executed 100%
+        8:  518:      insert(value_type&& __x)
         -:  519:      {
         -:  520:	std::pair<typename _Rep_type::iterator, bool> __p =
-        9:  521:	  _M_t._M_insert_unique(std::move(__x));
-        9:  521-block  0
-call    0 returned 9
-call    1 returned 9
-branch  2 taken 9 (fallthrough)
+        8:  521:	  _M_t._M_insert_unique(std::move(__x));
+        8:  521-block  0
+call    0 returned 8
+call    1 returned 8
+branch  2 taken 8 (fallthrough)
 branch  3 taken 0 (throw)
-       18:  522:	return std::pair<iterator, bool>(__p.first, __p.second);
-        9:  522-block  0
-call    0 returned 9
-        9:  522-block  1
+       16:  522:	return std::pair<iterator, bool>(__p.first, __p.second);
+        8:  522-block  0
+call    0 returned 8
+        8:  522-block  1
         -:  523:      }
 ------------------
         -:  524:#endif
@@ -815,11 +815,8 @@ call    0 returned 9
         -:  730:       *  the user's responsibility.
         -:  731:       */
         -:  732:      void
-function _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE5clearEv called 5 returned 100% blocks executed 100%
-        5:  733:      clear() _GLIBCXX_NOEXCEPT
-        5:  734:      { _M_t.clear(); }
-        5:  734-block  0
-call    0 returned 5
+        -:  733:      clear() _GLIBCXX_NOEXCEPT
+        -:  734:      { _M_t.clear(); }
         -:  735:
         -:  736:      // set operations:
         -:  737:
@@ -879,17 +876,17 @@ call    0 returned 5
         -:  791:       *  past-the-end ( @c end() ) iterator.
         -:  792:       */
         -:  793:      iterator
-function _ZNSt3setISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESt4lessIS7_ESaIS7_EE4findERKS7_ called 12 returned 100% blocks executed 86%
-       12:  794:      find(const key_type& __x)
-       12:  795:      { return _M_t.find(__x); }
-       12:  795-block  0
-call    0 returned 12
-branch  1 taken 12 (fallthrough)
+function _ZNSt3setISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESt4lessIS7_ESaIS7_EE4findERKS7_ called 10 returned 100% blocks executed 86%
+       10:  794:      find(const key_type& __x)
+       10:  795:      { return _M_t.find(__x); }
+       10:  795-block  0
+call    0 returned 10
+branch  1 taken 10 (fallthrough)
 branch  2 taken 0 (throw)
-       12:  795-block  1
-call    3 returned 12
-       12:  795-block  2
-       12:  795-block  3
+       10:  795-block  1
+call    3 returned 10
+       10:  795-block  2
+       10:  795-block  3
     $$$$$:  795-block  4
         -:  796:
         -:  797:      const_iterator

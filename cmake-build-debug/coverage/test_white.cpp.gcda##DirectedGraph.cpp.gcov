@@ -73,661 +73,652 @@
         -:   69:    return dot.str();
         -:   70:  }
         -:   71:
-        -:   72:protected:
-        -:   73:  map<string, map<string, int>> adjacencyList;
-        -:   74:
-        -:   75:public:
-        -:   76:  // 从文本构建有向图
-        -:   77:  void buildGraphFromText(const string &filename) {
-        -:   78:    ifstream file(filename);
-        -:   79:    if (!file.is_open()) {
-        -:   80:      cerr << "Error: Could not open file " << filename << endl;
-        -:   81:      return;
-        -:   82:    }
-        -:   83:
-        -:   84:    string line;
-        -:   85:    string fullText;
-        -:   86:    while (getline(file, line)) {
-        -:   87:      fullText += preprocessText(line) + " ";
-        -:   88:    }
-        -:   89:    file.close();
-        -:   90:
-        -:   91:    vector<string> words = splitWords(fullText);
-        -:   92:    if (words.empty()) {
-        -:   93:      cerr << "Error: No valid words found in the file." << endl;
-        -:   94:      return;
-        -:   95:    }
-        -:   96:
-        -:   97:    // 构建邻接表
-        -:   98:    for (size_t i = 0; i < words.size() - 1; i++) {
-        -:   99:      string from = words[i];
-        -:  100:      string to = words[i + 1];
-        -:  101:      nodes.insert(from);
-        -:  102:      nodes.insert(to);
-        -:  103:      adjacencyList[from][to]++;
-        -:  104:    }
-        -:  105:  }
-        -:  106:
-        -:  107:  // 展示有向图并保存为图形文件
-        -:  108:  void showDirectedGraph() {
-        -:  109:    cout << "Directed Graph:" << endl;
-        -:  110:    cout << "----------------" << endl;
-        -:  111:    for (const auto &node : nodes) {
-        -:  112:      cout << node << " -> ";
-        -:  113:      if (adjacencyList.find(node) != adjacencyList.end()) {
-        -:  114:        bool first = true;
-        -:  115:        for (const auto &edge : adjacencyList.at(node)) {
-        -:  116:          if (!first)
-        -:  117:            cout << ", ";
-        -:  118:          cout << edge.first << "(" << edge.second << ")";
-        -:  119:          first = false;
-        -:  120:        }
-        -:  121:      }
-        -:  122:      cout << endl;
-        -:  123:    }
-        -:  124:    cout << "----------------" << endl;
-        -:  125:
-        -:  126:    // 生成并保存 DOT 文件
-        -:  127:    std::string dotContent = generateDotFormat();
-        -:  128:    std::ofstream dotFile("graph.dot");
-        -:  129:    if (dotFile.is_open()) {
-        -:  130:      dotFile << dotContent;
-        -:  131:      dotFile.close();
-        -:  132:      std::cout << "Graph DOT file saved as graph.dot" << std::endl;
-        -:  133:
-        -:  134:      // 尝试使用Graphviz生成图片，并指定输出路径
-        -:  135:      std::string outputPath =
-        -:  136:          "D:/Code/Clion/software_engineering/lab1/graph.png";
-        -:  137:#ifdef _WIN32
-        -:  138:      std::string command = "dot -Tpng graph.dot -o " + outputPath;
-        -:  139:      system(command.c_str());
-        -:  140:#else
-        -:  141:      std::string command =
-        -:  142:          "dot -Tpng graph.dot -o " + outputPath + " 2>/dev/null";
-        -:  143:      system(command.c_str());
-        -:  144:#endif
-        -:  145:      std::cout << "Graph image saved as " << outputPath
-        -:  146:                << " (if Graphviz is installed)" << std::endl;
-        -:  147:    } else {
-        -:  148:      std::cerr << "Error: Could not save graph DOT file" << std::endl;
-        -:  149:    }
-        -:  150:  }
-        -:  151:
-        -:  152:  // 查询桥接词（改进输出格式）
-        -:  153:  string queryBridgeWords(const string &word1, const string &word2) {
-        -:  154:    string w1 = word1;
-        -:  155:    string w2 = word2;
-        -:  156:    transform(w1.begin(), w1.end(), w1.begin(), ::tolower);
-        -:  157:    transform(w2.begin(), w2.end(), w2.begin(), ::tolower);
-        -:  158:
-        -:  159:    // 检查单词是否存在
-        -:  160:    if (nodes.find(w1) == nodes.end() && nodes.find(w2) == nodes.end()) {
-        -:  161:      return "No \"" + word1 + "\" or \"" + word2 + "\" in the graph!";
-        -:  162:    } else if (nodes.find(w1) == nodes.end()) {
-        -:  163:      return "No \"" + word1 + "\" in the graph!";
-        -:  164:    } else if (nodes.find(w2) == nodes.end()) {
-        -:  165:      return "No \"" + word2 + "\" in the graph!";
-        -:  166:    }
-        -:  167:
-        -:  168:    set<string> bridgeWords;
-        -:  169:    // 获取word1的所有出边节点
-        -:  170:    if (adjacencyList.find(w1) != adjacencyList.end()) {
-        -:  171:      for (const auto &edge : adjacencyList.at(w1)) {
-        -:  172:        string potentialBridge = edge.first;
-        -:  173:        // 检查potentialBridge是否有到word2的边
-        -:  174:        if (adjacencyList.find(potentialBridge) != adjacencyList.end() &&
-        -:  175:            adjacencyList.at(potentialBridge).find(w2) !=
-        -:  176:                adjacencyList.at(potentialBridge).end()) {
-        -:  177:          bridgeWords.insert(potentialBridge);
-        -:  178:        }
-        -:  179:      }
-        -:  180:    }
-        -:  181:
-        -:  182:    if (bridgeWords.empty()) {
-        -:  183:      return "No bridge words from \"" + word1 + "\" to \"" + word2 + "\"!";
-        -:  184:    }
-        -:  185:
-        -:  186:    string result =
-        -:  187:        "The bridge words from \"" + word1 + "\" to \"" + word2 + "\" ";
-        -:  188:    if (bridgeWords.size() == 1) {
-        -:  189:      result += "is: \"" + *bridgeWords.begin() + "\"";
-        -:  190:    } else {
-        -:  191:      result += "are: ";
-        -:  192:      size_t count = 0;
-        -:  193:      for (const string &word : bridgeWords) {
-        -:  194:        if (count > 0) {
-        -:  195:          if (count == bridgeWords.size() - 1) {
-        -:  196:            result += " and ";
-        -:  197:          } else {
-        -:  198:            result += ", ";
-        -:  199:          }
-        -:  200:        }
-        -:  201:        result += "\"" + word + "\"";
-        -:  202:        count++;
-        -:  203:      }
-        -:  204:    }
-        -:  205:    result += ".";
+        -:   72:public:
+        -:   73:  // 从文本构建有向图
+        -:   74:  void buildGraphFromText(const string &filename) {
+        -:   75:    ifstream file(filename);
+        -:   76:    if (!file.is_open()) {
+        -:   77:      cerr << "Error: Could not open file " << filename << endl;
+        -:   78:      return;
+        -:   79:    }
+        -:   80:
+        -:   81:    string line;
+        -:   82:    string fullText;
+        -:   83:    while (getline(file, line)) {
+        -:   84:      fullText += preprocessText(line) + " ";
+        -:   85:    }
+        -:   86:    file.close();
+        -:   87:
+        -:   88:    vector<string> words = splitWords(fullText);
+        -:   89:    if (words.empty()) {
+        -:   90:      cerr << "Error: No valid words found in the file." << endl;
+        -:   91:      return;
+        -:   92:    }
+        -:   93:
+        -:   94:    // 构建邻接表
+        -:   95:    for (size_t i = 0; i < words.size() - 1; i++) {
+        -:   96:      string from = words[i];
+        -:   97:      string to = words[i + 1];
+        -:   98:      nodes.insert(from);
+        -:   99:      nodes.insert(to);
+        -:  100:      adjacencyList[from][to]++;
+        -:  101:    }
+        -:  102:  }
+        -:  103:
+        -:  104:  // 展示有向图并保存为图形文件
+        -:  105:  void showDirectedGraph() {
+        -:  106:    cout << "Directed Graph:" << endl;
+        -:  107:    cout << "----------------" << endl;
+        -:  108:    for (const auto &node : nodes) {
+        -:  109:      cout << node << " -> ";
+        -:  110:      if (adjacencyList.find(node) != adjacencyList.end()) {
+        -:  111:        bool first = true;
+        -:  112:        for (const auto &edge : adjacencyList.at(node)) {
+        -:  113:          if (!first)
+        -:  114:            cout << ", ";
+        -:  115:          cout << edge.first << "(" << edge.second << ")";
+        -:  116:          first = false;
+        -:  117:        }
+        -:  118:      }
+        -:  119:      cout << endl;
+        -:  120:    }
+        -:  121:    cout << "----------------" << endl;
+        -:  122:
+        -:  123:    // 生成并保存 DOT 文件
+        -:  124:    std::string dotContent = generateDotFormat();
+        -:  125:    std::ofstream dotFile("graph.dot");
+        -:  126:    if (dotFile.is_open()) {
+        -:  127:      dotFile << dotContent;
+        -:  128:      dotFile.close();
+        -:  129:      std::cout << "Graph DOT file saved as graph.dot" << std::endl;
+        -:  130:
+        -:  131:      // 尝试使用Graphviz生成图片，并指定输出路径
+        -:  132:      std::string outputPath =
+        -:  133:          "D:/Code/Clion/software_engineering/lab1/graph.png";
+        -:  134:#ifdef _WIN32
+        -:  135:      std::string command = "dot -Tpng graph.dot -o " + outputPath;
+        -:  136:      system(command.c_str());
+        -:  137:#else
+        -:  138:      std::string command =
+        -:  139:          "dot -Tpng graph.dot -o " + outputPath + " 2>/dev/null";
+        -:  140:      system(command.c_str());
+        -:  141:#endif
+        -:  142:      std::cout << "Graph image saved as " << outputPath
+        -:  143:                << " (if Graphviz is installed)" << std::endl;
+        -:  144:    } else {
+        -:  145:      std::cerr << "Error: Could not save graph DOT file" << std::endl;
+        -:  146:    }
+        -:  147:  }
+        -:  148:
+        -:  149:  // 查询桥接词（改进输出格式）
+        -:  150:  string queryBridgeWords(const string &word1, const string &word2) {
+        -:  151:    string w1 = word1;
+        -:  152:    string w2 = word2;
+        -:  153:    transform(w1.begin(), w1.end(), w1.begin(), ::tolower);
+        -:  154:    transform(w2.begin(), w2.end(), w2.begin(), ::tolower);
+        -:  155:
+        -:  156:    // 检查单词是否存在
+        -:  157:    if (nodes.find(w1) == nodes.end() && nodes.find(w2) == nodes.end()) {
+        -:  158:      return "No \"" + word1 + "\" or \"" + word2 + "\" in the graph!";
+        -:  159:    } else if (nodes.find(w1) == nodes.end()) {
+        -:  160:      return "No \"" + word1 + "\" in the graph!";
+        -:  161:    } else if (nodes.find(w2) == nodes.end()) {
+        -:  162:      return "No \"" + word2 + "\" in the graph!";
+        -:  163:    }
+        -:  164:
+        -:  165:    set<string> bridgeWords;
+        -:  166:    // 获取word1的所有出边节点
+        -:  167:    if (adjacencyList.find(w1) != adjacencyList.end()) {
+        -:  168:      for (const auto &edge : adjacencyList.at(w1)) {
+        -:  169:        string potentialBridge = edge.first;
+        -:  170:        // 检查potentialBridge是否有到word2的边
+        -:  171:        if (adjacencyList.find(potentialBridge) != adjacencyList.end() &&
+        -:  172:            adjacencyList.at(potentialBridge).find(w2) !=
+        -:  173:                adjacencyList.at(potentialBridge).end()) {
+        -:  174:          bridgeWords.insert(potentialBridge);
+        -:  175:        }
+        -:  176:      }
+        -:  177:    }
+        -:  178:
+        -:  179:    if (bridgeWords.empty()) {
+        -:  180:      return "No bridge words from \"" + word1 + "\" to \"" + word2 + "\"!";
+        -:  181:    }
+        -:  182:
+        -:  183:    string result =
+        -:  184:        "The bridge words from \"" + word1 + "\" to \"" + word2 + "\" ";
+        -:  185:    if (bridgeWords.size() == 1) {
+        -:  186:      result += "is: \"" + *bridgeWords.begin() + "\"";
+        -:  187:    } else {
+        -:  188:      result += "are: ";
+        -:  189:      size_t count = 0;
+        -:  190:      for (const string &word : bridgeWords) {
+        -:  191:        if (count > 0) {
+        -:  192:          if (count == bridgeWords.size() - 1) {
+        -:  193:            result += " and ";
+        -:  194:          } else {
+        -:  195:            result += ", ";
+        -:  196:          }
+        -:  197:        }
+        -:  198:        result += "\"" + word + "\"";
+        -:  199:        count++;
+        -:  200:      }
+        -:  201:    }
+        -:  202:    result += ".";
+        -:  203:
+        -:  204:    return result;
+        -:  205:  }
         -:  206:
-        -:  207:    return result;
-        -:  208:  }
-        -:  209:
-        -:  210:  // 根据桥接词生成新文本
-        -:  211:  string generateNewText(const string &inputText) {
-        -:  212:    string processedText = preprocessText(inputText);
-        -:  213:    vector<string> words = splitWords(processedText);
-        -:  214:    if (words.size() < 2) {
-        -:  215:      return inputText; // 不足两个单词，无法插入桥接词
-        -:  216:    }
-        -:  217:
-        -:  218:    string result;
-        -:  219:    random_device rd;
-        -:  220:    mt19937 gen(rd());
+        -:  207:  // 根据桥接词生成新文本
+        -:  208:  string generateNewText(const string &inputText) {
+        -:  209:    string processedText = preprocessText(inputText);
+        -:  210:    vector<string> words = splitWords(processedText);
+        -:  211:    if (words.size() < 2) {
+        -:  212:      return inputText; // 不足两个单词，无法插入桥接词
+        -:  213:    }
+        -:  214:
+        -:  215:    string result;
+        -:  216:    random_device rd;
+        -:  217:    mt19937 gen(rd());
+        -:  218:
+        -:  219:    for (size_t i = 0; i < words.size() - 1; i++) {
+        -:  220:      result += words[i] + " ";
         -:  221:
-        -:  222:    for (size_t i = 0; i < words.size() - 1; i++) {
-        -:  223:      result += words[i] + " ";
+        -:  222:      string w1 = words[i];
+        -:  223:      string w2 = words[i + 1];
         -:  224:
-        -:  225:      string w1 = words[i];
-        -:  226:      string w2 = words[i + 1];
-        -:  227:
-        -:  228:      // 检查单词是否存在
-        -:  229:      if (nodes.find(w1) == nodes.end() || nodes.find(w2) == nodes.end()) {
-        -:  230:        continue;
-        -:  231:      }
-        -:  232:
-        -:  233:      set<string> bridgeWords;
-        -:  234:      // 获取桥接词
-        -:  235:      if (adjacencyList.find(w1) != adjacencyList.end()) {
-        -:  236:        for (const auto &edge : adjacencyList.at(w1)) {
-        -:  237:          string potentialBridge = edge.first;
-        -:  238:          if (adjacencyList.find(potentialBridge) != adjacencyList.end() &&
-        -:  239:              adjacencyList.at(potentialBridge).find(w2) !=
-        -:  240:                  adjacencyList.at(potentialBridge).end()) {
-        -:  241:            bridgeWords.insert(potentialBridge);
-        -:  242:          }
-        -:  243:        }
-        -:  244:      }
-        -:  245:
-        -:  246:      if (!bridgeWords.empty()) {
-        -:  247:        // 随机选择一个桥接词
-        -:  248:        uniform_int_distribution<> dis(0, bridgeWords.size() - 1);
-        -:  249:        int index = dis(gen);
-        -:  250:        auto it = bridgeWords.begin();
-        -:  251:        advance(it, index);
-        -:  252:        result += *it + " ";
-        -:  253:      }
-        -:  254:    }
-        -:  255:    result += words.back(); // 添加最后一个单词
+        -:  225:      // 检查单词是否存在
+        -:  226:      if (nodes.find(w1) == nodes.end() || nodes.find(w2) == nodes.end()) {
+        -:  227:        continue;
+        -:  228:      }
+        -:  229:
+        -:  230:      set<string> bridgeWords;
+        -:  231:      // 获取桥接词
+        -:  232:      if (adjacencyList.find(w1) != adjacencyList.end()) {
+        -:  233:        for (const auto &edge : adjacencyList.at(w1)) {
+        -:  234:          string potentialBridge = edge.first;
+        -:  235:          if (adjacencyList.find(potentialBridge) != adjacencyList.end() &&
+        -:  236:              adjacencyList.at(potentialBridge).find(w2) !=
+        -:  237:                  adjacencyList.at(potentialBridge).end()) {
+        -:  238:            bridgeWords.insert(potentialBridge);
+        -:  239:          }
+        -:  240:        }
+        -:  241:      }
+        -:  242:
+        -:  243:      if (!bridgeWords.empty()) {
+        -:  244:        // 随机选择一个桥接词
+        -:  245:        uniform_int_distribution<> dis(0, bridgeWords.size() - 1);
+        -:  246:        int index = dis(gen);
+        -:  247:        auto it = bridgeWords.begin();
+        -:  248:        advance(it, index);
+        -:  249:        result += *it + " ";
+        -:  250:      }
+        -:  251:    }
+        -:  252:    result += words.back(); // 添加最后一个单词
+        -:  253:
+        -:  254:    return result;
+        -:  255:  }
         -:  256:
-        -:  257:    return result;
-        -:  258:  }
-        -:  259:
-        -:  260:  // 计算两个单词之间的最短路径（增加单单词功能）
-        -:  261:  string calcShortestPath(const string &word1, const string &word2 = "") {
-        -:  262:    string w1 = word1;
-        -:  263:    string w2 = word2;
-        -:  264:    transform(w1.begin(), w1.end(), w1.begin(), ::tolower);
-        -:  265:    transform(w2.begin(), w2.end(), w2.begin(), ::tolower);
-        -:  266:
-        -:  267:    // 检查单词是否存在
-        -:  268:    if (nodes.find(w1) == nodes.end()) {
-        -:  269:      return "No \"" + word1 + "\" in the graph!";
-        -:  270:    }
-        -:  271:
-        -:  272:    // 单单词模式：计算到所有其他节点的最短路径
-        -:  273:    if (w2.empty()) {
-        -:  274:      string result = "Shortest paths from \"" + word1 + "\":\n";
-        -:  275:
-        -:  276:      // Dijkstra算法实现（单源最短路径）
-        -:  277:      map<string, int> distances;
-        -:  278:      map<string, string> previous;
-        -:  279:      priority_queue<pair<int, string>, vector<pair<int, string>>,
-        -:  280:                     greater<pair<int, string>>>
-        -:  281:          pq;
-        -:  282:
-        -:  283:      // 初始化距离
-        -:  284:      for (const string &node : nodes) {
-        -:  285:        distances[node] = numeric_limits<int>::max();
-        -:  286:      }
-        -:  287:      distances[w1] = 0;
-        -:  288:      pq.push({0, w1});
-        -:  289:
-        -:  290:      while (!pq.empty()) {
-        -:  291:        string current = pq.top().second;
-        -:  292:        pq.pop();
-        -:  293:
-        -:  294:        if (adjacencyList.find(current) == adjacencyList.end()) {
-        -:  295:          continue; // 当前节点没有出边
-        -:  296:        }
-        -:  297:
-        -:  298:        for (const auto &edge : adjacencyList.at(current)) {
-        -:  299:          string neighbor = edge.first;
-        -:  300:          int weight = edge.second;
-        -:  301:          int newDist = distances[current] + weight;
-        -:  302:
-        -:  303:          if (newDist < distances[neighbor]) {
-        -:  304:            distances[neighbor] = newDist;
-        -:  305:            previous[neighbor] = current;
-        -:  306:            pq.push({newDist, neighbor});
-        -:  307:          }
-        -:  308:        }
-        -:  309:      }
-        -:  310:
-        -:  311:      // 输出所有可达路径
-        -:  312:      for (const string &node : nodes) {
-        -:  313:        if (node == w1)
-        -:  314:          continue;
-        -:  315:
-        -:  316:        if (distances[node] == numeric_limits<int>::max()) {
-        -:  317:          result += "  No path to \"" + node + "\"\n";
-        -:  318:          continue;
-        -:  319:        }
-        -:  320:
-        -:  321:        // 构建路径字符串
-        -:  322:        stack<string> path;
-        -:  323:        string current = node;
-        -:  324:        while (current != w1) {
-        -:  325:          path.push(current);
-        -:  326:          current = previous[current];
-        -:  327:        }
-        -:  328:        path.push(w1);
-        -:  329:
-        -:  330:        result += "  To \"" + node + "\": ";
-        -:  331:        while (!path.empty()) {
-        -:  332:          result += path.top();
-        -:  333:          path.pop();
-        -:  334:          if (!path.empty()) {
-        -:  335:            result += " -> ";
-        -:  336:          }
-        -:  337:        }
-        -:  338:        result += " (Length: " + to_string(distances[node]) + ")\n";
-        -:  339:      }
+        -:  257:  // 计算两个单词之间的最短路径（增加单单词功能）
+        -:  258:  string calcShortestPath(const string &word1, const string &word2 = "") {
+        -:  259:    string w1 = word1;
+        -:  260:    string w2 = word2;
+        -:  261:    transform(w1.begin(), w1.end(), w1.begin(), ::tolower);
+        -:  262:    transform(w2.begin(), w2.end(), w2.begin(), ::tolower);
+        -:  263:
+        -:  264:    // 检查单词是否存在
+        -:  265:    if (nodes.find(w1) == nodes.end()) {
+        -:  266:      return "No \"" + word1 + "\" in the graph!";
+        -:  267:    }
+        -:  268:
+        -:  269:    // 单单词模式：计算到所有其他节点的最短路径
+        -:  270:    if (w2.empty()) {
+        -:  271:      string result = "Shortest paths from \"" + word1 + "\":\n";
+        -:  272:
+        -:  273:      // Dijkstra算法实现（单源最短路径）
+        -:  274:      map<string, int> distances;
+        -:  275:      map<string, string> previous;
+        -:  276:      priority_queue<pair<int, string>, vector<pair<int, string>>,
+        -:  277:                     greater<pair<int, string>>>
+        -:  278:          pq;
+        -:  279:
+        -:  280:      // 初始化距离
+        -:  281:      for (const string &node : nodes) {
+        -:  282:        distances[node] = numeric_limits<int>::max();
+        -:  283:      }
+        -:  284:      distances[w1] = 0;
+        -:  285:      pq.push({0, w1});
+        -:  286:
+        -:  287:      while (!pq.empty()) {
+        -:  288:        string current = pq.top().second;
+        -:  289:        pq.pop();
+        -:  290:
+        -:  291:        if (adjacencyList.find(current) == adjacencyList.end()) {
+        -:  292:          continue; // 当前节点没有出边
+        -:  293:        }
+        -:  294:
+        -:  295:        for (const auto &edge : adjacencyList.at(current)) {
+        -:  296:          string neighbor = edge.first;
+        -:  297:          int weight = edge.second;
+        -:  298:          int newDist = distances[current] + weight;
+        -:  299:
+        -:  300:          if (newDist < distances[neighbor]) {
+        -:  301:            distances[neighbor] = newDist;
+        -:  302:            previous[neighbor] = current;
+        -:  303:            pq.push({newDist, neighbor});
+        -:  304:          }
+        -:  305:        }
+        -:  306:      }
+        -:  307:
+        -:  308:      // 输出所有可达路径
+        -:  309:      for (const string &node : nodes) {
+        -:  310:        if (node == w1)
+        -:  311:          continue;
+        -:  312:
+        -:  313:        if (distances[node] == numeric_limits<int>::max()) {
+        -:  314:          result += "  No path to \"" + node + "\"\n";
+        -:  315:          continue;
+        -:  316:        }
+        -:  317:
+        -:  318:        // 构建路径字符串
+        -:  319:        stack<string> path;
+        -:  320:        string current = node;
+        -:  321:        while (current != w1) {
+        -:  322:          path.push(current);
+        -:  323:          current = previous[current];
+        -:  324:        }
+        -:  325:        path.push(w1);
+        -:  326:
+        -:  327:        result += "  To \"" + node + "\": ";
+        -:  328:        while (!path.empty()) {
+        -:  329:          result += path.top();
+        -:  330:          path.pop();
+        -:  331:          if (!path.empty()) {
+        -:  332:            result += " -> ";
+        -:  333:          }
+        -:  334:        }
+        -:  335:        result += " (Length: " + to_string(distances[node]) + ")\n";
+        -:  336:      }
+        -:  337:
+        -:  338:      return result;
+        -:  339:    }
         -:  340:
-        -:  341:      return result;
-        -:  342:    }
-        -:  343:
-        -:  344:    // 双单词模式：原功能
-        -:  345:    if (nodes.find(w2) == nodes.end()) {
-        -:  346:      return "No \"" + word2 + "\" in the graph!";
-        -:  347:    }
-        -:  348:
-        -:  349:    // Dijkstra算法实现
-        -:  350:    map<string, int> distances;
-        -:  351:    map<string, string> previous;
-        -:  352:    priority_queue<pair<int, string>, vector<pair<int, string>>,
-        -:  353:                   greater<pair<int, string>>>
-        -:  354:        pq;
-        -:  355:
-        -:  356:    // 初始化距离
-        -:  357:    for (const string &node : nodes) {
-        -:  358:      distances[node] = numeric_limits<int>::max();
-        -:  359:    }
-        -:  360:    distances[w1] = 0;
-        -:  361:    pq.push({0, w1});
-        -:  362:
-        -:  363:    while (!pq.empty()) {
-        -:  364:      string current = pq.top().second;
-        -:  365:      pq.pop();
-        -:  366:
-        -:  367:      if (current == w2) {
-        -:  368:        break; // 找到目标节点
-        -:  369:      }
-        -:  370:
-        -:  371:      if (adjacencyList.find(current) == adjacencyList.end()) {
-        -:  372:        continue; // 当前节点没有出边
-        -:  373:      }
-        -:  374:
-        -:  375:      for (const auto &edge : adjacencyList.at(current)) {
-        -:  376:        string neighbor = edge.first;
-        -:  377:        int weight = edge.second;
-        -:  378:        int newDist = distances[current] + weight;
-        -:  379:
-        -:  380:        if (newDist < distances[neighbor]) {
-        -:  381:          distances[neighbor] = newDist;
-        -:  382:          previous[neighbor] = current;
-        -:  383:          pq.push({newDist, neighbor});
-        -:  384:        }
-        -:  385:      }
-        -:  386:    }
-        -:  387:
-        -:  388:    if (distances[w2] == numeric_limits<int>::max()) {
-        -:  389:      return "No path from \"" + word1 + "\" to \"" + word2 + "\"!";
-        -:  390:    }
-        -:  391:
-        -:  392:    // 构建路径字符串
-        -:  393:    stack<string> path;
-        -:  394:    string current = w2;
-        -:  395:    while (current != w1) {
-        -:  396:      path.push(current);
-        -:  397:      current = previous[current];
-        -:  398:    }
-        -:  399:    path.push(w1);
-        -:  400:
-        -:  401:    string result;
-        -:  402:    while (!path.empty()) {
-        -:  403:      result += path.top();
-        -:  404:      path.pop();
-        -:  405:      if (!path.empty()) {
-        -:  406:        result += " -> ";
-        -:  407:      }
-        -:  408:    }
-        -:  409:    result += " (Length: " + to_string(distances[w2]) + ")";
+        -:  341:    // 双单词模式：原功能
+        -:  342:    if (nodes.find(w2) == nodes.end()) {
+        -:  343:      return "No \"" + word2 + "\" in the graph!";
+        -:  344:    }
+        -:  345:
+        -:  346:    // Dijkstra算法实现
+        -:  347:    map<string, int> distances;
+        -:  348:    map<string, string> previous;
+        -:  349:    priority_queue<pair<int, string>, vector<pair<int, string>>,
+        -:  350:                   greater<pair<int, string>>>
+        -:  351:        pq;
+        -:  352:
+        -:  353:    // 初始化距离
+        -:  354:    for (const string &node : nodes) {
+        -:  355:      distances[node] = numeric_limits<int>::max();
+        -:  356:    }
+        -:  357:    distances[w1] = 0;
+        -:  358:    pq.push({0, w1});
+        -:  359:
+        -:  360:    while (!pq.empty()) {
+        -:  361:      string current = pq.top().second;
+        -:  362:      pq.pop();
+        -:  363:
+        -:  364:      if (current == w2) {
+        -:  365:        break; // 找到目标节点
+        -:  366:      }
+        -:  367:
+        -:  368:      if (adjacencyList.find(current) == adjacencyList.end()) {
+        -:  369:        continue; // 当前节点没有出边
+        -:  370:      }
+        -:  371:
+        -:  372:      for (const auto &edge : adjacencyList.at(current)) {
+        -:  373:        string neighbor = edge.first;
+        -:  374:        int weight = edge.second;
+        -:  375:        int newDist = distances[current] + weight;
+        -:  376:
+        -:  377:        if (newDist < distances[neighbor]) {
+        -:  378:          distances[neighbor] = newDist;
+        -:  379:          previous[neighbor] = current;
+        -:  380:          pq.push({newDist, neighbor});
+        -:  381:        }
+        -:  382:      }
+        -:  383:    }
+        -:  384:
+        -:  385:    if (distances[w2] == numeric_limits<int>::max()) {
+        -:  386:      return "No path from \"" + word1 + "\" to \"" + word2 + "\"!";
+        -:  387:    }
+        -:  388:
+        -:  389:    // 构建路径字符串
+        -:  390:    stack<string> path;
+        -:  391:    string current = w2;
+        -:  392:    while (current != w1) {
+        -:  393:      path.push(current);
+        -:  394:      current = previous[current];
+        -:  395:    }
+        -:  396:    path.push(w1);
+        -:  397:
+        -:  398:    string result;
+        -:  399:    while (!path.empty()) {
+        -:  400:      result += path.top();
+        -:  401:      path.pop();
+        -:  402:      if (!path.empty()) {
+        -:  403:        result += " -> ";
+        -:  404:      }
+        -:  405:    }
+        -:  406:    result += " (Length: " + to_string(distances[w2]) + ")";
+        -:  407:
+        -:  408:    return result;
+        -:  409:  }
         -:  410:
-        -:  411:    return result;
-        -:  412:  }
-        -:  413:
-        -:  414:  // 计算PageRank
-        -:  415:  double calcPageRank(const string &word, double d = 0.85,
-        -:  416:                      int iterations = 100) {
-        -:  417:    string w = word;
-        -:  418:    transform(w.begin(), w.end(), w.begin(), ::tolower);
-        -:  419:
-        -:  420:    if (nodes.find(w) == nodes.end()) {
-        -:  421:      return -1.0; // 单词不存在
-        -:  422:    }
-        -:  423:
-        -:  424:    // 初始化PageRank值
-        -:  425:    double initialRank = 1.0 / nodes.size();
-        -:  426:    for (const string &node : nodes) {
-        -:  427:      pageRank[node] = initialRank;
-        -:  428:    }
-        -:  429:
-        -:  430:    // 迭代计算PageRank
-        -:  431:    for (int i = 0; i < iterations; i++) {
-        -:  432:      map<string, double> newRank;
-        -:  433:
-        -:  434:      // 计算每个节点的新PR值
-        -:  435:      for (const string &node : nodes) {
-        -:  436:        double sum = 0.0;
-        -:  437:
-        -:  438:        // 找出所有指向node的节点
-        -:  439:        for (const string &inNode : nodes) {
-        -:  440:          if (adjacencyList.find(inNode) != adjacencyList.end() &&
-        -:  441:              adjacencyList[inNode].find(node) != adjacencyList[inNode].end()) {
-        -:  442:            // 计算贡献值: PR(inNode) / L(inNode)
-        -:  443:            sum += pageRank[inNode] / adjacencyList[inNode].size();
-        -:  444:          }
-        -:  445:        }
+        -:  411:  // 计算PageRank
+        -:  412:  double calcPageRank(const string &word, double d = 0.85,
+        -:  413:                      int iterations = 100) {
+        -:  414:    string w = word;
+        -:  415:    transform(w.begin(), w.end(), w.begin(), ::tolower);
+        -:  416:
+        -:  417:    if (nodes.find(w) == nodes.end()) {
+        -:  418:      return -1.0; // 单词不存在
+        -:  419:    }
+        -:  420:
+        -:  421:    // 初始化PageRank值
+        -:  422:    double initialRank = 1.0 / nodes.size();
+        -:  423:    for (const string &node : nodes) {
+        -:  424:      pageRank[node] = initialRank;
+        -:  425:    }
+        -:  426:
+        -:  427:    // 迭代计算PageRank
+        -:  428:    for (int i = 0; i < iterations; i++) {
+        -:  429:      map<string, double> newRank;
+        -:  430:
+        -:  431:      // 计算每个节点的新PR值
+        -:  432:      for (const string &node : nodes) {
+        -:  433:        double sum = 0.0;
+        -:  434:
+        -:  435:        // 找出所有指向node的节点
+        -:  436:        for (const string &inNode : nodes) {
+        -:  437:          if (adjacencyList.find(inNode) != adjacencyList.end() &&
+        -:  438:              adjacencyList[inNode].find(node) != adjacencyList[inNode].end()) {
+        -:  439:            // 计算贡献值: PR(inNode) / L(inNode)
+        -:  440:            sum += pageRank[inNode] / adjacencyList[inNode].size();
+        -:  441:          }
+        -:  442:        }
+        -:  443:
+        -:  444:        newRank[node] = (1.0 - d) / nodes.size() + d * sum;
+        -:  445:      }
         -:  446:
-        -:  447:        newRank[node] = (1.0 - d) / nodes.size() + d * sum;
-        -:  448:      }
-        -:  449:
-        -:  450:      // 更新PageRank值
-        -:  451:      for (const auto &entry : newRank) {
-        -:  452:        pageRank[entry.first] = entry.second;
-        -:  453:      }
-        -:  454:    }
+        -:  447:      // 更新PageRank值
+        -:  448:      for (const auto &entry : newRank) {
+        -:  449:        pageRank[entry.first] = entry.second;
+        -:  450:      }
+        -:  451:    }
+        -:  452:
+        -:  453:    return pageRank[w];
+        -:  454:  }
         -:  455:
-        -:  456:    return pageRank[w];
-        -:  457:  }
-        -:  458:
-        -:  459:  // 随机游走（改进文件保存）
-function _ZN13DirectedGraph10randomWalkB5cxx11Ev called 6 returned 100% blocks executed 70%
-        6:  460:  string randomWalk() {
-        6:  461:    if (nodes.empty()) {
-        6:  461-block  0
-call    0 returned 6
+        -:  456:  // 随机游走（改进文件保存）
+function _ZN13DirectedGraph10randomWalkB5cxx11Ev called 8 returned 100% blocks executed 71%
+        8:  457:  string randomWalk() {
+        8:  458:    if (nodes.empty()) {
+        8:  458-block  0
+call    0 returned 8
 branch  1 taken 1 (fallthrough)
-branch  2 taken 5
-        2:  462:      return "Graph is empty!";
-        1:  462-block  0
+branch  2 taken 7
+        2:  459:      return "Graph is empty!";
+        1:  459-block  0
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
-        1:  462-block  1
-    $$$$$:  462-block  2
-        -:  463:    }
-        -:  464:
-        -:  465:    // 随机选择一个起始节点
-        5:  466:    random_device rd;
-        5:  466-block  0
-call    0 returned 5
-branch  1 taken 5 (fallthrough)
+        1:  459-block  1
+    $$$$$:  459-block  2
+        -:  460:    }
+        -:  461:
+        -:  462:    // 随机选择一个起始节点
+        7:  463:    random_device rd;
+        7:  463-block  0
+call    0 returned 7
+branch  1 taken 7 (fallthrough)
 branch  2 taken 0 (throw)
-        5:  467:    mt19937 gen(rd());
-        5:  467-block  0
-call    0 returned 5
-branch  1 taken 5 (fallthrough)
+        7:  464:    mt19937 gen(rd());
+        7:  464-block  0
+call    0 returned 7
+branch  1 taken 7 (fallthrough)
 branch  2 taken 0 (throw)
-        5:  467-block  1
-call    3 returned 5
-branch  4 taken 5 (fallthrough)
+        7:  464-block  1
+call    3 returned 7
+branch  4 taken 7 (fallthrough)
 branch  5 taken 0 (throw)
-        5:  468:    uniform_int_distribution<> dis(0, nodes.size() - 1);
-        5:  468-block  0
-call    0 returned 5
-call    1 returned 5
-branch  2 taken 5 (fallthrough)
+        7:  465:    uniform_int_distribution<> dis(0, nodes.size() - 1);
+        7:  465-block  0
+call    0 returned 7
+call    1 returned 7
+branch  2 taken 7 (fallthrough)
 branch  3 taken 0 (throw)
-        5:  469:    auto it = nodes.begin();
-        5:  469-block  0
-call    0 returned 5
-        5:  470:    advance(it, dis(gen));
-call    0 returned 5
-branch  1 taken 5 (fallthrough)
+        7:  466:    auto it = nodes.begin();
+        7:  466-block  0
+call    0 returned 7
+        7:  467:    advance(it, dis(gen));
+call    0 returned 7
+branch  1 taken 7 (fallthrough)
 branch  2 taken 0 (throw)
-        5:  470-block  0
-        5:  471:    string current = *it;
-        5:  471-block  0
-call    0 returned 5
-call    1 returned 5
-branch  2 taken 5 (fallthrough)
+        7:  467-block  0
+        7:  468:    string current = *it;
+        7:  468-block  0
+call    0 returned 7
+call    1 returned 7
+branch  2 taken 7 (fallthrough)
 branch  3 taken 0 (throw)
-        -:  472:
-        5:  473:    set<pair<string, string>> visitedEdges;
-        5:  473-block  0
-call    0 returned 5
-        5:  474:    string result;
-call    0 returned 5
-        5:  475:    result += current;
-call    0 returned 5
-branch  1 taken 5 (fallthrough)
+        -:  469:
+        7:  470:    set<pair<string, string>> visitedEdges;
+        7:  470-block  0
+call    0 returned 7
+        7:  471:    string result;
+call    0 returned 7
+        7:  472:    result += current;
+call    0 returned 7
+branch  1 taken 7 (fallthrough)
 branch  2 taken 0 (throw)
-        -:  476:
-        -:  477:    while (true) {
-        -:  478:      // 检查当前节点是否有出边
-       26:  479:      if (adjacencyList.find(current) == adjacencyList.end() ||
-       14:  479-block  0
-call    0 returned 14
-call    1 returned 14
-branch  2 taken 14 (fallthrough)
+        -:  473:
+        -:  474:    while (true) {
+        -:  475:      // 检查当前节点是否有出边
+       25:  476:      if (adjacencyList.find(current) == adjacencyList.end() ||
+       15:  476-block  0
+call    0 returned 15
+call    1 returned 15
+branch  2 taken 15 (fallthrough)
 branch  3 taken 0 (throw)
-       14:  479-block  1
-call    4 returned 14
-branch  5 taken 12 (fallthrough)
-branch  6 taken 2
+       15:  476-block  1
+call    4 returned 15
+branch  5 taken 10 (fallthrough)
+branch  6 taken 5
 branch  7 taken 0 (fallthrough)
-branch  8 taken 12
-        2:  479-block  2
-       12:  479-block  3
-       14:  479-block  4
-branch  9 taken 2 (fallthrough)
-branch 10 taken 12
-    $$$$$:  479-block  5
-    $$$$$:  479-block  6
-       12:  480:          adjacencyList[current].empty()) {
-       12:  480-block  0
-call    0 returned 12
-branch  1 taken 12 (fallthrough)
+branch  8 taken 10
+        5:  476-block  2
+       10:  476-block  3
+       15:  476-block  4
+branch  9 taken 5 (fallthrough)
+branch 10 taken 10
+    $$$$$:  476-block  5
+    $$$$$:  476-block  6
+       10:  477:          adjacencyList[current].empty()) {
+       10:  477-block  0
+call    0 returned 10
+branch  1 taken 10 (fallthrough)
 branch  2 taken 0 (throw)
-       12:  480-block  1
-call    3 returned 12
-        2:  481:        break;
-        2:  481-block  0
-        -:  482:      }
-        -:  483:
-        -:  484:      // 随机选择一个出边
-       12:  485:      vector<pair<string, int>> edges(adjacencyList[current].begin(),
-call    0 returned 12
-branch  1 taken 12 (fallthrough)
+       10:  477-block  1
+call    3 returned 10
+        5:  478:        break;
+        5:  478-block  0
+        -:  479:      }
+        -:  480:
+        -:  481:      // 随机选择一个出边
+       10:  482:      vector<pair<string, int>> edges(adjacencyList[current].begin(),
+call    0 returned 10
+branch  1 taken 10 (fallthrough)
 branch  2 taken 0 (throw)
-       24:  486:                                      adjacencyList[current].end());
-       12:  486-block  0
-call    0 returned 12
-branch  1 taken 12 (fallthrough)
+       20:  483:                                      adjacencyList[current].end());
+       10:  483-block  0
+call    0 returned 10
+branch  1 taken 10 (fallthrough)
 branch  2 taken 0 (throw)
-       12:  486-block  1
-call    3 returned 12
-       12:  486-block  2
-call    4 returned 12
-call    5 returned 12
-branch  6 taken 12 (fallthrough)
+       10:  483-block  1
+call    3 returned 10
+       10:  483-block  2
+call    4 returned 10
+call    5 returned 10
+branch  6 taken 10 (fallthrough)
 branch  7 taken 0 (throw)
-    $$$$$:  486-block  3
-       12:  487:      uniform_int_distribution<> edgeDis(0, edges.size() - 1);
-       12:  487-block  0
-call    0 returned 12
-call    1 returned 12
-branch  2 taken 12 (fallthrough)
+    $$$$$:  483-block  3
+       10:  484:      uniform_int_distribution<> edgeDis(0, edges.size() - 1);
+       10:  484-block  0
+call    0 returned 10
+call    1 returned 10
+branch  2 taken 10 (fallthrough)
 branch  3 taken 0 (throw)
-       12:  488:      int edgeIndex = edgeDis(gen);
-       12:  488-block  0
-call    0 returned 12
-branch  1 taken 12 (fallthrough)
+       10:  485:      int edgeIndex = edgeDis(gen);
+       10:  485-block  0
+call    0 returned 10
+branch  1 taken 10 (fallthrough)
 branch  2 taken 0 (throw)
-       12:  489:      string next = edges[edgeIndex].first;
-       12:  489-block  0
-call    0 returned 12
-call    1 returned 12
-branch  2 taken 12 (fallthrough)
+       10:  486:      string next = edges[edgeIndex].first;
+       10:  486-block  0
+call    0 returned 10
+call    1 returned 10
+branch  2 taken 10 (fallthrough)
 branch  3 taken 0 (throw)
-        -:  490:
-        -:  491:      // 检查是否已经访问过这条边
-       12:  492:      if (visitedEdges.find({current, next}) != visitedEdges.end()) {
-       12:  492-block  0
-call    0 returned 12
-call    1 returned 12
-branch  2 taken 12 (fallthrough)
+        -:  487:
+        -:  488:      // 检查是否已经访问过这条边
+       10:  489:      if (visitedEdges.find({current, next}) != visitedEdges.end()) {
+       10:  489-block  0
+call    0 returned 10
+call    1 returned 10
+branch  2 taken 10 (fallthrough)
 branch  3 taken 0 (throw)
-       12:  492-block  1
-call    4 returned 12
-branch  5 taken 12 (fallthrough)
+       10:  489-block  1
+call    4 returned 10
+branch  5 taken 10 (fallthrough)
 branch  6 taken 0 (throw)
-       12:  492-block  2
-call    7 returned 12
-call    8 returned 12
-branch  9 taken 3 (fallthrough)
-branch 10 taken 9
-    $$$$$:  492-block  3
+       10:  489-block  2
+call    7 returned 10
+call    8 returned 10
+branch  9 taken 2 (fallthrough)
+branch 10 taken 8
+    $$$$$:  489-block  3
 call   11 never executed
-    $$$$$:  492-block  4
-    $$$$$:  492-block  5
-    $$$$$:  492-block  6
-        3:  493:        break;
-        3:  493-block  0
-        -:  494:      }
-        -:  495:
-        9:  496:      visitedEdges.insert({current, next});
-        9:  496-block  0
-call    0 returned 9
-branch  1 taken 9 (fallthrough)
+    $$$$$:  489-block  4
+    $$$$$:  489-block  5
+    $$$$$:  489-block  6
+        2:  490:        break;
+        2:  490-block  0
+        -:  491:      }
+        -:  492:
+        8:  493:      visitedEdges.insert({current, next});
+        8:  493-block  0
+call    0 returned 8
+branch  1 taken 8 (fallthrough)
 branch  2 taken 0 (throw)
-        9:  496-block  1
-call    3 returned 9
-branch  4 taken 9 (fallthrough)
+        8:  493-block  1
+call    3 returned 8
+branch  4 taken 8 (fallthrough)
 branch  5 taken 0 (throw)
-        9:  496-block  2
-call    6 returned 9
-    $$$$$:  496-block  3
+        8:  493-block  2
+call    6 returned 8
+    $$$$$:  493-block  3
 call    7 never executed
+    $$$$$:  493-block  4
+    $$$$$:  493-block  5
+        8:  494:      current = next;
+call    0 returned 8
+branch  1 taken 8 (fallthrough)
+branch  2 taken 0 (throw)
+        8:  495:      result += " " + current;
+        8:  495-block  0
+call    0 returned 8
+branch  1 taken 8 (fallthrough)
+branch  2 taken 0 (throw)
+        8:  495-block  1
+call    3 returned 8
+branch  4 taken 8 (fallthrough)
+branch  5 taken 0 (throw)
+        8:  495-block  2
+call    6 returned 8
+    $$$$$:  495-block  3
+call    7 never executed
+    $$$$$:  495-block  4
+       20:  496:    }
+       10:  496-block  0
+call    0 returned 10
+branch  1 taken 8 (fallthrough)
+branch  2 taken 2
+        8:  496-block  1
+       10:  496-block  2
+call    3 returned 10
+branch  4 taken 8 (fallthrough)
+branch  5 taken 2
+        8:  496-block  3
     $$$$$:  496-block  4
+call    6 never executed
     $$$$$:  496-block  5
-        9:  497:      current = next;
-call    0 returned 9
-branch  1 taken 9 (fallthrough)
-branch  2 taken 0 (throw)
-        9:  498:      result += " " + current;
-        9:  498-block  0
-call    0 returned 9
-branch  1 taken 9 (fallthrough)
-branch  2 taken 0 (throw)
-        9:  498-block  1
-call    3 returned 9
-branch  4 taken 9 (fallthrough)
-branch  5 taken 0 (throw)
-        9:  498-block  2
-call    6 returned 9
-    $$$$$:  498-block  3
 call    7 never executed
-    $$$$$:  498-block  4
-       24:  499:    }
-       12:  499-block  0
-call    0 returned 12
-branch  1 taken 9 (fallthrough)
-branch  2 taken 3
-        9:  499-block  1
-       12:  499-block  2
-call    3 returned 12
-branch  4 taken 9 (fallthrough)
-branch  5 taken 3
-        9:  499-block  3
-    $$$$$:  499-block  4
-call    6 never executed
-    $$$$$:  499-block  5
-call    7 never executed
-        -:  500:
-        -:  501:    // 将结果写入文件
-        -:  502:    ofstream outFile(
-        5:  503:        "D:\\Code\\Clion\\software_engineering\\lab1\\random_walk.txt");
-        5:  503-block  0
-call    0 returned 5
-branch  1 taken 5 (fallthrough)
+        -:  497:
+        -:  498:    // 将结果写入文件
+        -:  499:    ofstream outFile(
+        7:  500:        "D:\\Code\\Clion\\software_engineering\\lab1\\random_walk.txt");
+        7:  500-block  0
+call    0 returned 7
+branch  1 taken 7 (fallthrough)
 branch  2 taken 0 (throw)
-        5:  504:    if (outFile.is_open()) {
-        5:  504-block  0
-call    0 returned 5
-branch  1 taken 5 (fallthrough)
+        7:  501:    if (outFile.is_open()) {
+        7:  501-block  0
+call    0 returned 7
+branch  1 taken 7 (fallthrough)
 branch  2 taken 0
-        5:  505:      outFile << result;
-        5:  505-block  0
-call    0 returned 5
-branch  1 taken 5 (fallthrough)
+        7:  502:      outFile << result;
+        7:  502-block  0
+call    0 returned 7
+branch  1 taken 7 (fallthrough)
 branch  2 taken 0 (throw)
-        5:  506:      outFile.close();
-        5:  506-block  0
-call    0 returned 5
-branch  1 taken 5 (fallthrough)
+        7:  503:      outFile.close();
+        7:  503-block  0
+call    0 returned 7
+branch  1 taken 7 (fallthrough)
 branch  2 taken 0 (throw)
-        -:  507:      cout << "Random walk result saved to "
-        5:  508:              "D:\\Code\\Clion\\software_engineering\\lab1\\random_walk.txt"
-        5:  508-block  0
-call    0 returned 5
-branch  1 taken 5 (fallthrough)
+        -:  504:      cout << "Random walk result saved to "
+        7:  505:              "D:\\Code\\Clion\\software_engineering\\lab1\\random_walk.txt"
+        7:  505-block  0
+call    0 returned 7
+branch  1 taken 7 (fallthrough)
 branch  2 taken 0 (throw)
-        5:  509:           << endl;
-        5:  509-block  0
-call    0 returned 5
-branch  1 taken 5 (fallthrough)
+        7:  506:           << endl;
+        7:  506-block  0
+call    0 returned 7
+branch  1 taken 7 (fallthrough)
 branch  2 taken 0 (throw)
-        -:  510:    } else {
-    #####:  511:      cerr << "Error: Could not save random walk result" << endl;
-    %%%%%:  511-block  0
-call    0 never executed
-branch  1 never executed (fallthrough)
-branch  2 never executed (throw)
-    %%%%%:  511-block  1
-call    3 never executed
-branch  4 never executed (fallthrough)
-branch  5 never executed (throw)
-        -:  512:    }
-        -:  513:
-        5:  514:    return result;
-        5:  514-block  0
-call    0 returned 5
-        5:  515:  }
-call    0 returned 5
-call    1 returned 5
-call    2 returned 5
-call    3 returned 5
-call    4 returned 5
-    $$$$$:  515-block  0
+        -:  507:    }
+        -:  508:    // else {
+        -:  509:    //   cerr << "Error: Could not save random walk result" << endl;
+        -:  510:    // }
+        -:  511:
+        7:  512:    return result;
+        7:  512-block  0
+call    0 returned 7
+        7:  513:  }
+call    0 returned 7
+call    1 returned 7
+call    2 returned 7
+call    3 returned 7
+call    4 returned 7
+    $$$$$:  513-block  0
 call    5 never executed
-    $$$$$:  515-block  1
+    $$$$$:  513-block  1
 call    6 never executed
-    $$$$$:  515-block  2
+    $$$$$:  513-block  2
 call    7 never executed
-    $$$$$:  515-block  3
+    $$$$$:  513-block  3
 call    8 never executed
-    $$$$$:  515-block  4
+    $$$$$:  513-block  4
 call    9 never executed
-        -:  516:  set<string> nodes;
-        -:  517:};
+        -:  514:  set<string> nodes;
+        -:  515:  map<string, map<string, int>> adjacencyList;
+        -:  516:};

@@ -217,10 +217,131 @@ call    0 never executed
         -:  195:
         -:  196:  // Streams a custom failure message into this object.
         -:  197:  template <typename T>
-        -:  198:  AssertionResult& operator<<(const T& value) {
-        -:  199:    AppendMessage(Message() << value);
-        -:  200:    return *this;
+    #####:  198:  AssertionResult& operator<<(const T& value) {
+    #####:  199:    AppendMessage(Message() << value);
+    #####:  200:    return *this;
         -:  201:  }
+------------------
+_ZN7testing15AssertionResultlsIA5_cEERS0_RKT_:
+function _ZN7testing15AssertionResultlsIA5_cEERS0_RKT_ called 0 returned 0% blocks executed 0%
+    #####:  198:  AssertionResult& operator<<(const T& value) {
+    #####:  199:    AppendMessage(Message() << value);
+    %%%%%:  199-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    %%%%%:  199-block  1
+call    3 never executed
+branch  4 never executed (fallthrough)
+branch  5 never executed (throw)
+    %%%%%:  199-block  2
+call    6 never executed
+branch  7 never executed (fallthrough)
+branch  8 never executed (throw)
+    %%%%%:  199-block  3
+call    9 never executed
+    $$$$$:  199-block  4
+call   10 never executed
+    #####:  200:    return *this;
+    %%%%%:  200-block  0
+        -:  201:  }
+------------------
+_ZN7testing15AssertionResultlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_:
+function _ZN7testing15AssertionResultlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_ called 0 returned 0% blocks executed 0%
+    #####:  198:  AssertionResult& operator<<(const T& value) {
+    #####:  199:    AppendMessage(Message() << value);
+    %%%%%:  199-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    %%%%%:  199-block  1
+call    3 never executed
+branch  4 never executed (fallthrough)
+branch  5 never executed (throw)
+    %%%%%:  199-block  2
+call    6 never executed
+branch  7 never executed (fallthrough)
+branch  8 never executed (throw)
+    %%%%%:  199-block  3
+call    9 never executed
+    $$$$$:  199-block  4
+call   10 never executed
+    #####:  200:    return *this;
+    %%%%%:  200-block  0
+        -:  201:  }
+------------------
+_ZN7testing15AssertionResultlsIA3_cEERS0_RKT_:
+function _ZN7testing15AssertionResultlsIA3_cEERS0_RKT_ called 0 returned 0% blocks executed 0%
+    #####:  198:  AssertionResult& operator<<(const T& value) {
+    #####:  199:    AppendMessage(Message() << value);
+    %%%%%:  199-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    %%%%%:  199-block  1
+call    3 never executed
+branch  4 never executed (fallthrough)
+branch  5 never executed (throw)
+    %%%%%:  199-block  2
+call    6 never executed
+branch  7 never executed (fallthrough)
+branch  8 never executed (throw)
+    %%%%%:  199-block  3
+call    9 never executed
+    $$$$$:  199-block  4
+call   10 never executed
+    #####:  200:    return *this;
+    %%%%%:  200-block  0
+        -:  201:  }
+------------------
+_ZN7testing15AssertionResultlsIPKcEERS0_RKT_:
+function _ZN7testing15AssertionResultlsIPKcEERS0_RKT_ called 0 returned 0% blocks executed 0%
+    #####:  198:  AssertionResult& operator<<(const T& value) {
+    #####:  199:    AppendMessage(Message() << value);
+    %%%%%:  199-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    %%%%%:  199-block  1
+call    3 never executed
+branch  4 never executed (fallthrough)
+branch  5 never executed (throw)
+    %%%%%:  199-block  2
+call    6 never executed
+branch  7 never executed (fallthrough)
+branch  8 never executed (throw)
+    %%%%%:  199-block  3
+call    9 never executed
+    $$$$$:  199-block  4
+call   10 never executed
+    #####:  200:    return *this;
+    %%%%%:  200-block  0
+        -:  201:  }
+------------------
+_ZN7testing15AssertionResultlsIA12_cEERS0_RKT_:
+function _ZN7testing15AssertionResultlsIA12_cEERS0_RKT_ called 0 returned 0% blocks executed 0%
+    #####:  198:  AssertionResult& operator<<(const T& value) {
+    #####:  199:    AppendMessage(Message() << value);
+    %%%%%:  199-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    %%%%%:  199-block  1
+call    3 never executed
+branch  4 never executed (fallthrough)
+branch  5 never executed (throw)
+    %%%%%:  199-block  2
+call    6 never executed
+branch  7 never executed (fallthrough)
+branch  8 never executed (throw)
+    %%%%%:  199-block  3
+call    9 never executed
+    $$$$$:  199-block  4
+call   10 never executed
+    #####:  200:    return *this;
+    %%%%%:  200-block  0
+        -:  201:  }
+------------------
         -:  202:
         -:  203:  // Allows streaming basic output manipulators such as endl or flush into
         -:  204:  // this object.
@@ -232,10 +353,38 @@ call    0 never executed
         -:  210:
         -:  211: private:
         -:  212:  // Appends the contents of message to message_.
-        -:  213:  void AppendMessage(const Message& a_message) {
-        -:  214:    if (message_ == nullptr) message_ = ::std::make_unique<::std::string>();
-        -:  215:    message_->append(a_message.GetString().c_str());
-        -:  216:  }
+function _ZN7testing15AssertionResult13AppendMessageERKNS_7MessageE called 0 returned 0% blocks executed 0%
+    #####:  213:  void AppendMessage(const Message& a_message) {
+    #####:  214:    if (message_ == nullptr) message_ = ::std::make_unique<::std::string>();
+    %%%%%:  214-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed
+    %%%%%:  214-block  1
+call    3 never executed
+branch  4 never executed (fallthrough)
+branch  5 never executed (throw)
+    %%%%%:  214-block  2
+call    6 never executed
+call    7 never executed
+    $$$$$:  214-block  3
+call    8 never executed
+    #####:  215:    message_->append(a_message.GetString().c_str());
+    %%%%%:  215-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed (fallthrough)
+branch  3 never executed (throw)
+    %%%%%:  215-block  1
+call    4 never executed
+call    5 never executed
+branch  6 never executed (fallthrough)
+branch  7 never executed (throw)
+    %%%%%:  215-block  2
+call    8 never executed
+    $$$$$:  215-block  3
+call    9 never executed
+    #####:  216:  }
         -:  217:
         -:  218:  // Swap the contents of this AssertionResult with other.
         -:  219:  void swap(AssertionResult& other);

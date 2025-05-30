@@ -532,11 +532,11 @@ call    0 never executed
         -:  472:       *  end().)
         -:  473:      */
         -:  474:      _GLIBCXX_NODISCARD bool
-function _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE5emptyEv called 12 returned 100% blocks executed 100%
-       12:  475:      empty() const _GLIBCXX_NOEXCEPT
-       12:  476:      { return _M_t.empty(); }
-       12:  476-block  0
-call    0 returned 12
+function _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE5emptyEv called 10 returned 100% blocks executed 100%
+       10:  475:      empty() const _GLIBCXX_NOEXCEPT
+       10:  476:      { return _M_t.empty(); }
+       10:  476-block  0
+call    0 returned 10
         -:  477:
         -:  478:      /** Returns the size of the %map.  */
         -:  479:      size_type
@@ -1358,11 +1358,8 @@ call    0 never executed
         -: 1178:       *  Managing the pointer is the user's responsibility.
         -: 1179:       */
         -: 1180:      void
-function _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_iSt4lessIS5_ESaISt4pairIKS5_iEEES7_SaIS8_IS9_SC_EEE5clearEv called 5 returned 100% blocks executed 100%
-        5: 1181:      clear() _GLIBCXX_NOEXCEPT
-        5: 1182:      { _M_t.clear(); }
-        5: 1182-block  0
-call    0 returned 5
+        -: 1181:      clear() _GLIBCXX_NOEXCEPT
+        -: 1182:      { _M_t.clear(); }
         -: 1183:
         -: 1184:      // observers
         -: 1185:      /**

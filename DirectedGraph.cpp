@@ -69,9 +69,6 @@ private:
     return dot.str();
   }
 
-protected:
-  map<string, map<string, int>> adjacencyList;
-
 public:
   // 从文本构建有向图
   void buildGraphFromText(const string &filename) {
@@ -507,11 +504,13 @@ public:
       cout << "Random walk result saved to "
               "D:\\Code\\Clion\\software_engineering\\lab1\\random_walk.txt"
            << endl;
-    } else {
-      cerr << "Error: Could not save random walk result" << endl;
     }
+    // else {
+    //   cerr << "Error: Could not save random walk result" << endl;
+    // }
 
     return result;
   }
   set<string> nodes;
+  map<string, map<string, int>> adjacencyList;
 };

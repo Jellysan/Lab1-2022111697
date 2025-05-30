@@ -9,25 +9,25 @@
         -:    5:class TestableDirectedGraph : public DirectedGraph {
         -:    6:public:
         -:    7:  // 添加测试辅助方法
-function _ZN21TestableDirectedGraph11addTestEdgeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ called 7 returned 100% blocks executed 86%
-        7:    8:  void addTestEdge(const std::string &from, const std::string &to) {
-        7:    9:    nodes.insert(from);
-        7:    9-block  0
-call    0 returned 7
-branch  1 taken 7 (fallthrough)
+function _ZN21TestableDirectedGraph11addTestEdgeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ called 13 returned 100% blocks executed 86%
+       13:    8:  void addTestEdge(const std::string &from, const std::string &to) {
+       13:    9:    nodes.insert(from);
+       13:    9-block  0
+call    0 returned 13
+branch  1 taken 13 (fallthrough)
 branch  2 taken 0 (throw)
     $$$$$:    9-block  1
 call    3 never executed
-        7:   10:    nodes.insert(to);
-        7:   10-block  0
-call    0 returned 7
-branch  1 taken 7 (fallthrough)
+       13:   10:    nodes.insert(to);
+       13:   10-block  0
+call    0 returned 13
+branch  1 taken 13 (fallthrough)
 branch  2 taken 0 (throw)
-        7:   11:    adjacencyList[from][to]++;
-        7:   11-block  0
-call    0 returned 7
-call    1 returned 7
-        7:   12:  }
+       13:   11:    adjacencyList[from][to]++;
+       13:   11-block  0
+call    0 returned 13
+call    1 returned 13
+       13:   12:  }
         -:   13:};
         -:   14:
         -:   15:class BridgeWordsTest : public ::testing::Test {
